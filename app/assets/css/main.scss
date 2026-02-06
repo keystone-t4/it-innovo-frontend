@@ -1,0 +1,26 @@
+@import "normalize.css";
+
+@font-face {
+    font-family: 'JetBrainsMono';
+    src: url('/fonts/JetBrainsMono-Bold.woff2') format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Inter';
+    src: url('/fonts/Inter-SemiBold.woff2') format("woff2");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    --accent-color: blue;
+}
+
+html {
+    font-family: 'Inter', 'sans-serif';
+    font-weight: 400;
+    color: white;
+}
