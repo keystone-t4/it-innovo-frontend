@@ -1,15 +1,5 @@
 <script setup lang="ts">
-const x = "str"
+await navigateTo('/visits')
 </script>
 
-<template>
-  <div class="base">
-    Ну привет)
-  </div>
-</template>
-
-<style scoped lang="scss">
-.base {
-  color: lightskyblue;
-}
-</style>
+<template></template>

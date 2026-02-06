@@ -31,5 +31,5 @@ export default defineNuxtConfig({
       'nuxt-headlessui'
     ],
     typescript: { typeCheck: 'build' },
-    extends: [ './app/layers/demo' ]
+    extends: [ './app/layers/visits' ]
 })
