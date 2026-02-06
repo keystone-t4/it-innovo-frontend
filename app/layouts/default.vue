@@ -3,13 +3,10 @@
 </script>
 
 <template>
-  <Html lang="ru" dir="ltr">
-    <div class="default">
-      <slot/>
-    </div>
-  </Html>
+  <div class="default">
+    <slot/>
+  </div>
 </template>
 
 <style lang="scss" scoped>
-
 </style>

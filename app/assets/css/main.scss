@@ -1,26 +1,23 @@
 @import "normalize.css";
 
 @font-face {
-    font-family: 'JetBrainsMono';
-    src: url('/fonts/JetBrainsMono-Bold.woff2') format("woff2");
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
-}
-@font-face {
-    font-family: 'Inter';
-    src: url('/fonts/Inter-SemiBold.woff2') format("woff2");
-    font-weight: 600;
-    font-style: normal;
-    font-display: swap;
+  font-family: 'Manrope';
+  src: url('/fonts/Manrope-VariableFont_wght.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
 :root {
-    --accent-color: blue;
+    --accent-color: lightskyblue;
 }
 
-html {
-    font-family: 'Inter', 'sans-serif';
-    font-weight: 400;
-    color: white;
+.paragraph, label, span, input, textarea, html {
+  font-family: 'Manrope', 'sans-serif';
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: var(--accent-color);
+  text-wrap: pretty;
+  letter-spacing: 0.5px;
 }
