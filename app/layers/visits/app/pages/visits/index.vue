@@ -1,5 +1,6 @@
 <script setup lang="ts">
-//todo: заменить шрифты на переменные!!!
+import Demo from '~/layers/visits/app/components/demo/index.vue'
+
 </script>
 
 <template>
@@ -17,6 +18,9 @@
             и предсказуемый грузопоток от въезда на территорию до формирования акта.
           </p>
         </div>
+    </div>
+    <div class="home__demo block">
+      <Demo/>
     </div>
   </main>
 </template>
