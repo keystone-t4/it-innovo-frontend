@@ -1,7 +1,13 @@
-import type {consigneeViewRouteType, demoRole, driverViewRouteType, managerViewRouteType} from "~/layers/visits/app/types/demoTypes";
+import type {
+    allRoutesType,
+    consigneeViewRouteType,
+    demoRoleType,
+    driverViewRouteType,
+    managerViewRouteType
+} from "~/layers/visits/app/types/demoTypes";
 
 export const useDemoStore = defineStore('demoStore', () => {
-    const currentRole = ref<demoRole>("driver");
+    const currentRole = ref<demoRoleType>("driver");
 
     const driverViewRoute = ref<driverViewRouteType>("map");
     const consigneeViewRoute = ref<consigneeViewRouteType>("applications");
@@ -10,25 +16,29 @@ export const useDemoStore = defineStore('demoStore', () => {
     const currentDriverId = ref<string | null>('drv_tc001_01');
     const selectedArrivalPlaceId = ref<string | null>('pl_001');
 
-    const currentView = computed<driverViewRouteType | consigneeViewRouteType | managerViewRouteType>(() => {
+    const currentView = computed<allRoutesType>(() => {
         if (currentRole.value === "driver") return driverViewRoute.value;
         if (currentRole.value === "consignee") return consigneeViewRoute.value;
         return managerViewRoute.value;
     });
 
-    function setRole(role: demoRole) {
+    function setRole(role: demoRoleType) {
         currentRole.value = role;
     }
 
-    function setDriverViewRoute(view: driverViewRouteType) {
-        driverViewRoute.value = view;
+    function setCurrentRoute(newRoute: allRoutesType) {
+        if (currentRole.value === "driver") {
+            driverViewRoute.value = newRoute as driverViewRouteType;
+            return;
+        }
+        if (currentRole.value === "consignee") {
+            consigneeViewRoute.value = newRoute as consigneeViewRouteType;
+            return;
+        }
+        managerViewRoute.value = newRoute as managerViewRouteType;
     }
-    function setConsigneeViewRoute(view: consigneeViewRouteType) {
-        consigneeViewRoute.value = view;
-    }
-    function setManagerViewRoute(view: managerViewRouteType) {
-        managerViewRoute.value = view;
-    }
+
+
 
     return {
         currentRole,
@@ -38,9 +48,8 @@ export const useDemoStore = defineStore('demoStore', () => {
         currentView,
         currentDriverId,
         selectedArrivalPlaceId,
+
         setRole,
-        setDriverViewRoute,
-        setConsigneeViewRoute,
-        setManagerViewRoute,
+        setCurrentRoute
     };
 })

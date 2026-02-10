@@ -1,17 +1,17 @@
 <script setup lang="ts">
 import { useDemoStore } from "~/layers/visits/app/stores/demoStore";
-import type { demoRole } from "~/layers/visits/app/types/demoTypes";
+import type { demoRoleType } from "~/layers/visits/app/types/demoTypes";
 
-type RoleCard = {
+type roleCard = {
   title: string;
   description: string;
   iconPath: string;
-  role: demoRole;
+  role: demoRoleType;
 };
 
 const demoStore = useDemoStore();
 
-const roleCards: Record<demoRole, RoleCard> = {
+const roleCards: Record<demoRoleType, roleCard> = {
   driver: {
     title: "Водитель грузового ТС",
     description: "Бронирование слотов и въезд на территорию",
@@ -32,14 +32,14 @@ const roleCards: Record<demoRole, RoleCard> = {
   },
 };
 
-const currentRole = computed<demoRole>({
+const currentRole = computed<demoRoleType>({
   get: () => demoStore.currentRole,
   set: (role) => demoStore.setRole(role),
 });
 </script>
 
 <template>
-  <div class="demo__roles-nav" role="radiogroup" aria-label="Роль в демо">
+  <div class="demo__roles-nav" role="radiogroup" aria-label="roles in demo">
     <label
         v-for="card in roleCards"
         :key="card.role"

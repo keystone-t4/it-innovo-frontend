@@ -3,7 +3,7 @@
 </script>
 
 <template>
-манагер емае
+менеджер
 </template>
 
 <style scoped lang="scss">

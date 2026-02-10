@@ -3,7 +3,7 @@
 </script>
 
 <template>
-консигни епта
+грузополучатель
 </template>
 
 <style scoped lang="scss">

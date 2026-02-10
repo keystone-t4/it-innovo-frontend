@@ -3,7 +3,7 @@
 </script>
 
 <template>
-дривер обыкновенный
+водитель
 </template>
 
 <style scoped lang="scss">

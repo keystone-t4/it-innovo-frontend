@@ -19,6 +19,7 @@ const roleComponent = computed(() => {
   <div class="demo">
     <DemoRolesNav />
     <div class="demo__content">
+      <DemoRoutesNav/>
       <component :is="roleComponent" :key="demoStore.currentRole" />
     </div>
   </div>
@@ -36,7 +37,10 @@ const roleComponent = computed(() => {
     min-height: 600px;
     background-color: var(--bg-color);
     border-radius: 5px;
-    padding: 1rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
   }
 }
 </style>
