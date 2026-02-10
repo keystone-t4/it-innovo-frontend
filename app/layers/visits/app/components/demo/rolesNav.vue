@@ -75,6 +75,12 @@ const currentRole = computed<demoRole>({
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 1rem;
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr 1fr;
+    }
+    @media (max-width: 480px) {
+      grid-template-columns: 1fr;
+    }
   }
 }
 

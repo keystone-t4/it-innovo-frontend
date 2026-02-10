@@ -1,14 +1,27 @@
 <script setup lang="ts">
+import { useDemoStore } from "~/layers/visits/app/stores/demoStore";
 
+const demoStore = useDemoStore();
+
+const roleComponent = computed(() => {
+  switch (demoStore.currentRole) {
+    case "driver":
+      return resolveComponent("DemoDriver");
+    case "consignee":
+      return resolveComponent("DemoConsignee");
+    case "manager":
+      return resolveComponent("DemoManager");
+  }
+});
 </script>
 
 <template>
-<div class="demo">
-  <DemoRolesNav/>
-  <div class="demo__content">
-
+  <div class="demo">
+    <DemoRolesNav />
+    <div class="demo__content">
+      <component :is="roleComponent" :key="demoStore.currentRole" />
+    </div>
   </div>
-</div>
 </template>
 
 <style scoped lang="scss">
@@ -23,6 +36,7 @@
     min-height: 600px;
     background-color: var(--bg-color);
     border-radius: 5px;
+    padding: 1rem;
   }
 }
 </style>
