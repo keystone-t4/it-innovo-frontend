@@ -1,47 +1,46 @@
-import type {consigneeView, demoRole, driverView, managerView} from "~/layers/visits/app/types/demoTypes";
+import type {consigneeViewRouteType, demoRole, driverViewRouteType, managerViewRouteType} from "~/layers/visits/app/types/demoTypes";
 
-// todo: пересмотреть
 export const useDemoStore = defineStore('demoStore', () => {
     const currentRole = ref<demoRole>("driver");
 
-    const driverView = ref<driverView>("map");
-    const consigneeView = ref<consigneeView>("applications");
-    const managerView = ref<managerView>("applications");
+    const driverViewRoute = ref<driverViewRouteType>("map");
+    const consigneeViewRoute = ref<consigneeViewRouteType>("applications");
+    const managerViewRoute = ref<managerViewRouteType>("applications");
 
     const currentDriverId = ref<string | null>('drv_tc001_01');
     const selectedArrivalPlaceId = ref<string | null>('pl_001');
 
-    const currentView = computed<driverView | consigneeView | managerView>(() => {
-        if (currentRole.value === "driver") return driverView.value;
-        if (currentRole.value === "consignee") return consigneeView.value;
-        return managerView.value;
+    const currentView = computed<driverViewRouteType | consigneeViewRouteType | managerViewRouteType>(() => {
+        if (currentRole.value === "driver") return driverViewRoute.value;
+        if (currentRole.value === "consignee") return consigneeViewRoute.value;
+        return managerViewRoute.value;
     });
 
     function setRole(role: demoRole) {
         currentRole.value = role;
     }
 
-    function setDriverView(view: driverView) {
-        driverView.value = view;
+    function setDriverViewRoute(view: driverViewRouteType) {
+        driverViewRoute.value = view;
     }
-    function setConsigneeView(view: consigneeView) {
-        consigneeView.value = view;
+    function setConsigneeViewRoute(view: consigneeViewRouteType) {
+        consigneeViewRoute.value = view;
     }
-    function setManagerView(view: managerView) {
-        managerView.value = view;
+    function setManagerViewRoute(view: managerViewRouteType) {
+        managerViewRoute.value = view;
     }
 
     return {
         currentRole,
-        driverView,
-        consigneeView,
-        managerView,
+        driverViewRoute,
+        consigneeViewRoute,
+        managerViewRoute,
         currentView,
         currentDriverId,
         selectedArrivalPlaceId,
         setRole,
-        setDriverView,
-        setConsigneeView,
-        setManagerView,
+        setDriverViewRoute,
+        setConsigneeViewRoute,
+        setManagerViewRoute,
     };
 })

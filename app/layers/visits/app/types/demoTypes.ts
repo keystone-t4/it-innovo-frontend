@@ -1,4 +1,6 @@
 export type demoRole = "driver" | "consignee" | "manager";
-export type driverView = "map" | "applications" | "submit";
-export type consigneeView = "applications" | "queue" | "analytics";
-export type managerView = "applications";
+
+// demo routing
+export type driverViewRouteType = "map" | "applications" | "submit";
+export type consigneeViewRouteType = "applications" | "queue" | "analytics";
+export type managerViewRouteType = "applications";

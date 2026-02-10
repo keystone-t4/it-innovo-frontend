@@ -19,6 +19,7 @@ import Demo from '~/layers/visits/app/components/demo/index.vue'
           </p>
         </div>
     </div>
+
     <div class="home__demo block">
       <Demo/>
     </div>
@@ -44,6 +45,11 @@ import Demo from '~/layers/visits/app/components/demo/index.vue'
     @media (max-width: 480px) {
       padding-left: 18px;
     }
+  }
+
+  &__demo {
+    margin: 0 auto;
+    padding-top: 4rem;
   }
 }
 </style>
