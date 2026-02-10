@@ -57,6 +57,12 @@ const currentRole = computed<demoRole>({
       <svg class="role-card__icon" aria-hidden="true"><use :href="card.iconPath" /></svg>
       <span class="role-card__title">{{ card.title }}</span>
       <span class="role-card__description">{{ card.description }}</span>
+      <svg class="role-card__chevron"
+           :class="{ 'role-card__chevron--show': currentRole === card.role }"
+           aria-hidden="true"
+      >
+        <use href="/sprite.svg#down-chevron" />
+      </svg>
     </label>
   </div>
 </template>
@@ -142,6 +148,23 @@ const currentRole = computed<demoRole>({
 
   &__description {
     font-size: 0.875rem;
+  }
+
+  &__chevron {
+    visibility: hidden;
+    margin-top: auto;
+    padding-left: 20px;
+    width: 44px;
+    rotate: 90deg;
+    height: 24px;
+    color: var(--accent-color);
+    transition: background-color 200ms ease;
+    &--show {
+      visibility: visible;
+    }
+  }
+  &__cevron symbol {
+    rotate: 90deg;
   }
 }
 </style>
