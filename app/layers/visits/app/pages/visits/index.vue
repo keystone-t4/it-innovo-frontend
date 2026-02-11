@@ -1,6 +1,12 @@
 <script setup lang="ts">
 import Demo from '~/layers/visits/app/components/demo/index.vue'
+import {useDemoDbStore} from "~/layers/visits/app/stores/demoDbStore";
 
+const demoDbStore = useDemoDbStore()
+
+onMounted(() => {
+  demoDbStore.initDb()
+})
 </script>
 
 <template>
