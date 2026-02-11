@@ -4,8 +4,9 @@ import {useDemoDbStore} from "~/layers/visits/app/stores/demoDbStore";
 
 const demoDbStore = useDemoDbStore()
 
-onMounted(() => {
-  demoDbStore.initDb()
+onMounted(async () => {
+  await demoDbStore.initDb()
+  await demoDbStore.loadAll()
 })
 </script>
 

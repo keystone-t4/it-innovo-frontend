@@ -4,7 +4,6 @@ import { demoSeed} from "~/layers/visits/app/data/demoSeed";
 // Подними DB_VERSION когда хочешь полностью пересоздать демо-БД у всех пользователей
 const DB_NAME = "visits_demo_db";
 const DB_VERSION = 1;
-
 const STORES = {
     companies: "transport_companies",
     drivers: "drivers",
@@ -16,12 +15,26 @@ function isClient() {
     return typeof window !== "undefined" && typeof indexedDB !== "undefined";
 }
 
+// переходник из ivent-API inexedeDB к нормальному async await
+function reqToPromise<T>(req: IDBRequest<T>) {
+    return new Promise<T>((resolve, reject) => {
+        req.onsuccess = () => resolve(req.result);
+        req.onerror = () => reject(req.error);
+    });
+}
+
 export const useDemoDbStore = defineStore("demoDbStore", () => {
     const initialized = ref(false);
     const loading = ref(false);
     const error = ref<string | null>(null);
 
     const db = ref<IDBDatabase | null>(null);
+
+    // кеш ui таблиц для
+    const companies = ref<any[]>([]);
+    const drivers = ref<any[]>([]);
+    const arrivalPlaces = ref<any[]>([]);
+    const requests = ref<any[]>([]);
 
     async function initDb() {
         if (!isClient()) return;
@@ -113,6 +126,32 @@ export const useDemoDbStore = defineStore("demoDbStore", () => {
         }
     }
 
+    async function loadAll() {
+        if (!db.value) throw new Error("DB not initialized");
+
+        const tx = db.value.transaction(
+            [STORES.companies, STORES.drivers, STORES.places, STORES.requests],
+            "readonly"
+        );
+
+        const cReq = tx.objectStore(STORES.companies).getAll();
+        const dReq = tx.objectStore(STORES.drivers).getAll();
+        const pReq = tx.objectStore(STORES.places).getAll();
+        const rReq = tx.objectStore(STORES.requests).getAll();
+
+        const [c, d, p, r] = await Promise.all([
+            reqToPromise<any[]>(cReq),
+            reqToPromise<any[]>(dReq),
+            reqToPromise<any[]>(pReq),
+            reqToPromise<any[]>(rReq),
+        ]);
+
+        companies.value = c;
+        drivers.value = d;
+        arrivalPlaces.value = p;
+        requests.value = r;
+    }
+
     return {
         initialized,
         loading,
@@ -120,6 +159,12 @@ export const useDemoDbStore = defineStore("demoDbStore", () => {
 
         db,
 
+        companies,
+        drivers,
+        arrivalPlaces,
+        requests,
+
         initDb,
+        loadAll,
     };
 });

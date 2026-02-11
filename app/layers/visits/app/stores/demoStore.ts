@@ -6,6 +6,7 @@ import type {
     managerViewRouteType
 } from "~/layers/visits/app/types/demoTypes";
 
+// Выбор роли, роутинг демки для каждой роли и данные пользователя демки (предопределены)
 export const useDemoStore = defineStore('demoStore', () => {
     const currentRole = ref<demoRoleType>("driver");
 
