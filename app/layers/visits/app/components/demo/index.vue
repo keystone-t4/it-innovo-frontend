@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { computed, defineAsyncComponent } from "vue";
-import { useDemoStore } from "~/layers/visits/app/stores/demoStore";
-import { demoRouting } from "~/layers/visits/app/config/demoRoutes";
+import { useDemoStore } from "~/layers/visits/app/stores/demo/demoStore";
+import { demoRouting } from "~/layers/visits/app/config/demo/demoRoutes";
 
 const demoStore = useDemoStore();
 
 const FallbackComponent = { template: `<div>Страница не найдена</div>`};
 const modules = import.meta.glob<Component>('~/layers/visits/app/components/demo/**/*.vue');
 
+// функция отвечающая за отрисовку в демке маршрутов для ролей
 const viewComponent = computed(() => {
   const role = demoStore.currentRole;
   const view = demoStore.currentView;
@@ -30,7 +30,6 @@ const viewKey = computed(
     () => `${demoStore.currentRole}:${demoStore.currentView}`
 );
 </script>
-
 
 <template>
   <div class="demo">

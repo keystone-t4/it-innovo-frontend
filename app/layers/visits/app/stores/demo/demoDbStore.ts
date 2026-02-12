@@ -1,5 +1,6 @@
 import { defineStore } from "pinia";
-import { demoSeed} from "~/layers/visits/app/data/demoSeed";
+import { demoSeed} from "~/layers/visits/app/data/demo/demoSeed";
+import type {ArrivalPlace, Driver, TransportCompany, Request} from "~/layers/visits/app/types/demo/demoDbTypes";
 
 // Подними DB_VERSION когда хочешь полностью пересоздать демо-БД у всех пользователей
 const DB_NAME = "visits_demo_db";
@@ -31,10 +32,10 @@ export const useDemoDbStore = defineStore("demoDbStore", () => {
     const db = ref<IDBDatabase | null>(null);
 
     // кеш ui таблиц для
-    const companies = ref<any[]>([]);
-    const drivers = ref<any[]>([]);
-    const arrivalPlaces = ref<any[]>([]);
-    const requests = ref<any[]>([]);
+    const companies = ref<TransportCompany[]>([]);
+    const drivers = ref<Driver[]>([]);
+    const arrivalPlaces = ref<ArrivalPlace[]>([]);
+    const requests = ref<Request[]>([]);
 
     async function initDb() {
         if (!isClient()) return;

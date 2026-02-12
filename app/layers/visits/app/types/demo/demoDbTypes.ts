@@ -28,11 +28,10 @@ export interface Request {
 
     created_at: string; // ISO datetime, e.g. "2026-02-08T13:30:00"
     ttn_number: string;
-
     unload_date: string; // "YYYY-MM-DD"
     unload_start_time: string; // "HH:mm"
-
     status: RequestStatus;
+
     product_name: string;
     weight_ttn: number;
 

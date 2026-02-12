@@ -1,5 +1,6 @@
 export default defineNuxtConfig({
     app: {
+        baseURL: '/',
         head: {
             title: 'ИННОВО',
             htmlAttrs: { lang: 'ru', dir: 'ltr' },

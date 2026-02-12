@@ -1,4 +1,4 @@
-import type { driverApplicationRowType } from "~/layers/visits/app/types/tables/driverApplicationsTypes";
+import type { driverApplicationRowType } from "~/layers/visits/app/types/demo/tables/driverApplicationsTypes";
 
 export type TableHeader<T> = {
     title: string;
