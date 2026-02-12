@@ -15,6 +15,10 @@ export type DemoRoleRouting = {
     routes: DemoRouteMeta<driverViewRouteType | consigneeViewRouteType | managerViewRouteType>[];
 };
 
+// При добавлении нового маршрута необходимо создать соответствующий ему файл
+// в visits/app/components/demo/ИМЯ_РОЛИ/НОВЫЙ_МАРШРУТ.vue
+// При добавлении новой роли нужно создать соответствующую папку (с минимум
+// одним маршрутом) и обновить переменные, методы и условия в demoStore.ts
 export const demoRouting: Record<demoRoleType, DemoRoleRouting> = {
     driver: {
         titleRu: "Водитель",

@@ -3,7 +3,7 @@
 </script>
 
 <template>
-менеджер
+карты
 </template>
 
 <style scoped lang="scss">

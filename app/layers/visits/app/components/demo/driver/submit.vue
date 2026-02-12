@@ -3,7 +3,7 @@
 </script>
 
 <template>
-грузополучатель
+отправить заявку
 </template>
 
 <style scoped lang="scss">

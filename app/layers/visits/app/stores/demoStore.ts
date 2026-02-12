@@ -23,10 +23,6 @@ export const useDemoStore = defineStore('demoStore', () => {
         return managerViewRoute.value;
     });
 
-    function setRole(role: demoRoleType) {
-        currentRole.value = role;
-    }
-
     function setCurrentRoute(newRoute: allRoutesType) {
         if (currentRole.value === "driver") {
             driverViewRoute.value = newRoute as driverViewRouteType;
@@ -39,7 +35,9 @@ export const useDemoStore = defineStore('demoStore', () => {
         managerViewRoute.value = newRoute as managerViewRouteType;
     }
 
-
+    function setRole(role: demoRoleType) {
+        currentRole.value = role;
+    }
 
     return {
         currentRole,

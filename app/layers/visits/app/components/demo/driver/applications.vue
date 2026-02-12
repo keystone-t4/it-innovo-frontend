@@ -15,7 +15,7 @@ watch(
 <template>
   <div class="driver">
     <table class="driver__table">
-
+      ЗАЯВКИ
     </table>
   </div>
 </template>

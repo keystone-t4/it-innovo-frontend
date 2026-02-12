@@ -1,29 +1,47 @@
 <script setup lang="ts">
+import { computed, defineAsyncComponent } from "vue";
 import { useDemoStore } from "~/layers/visits/app/stores/demoStore";
+import { demoRouting } from "~/layers/visits/app/config/demoRoutes";
 
 const demoStore = useDemoStore();
 
-const roleComponent = computed(() => {
-  switch (demoStore.currentRole) {
-    case "driver":
-      return resolveComponent("DemoDriver");
-    case "consignee":
-      return resolveComponent("DemoConsignee");
-    case "manager":
-      return resolveComponent("DemoManager");
+const FallbackComponent = { template: `<div>Страница не найдена</div>`};
+const modules = import.meta.glob<Component>('~/layers/visits/app/components/demo/**/*.vue');
+
+const viewComponent = computed(() => {
+  const role = demoStore.currentRole;
+  const view = demoStore.currentView;
+
+  const isRouteAllowed = demoRouting[role].routes.some(r => r.key === view);
+  const safeView = isRouteAllowed ? view : demoRouting[role].routes[0]?.key;
+
+  const path = `/layers/visits/app/components/demo/${role}/${safeView}.vue`;
+
+  const loader = modules[path];
+
+  if (!loader) {
+    return FallbackComponent;
   }
+
+  return defineAsyncComponent(loader);
 });
+
+const viewKey = computed(
+    () => `${demoStore.currentRole}:${demoStore.currentView}`
+);
 </script>
+
 
 <template>
   <div class="demo">
     <DemoRolesNav />
     <div class="demo__content">
-      <DemoRoutesNav/>
-      <component :is="roleComponent" :key="demoStore.currentRole" />
+      <DemoRoutesNav />
+      <component :is="viewComponent" :key="viewKey" />
     </div>
   </div>
 </template>
+
 
 <style scoped lang="scss">
 .demo {
