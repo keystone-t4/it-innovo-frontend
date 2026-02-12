@@ -1,0 +1,24 @@
+.table {
+  border-collapse: separate;
+  border-spacing: 0 0.25rem;
+
+  &__header {
+    font-weight: 700;
+  }
+
+  &__row {
+    background-color: white;
+  }
+
+  &__cell {
+    text-align: topstart;
+    padding: .2rem .5rem;
+    border: 1px solid #dee2e6;
+  }
+
+  &__text {
+    min-height: 50px;
+
+  }
+}
+

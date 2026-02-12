@@ -9,7 +9,7 @@ import {
 import {formatDate} from "~/layers/visits/app/utils/demo/formatDate";
 
 const tableRows = computed<driverApplicationRowType[]>(() => {
-  return [...getCurrentDriverRequests.value] // клонируем, чтобы не мутировать оригинал
+  return [...getCurrentDriverRequests.value]
       .sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime())
       .map(req => ({
         full_name: getDriverFullName.value,
@@ -25,26 +25,26 @@ const tableRows = computed<driverApplicationRowType[]>(() => {
 
 <template>
   <div class="driver">
-    <table class="driver__table">
+    <table class="driver__table table">
       <thead>
         <tr>
-          <th v-for="field in driverApplicationsHeaders">
-            {{ field.title }}
+          <th class="table__cell" v-for="field in driverApplicationsHeaders">
+            <p class="table__text table__header">
+              {{ field.title }}
+            </p>
           </th>
         </tr>
       </thead>
       <tbody>
-      <tr v-for="row in tableRows" :key="row.ttn_number">
-        <td v-for="field in driverApplicationsHeaders">
-          {{ row[field.key] }}
+      <tr class="table__row" v-for="row in tableRows" :key="row.ttn_number">
+        <td class="table__cell" v-for="field in driverApplicationsHeaders">
+
+          <p class="table__text">
+            {{ row[field.key] }}
+          </p>
         </td>
       </tr>
-
       </tbody>
     </table>
   </div>
 </template>
-
-<style scoped lang="scss">
-
-</style>

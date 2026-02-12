@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { useDemoStore } from "~/layers/visits/app/stores/demo/demoStore";
 import { demoRouting } from "~/layers/visits/app/config/demo/demoRoutes";
+import FallbackPage from "~/layers/visits/app/components/demo/fallbackPage.vue";
 
 const demoStore = useDemoStore();
 
-const FallbackComponent = { template: `<div>Страница не найдена</div>`};
 const modules = import.meta.glob<Component>('~/layers/visits/app/components/demo/**/*.vue');
 
 // функция отвечающая за отрисовку в демке маршрутов для ролей
@@ -20,7 +20,7 @@ const viewComponent = computed(() => {
   const loader = modules[path];
 
   if (!loader) {
-    return FallbackComponent;
+    return FallbackPage;
   }
 
   return defineAsyncComponent(loader);
