@@ -26,7 +26,7 @@ const tableRows = computed<driverApplicationRowType[]>(() => {
 <template>
   <div class="driver">
     <table class="driver__table table">
-      <thead>
+      <thead class="table__head">
         <tr>
           <th class="table__cell" v-for="field in driverApplicationsHeaders">
             <p class="table__text table__header">
@@ -37,14 +37,33 @@ const tableRows = computed<driverApplicationRowType[]>(() => {
       </thead>
       <tbody>
       <tr class="table__row" v-for="row in tableRows" :key="row.ttn_number">
-        <td class="table__cell" v-for="field in driverApplicationsHeaders">
-
-          <p class="table__text">
-            {{ row[field.key] }}
-          </p>
+        <td class="table__cell" v-for="field in driverApplicationsHeaders" :data-label="field.title">
+          <p class="table__text">{{ row[field.key] }}</p>
         </td>
       </tr>
       </tbody>
     </table>
+
+    <div class="driver__mobile-table mobile-table">
+      <div
+          class="mobile-table__row"
+          v-for="row in tableRows"
+          :key="row.ttn_number"
+      >
+        <div
+            class="mobile-table__cell"
+            v-for="field in driverApplicationsHeaders"
+            :key="field.key"
+        >
+          <p class="mobile-table__header">
+            {{ field.title + ':'}}
+          </p>
+
+          <p class="mobile-table__text">
+            {{ row[field.key] }}
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
