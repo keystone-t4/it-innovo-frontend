@@ -117,6 +117,10 @@ const currentRole = computed<demoRoleType>({
     &:hover {
       border-color: var(--border-color-active)
     }
+    &:has(:focus-visible) {
+      outline: 2px solid var(--outline-color);
+      outline-offset: 2px;
+    }
   }
 
   &--active .role-card__icon {

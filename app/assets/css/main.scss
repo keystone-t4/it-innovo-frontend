@@ -23,6 +23,9 @@
 }
 
 :root {
+  --outline-color: #101010;
+  --outline-shadow: rgba(16, 16, 16, 0.5);
+
   --accent-color: rgb(0, 121, 194);
   --bg-color: rgb(242, 239, 235);
   --bg-color-light: #e7f1f9;
@@ -86,7 +89,7 @@ h3 {
   }
 }
 
-p {
+p, span {
   font-weight: 400;
   font-size: var(--text-md);
   @media (max-width: 1024px) {

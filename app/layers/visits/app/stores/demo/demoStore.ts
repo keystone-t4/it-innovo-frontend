@@ -5,6 +5,7 @@ import type {
     driverViewRouteType,
     managerViewRouteType
 } from "~/layers/visits/app/types/demo/demoTypes";
+import {demoRouting} from "~/layers/visits/app/config/demo/demoRoutes";
 
 // Выбор роли, роутинг демки для каждой роли и данные пользователя демки (предопределены)
 export const useDemoStore = defineStore('demoStore', () => {
@@ -21,6 +22,12 @@ export const useDemoStore = defineStore('demoStore', () => {
         if (currentRole.value === "driver") return driverViewRoute.value;
         if (currentRole.value === "consignee") return consigneeViewRoute.value;
         return managerViewRoute.value;
+    });
+
+    const getCurrentRouteTitle = computed(() => {
+        const routes = demoRouting[currentRole.value].routes;
+        const found = routes.find(route => route.key === currentView.value);
+        return found?.titleRu ?? '';
     });
 
     function setCurrentRoute(newRoute: allRoutesType) {
@@ -47,6 +54,8 @@ export const useDemoStore = defineStore('demoStore', () => {
         currentView,
         currentDriverId,
         selectedArrivalPlaceId,
+
+        getCurrentRouteTitle,
 
         setRole,
         setCurrentRoute
