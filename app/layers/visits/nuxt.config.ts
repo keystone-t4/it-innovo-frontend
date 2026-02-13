@@ -1,3 +1,5 @@
+import {defineNuxtConfig} from "nuxt/config";
+
 import { fileURLToPath } from 'node:url'
 import { dirname, join } from 'node:path'
 

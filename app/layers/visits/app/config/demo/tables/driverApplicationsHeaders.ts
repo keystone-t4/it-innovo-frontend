@@ -13,4 +13,5 @@ export const driverApplicationsHeaders: TableHeader<driverApplicationRowType>[] 
     { title: "Дата разгрузки", key: "unload_date" },
     { title: "Время начала разгрузки", key: "unload_start_time" },
     { title: "Статус", key: "status" },
+    { title: "Действие", key: "interact"},
 ];

@@ -3,6 +3,8 @@
 // Значения берутся из разных сущностей \types\demoDbTypes.ts (Driver + ArrivalPlace + Request)
 // и/или являются переименованными/подготовленными для UI.
 export type driverApplicationRowType = {
+    req_id: string
+
     full_name: string
     arrival_place_name: string
 
@@ -11,4 +13,6 @@ export type driverApplicationRowType = {
     unload_date: string
     unload_start_time: string
     status: string
+
+    interact: string
 }

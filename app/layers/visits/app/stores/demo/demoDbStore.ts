@@ -153,6 +153,30 @@ export const useDemoDbStore = defineStore("demoDbStore", () => {
         requests.value = r;
     }
 
+    async function cancelRequest(requestId: string): Promise<Request> {
+        if (!db.value) throw new Error("DB not initialized");
+
+        if (!confirm("Вы действительно хотите отменить заявку?")) {
+            return null
+        }
+
+        const tx = db.value.transaction([STORES.requests], "readwrite");
+        const store = tx.objectStore(STORES.requests);
+
+        const request = await reqToPromise<Request | undefined>(store.get(requestId));
+        if (!request) throw new Error(`Request ${requestId} not found`);
+        if (request.status !== "active") throw new Error(`Cannot cancel request with status ${request.status}`);
+
+        const updated: Request = { ...request, status: "rejected" };
+        await reqToPromise(store.put(updated));
+
+        const index = requests.value.findIndex(r => r.id === requestId);
+        if (index !== -1) requests.value[index] = updated;
+        else requests.value.push(updated);
+
+        return updated;
+    }
+
     return {
         initialized,
         loading,
@@ -167,5 +191,6 @@ export const useDemoDbStore = defineStore("demoDbStore", () => {
 
         initDb,
         loadAll,
+        cancelRequest,
     };
 });
