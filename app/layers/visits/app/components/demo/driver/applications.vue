@@ -7,6 +7,7 @@ import {
   getDriverFullName
 } from "~/layers/visits/app/composables/demo/driver/applicationsActions";
 import {formatDate} from "~/layers/visits/app/utils/demo/formatDate";
+import {requestStatuses} from "~/layers/visits/app/config/demo/demoRequestStatuses";
 
 const tableRows = computed<driverApplicationRowType[]>(() => {
   return [...getCurrentDriverRequests.value]
@@ -18,7 +19,7 @@ const tableRows = computed<driverApplicationRowType[]>(() => {
         ttn_number: req.ttn_number,
         unload_date: formatDate(req.unload_date, false),
         unload_start_time: req.unload_start_time,
-        status: req.status,
+        status: requestStatuses[req.status],
       }));
 });
 </script>
