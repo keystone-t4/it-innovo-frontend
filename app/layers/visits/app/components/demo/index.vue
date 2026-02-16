@@ -35,12 +35,20 @@ const viewKey = computed(
   <div class="demo">
     <DemoRolesNav />
     <div class="demo__content">
-      <DemoRoutesNav />
-      <component :is="viewComponent" :key="viewKey" />
+      <client-only>
+        <Suspense>
+          <div class="demo__content-inner">
+            <DemoRoutesNav />
+            <component :is="viewComponent" :key="viewKey" />
+          </div>
+          <template #fallback>
+            <DemoLoader/>
+          </template>
+        </Suspense>
+      </client-only>
     </div>
   </div>
 </template>
-
 
 <style scoped lang="scss">
 .demo {
