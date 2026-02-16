@@ -2,26 +2,33 @@
 import { useDemoStore } from "~/layers/visits/app/stores/demo/demoStore";
 import { demoRouting } from "~/layers/visits/app/config/demo/demoRoutes";
 import FallbackPage from "~/layers/visits/app/components/demo/fallbackPage.vue";
+import { useDemoDbStore } from "~/layers/visits/app/stores/demo/demoDbStore";
 
 const demoStore = useDemoStore();
+const demoDbStore = useDemoDbStore();
 
-const modules = import.meta.glob<Component>('~/layers/visits/app/components/demo/**/*.vue');
+const modules = import.meta.glob<Component>(
+    "~/layers/visits/app/components/demo/**/*.vue"
+);
 
-// функция отвечающая за отрисовку в демке маршрутов для ролей
 const viewComponent = computed(() => {
   const role = demoStore.currentRole;
   const view = demoStore.currentView;
 
-  const isRouteAllowed = demoRouting[role].routes.some(r => r.key === view);
-  const safeView = isRouteAllowed ? view : demoRouting[role].routes[0]?.key;
+  const isRouteAllowed = demoRouting[role].routes.some(
+      r => r.key === view
+  );
 
-  const path = `/layers/visits/app/components/demo/${role}/${safeView}.vue`;
+  const safeView = isRouteAllowed
+      ? view
+      : demoRouting[role].routes[0]?.key;
+
+  const path =
+      `/layers/visits/app/components/demo/${role}/${safeView}.vue`;
 
   const loader = modules[path];
 
-  if (!loader) {
-    return FallbackPage;
-  }
+  if (!loader) return FallbackPage;
 
   return defineAsyncComponent(loader);
 });
@@ -29,23 +36,26 @@ const viewComponent = computed(() => {
 const viewKey = computed(
     () => `${demoStore.currentRole}:${demoStore.currentView}`
 );
+
+onMounted(async () => {
+    await demoDbStore.initDb();
+    await demoDbStore.loadAll();
+})
 </script>
 
 <template>
   <div class="demo">
     <DemoRolesNav />
     <div class="demo__content">
-      <client-only>
+      <DemoRoutesNav />
+      <ClientOnly>
         <Suspense>
-          <div class="demo__content-inner">
-            <DemoRoutesNav />
-            <component :is="viewComponent" :key="viewKey" />
-          </div>
+          <component :is="viewComponent" :key="viewKey" />
           <template #fallback>
-            <DemoLoader/>
+            <DemoLoader />
           </template>
         </Suspense>
-      </client-only>
+      </ClientOnly>
     </div>
   </div>
 </template>

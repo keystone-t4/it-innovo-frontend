@@ -1,15 +1,3 @@
-<script setup lang="ts">
-import Demo from '~/layers/visits/app/components/demo/index.vue'
-import {useDemoDbStore} from "~/layers/visits/app/stores/demo/demoDbStore";
-
-const demoDbStore = useDemoDbStore()
-
-onMounted(async () => {
-  await demoDbStore.initDb()
-  await demoDbStore.loadAll()
-})
-</script>
-
 <template>
   <main class="home">
     <div class="home__hero block">
