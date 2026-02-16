@@ -1,26 +1,47 @@
 <script setup lang="ts">
-
-import {useDemoStore} from "~/layers/visits/app/stores/demo/demoStore";
+import { computed } from "vue";
+import { useDemoStore } from "~/layers/visits/app/stores/demo/demoStore";
 
 interface Props {
-  id: string
-  name: string
-  x: number
-  y: number
-  isPercent?: boolean
+  id: string;
+  name: string;
+  address: string;
+  x: number;
+  y: number;
+  isPercent?: boolean;
 }
 
-const props = defineProps<Props>()
-const store = useDemoStore()
+const props = defineProps<Props>();
+const store = useDemoStore();
+
+const isSelected = computed(() => store.selectedArrivalPlaceId === props.id);
+
 function selectPlace() {
-  store.selectedArrivalPlaceId = props.id
+  store.selectedArrivalPlaceId = props.id;
 }
+
+const tooltipBottom = computed(() => {
+  if (props.isPercent) {
+    return props.y < 30;
+  }
+
+  // fallback для px — не трогаем
+  return false;
+});
 </script>
 
 <template>
   <div
       class="marker"
+      :class="{
+    'is-selected': isSelected,
+    'tooltip-bottom': tooltipBottom
+  }"
       @click="selectPlace"
+      @keydown.enter.prevent="selectPlace"
+      role="button"
+      :aria-pressed="isSelected"
+      tabindex="0"
       :style="props.isPercent
       ? { left: props.x + '%', top: props.y + '%' }
       : { left: props.x + 'px', top: props.y + 'px' }"
@@ -32,7 +53,10 @@ function selectPlace() {
       </svg>
     </div>
 
-    <div class="marker__tooltip" role="status" aria-live="polite">{{ props.name }}</div>
+    <div class="marker__tooltip" role="status" aria-live="polite">
+      {{ props.name}}<br>
+      {{ props.address }}
+    </div>
   </div>
 </template>
 
@@ -44,27 +68,37 @@ function selectPlace() {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  outline: none;
 
   &__icon {
     width: 28px;
     height: 42px;
     display: inline-block;
     line-height: 0;
-    transition: transform 0.15s ease, filter 0.15s ease;
+    transition: transform 0.18s cubic-bezier(.2,.9,.2,1), filter 0.18s ease;
     filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.25));
+    position: relative;
+    @media (max-width: 892px) {
+      top: 3px;
+    }
+    @media (max-width: 636px) {
+      top: 6px;
+    }
   }
 
   svg { display: block; }
 
   .drop {
-    fill: #e53935; // ярко-красный
+    fill: #e53935;
     stroke: #b71c1c;
     stroke-width: 0;
+    transition: fill 0.18s ease, stroke 0.18s ease, filter 0.18s ease;
   }
 
   .inner {
     fill: #fff;
-    transition: transform 0.15s ease;
+    transition: transform 0.18s ease, stroke-width 0.18s ease;
+    transform-origin: center;
   }
 
   &:hover .marker__icon {
@@ -73,6 +107,55 @@ function selectPlace() {
 
   &:active .marker__icon {
     transform: translateY(-2px) scale(0.98);
+  }
+
+  &.is-selected {
+    z-index: 5; // выделенный маркер выше остальных
+
+    .marker__icon {
+      transform: translateY(-6px) scale(1.12);
+      filter: drop-shadow(0 10px 20px rgba(255, 179, 0, 0.28));
+    }
+
+    .drop {
+      fill: #ffb300;
+      stroke: #BF9430;
+      stroke-width: 0;
+    }
+
+    .inner {
+      /* тонкое кольцо вокруг центра (через stroke на круге) */
+      fill: #fff;
+      stroke: rgba(255, 179, 0, 0.95);
+      stroke-width: 1.6px;
+      transform: scale(1.15);
+    }
+
+    /* мягкое свечение/ореол вокруг маркера */
+    &::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      left: 50%;
+      top: 65%;
+      transform: translate(-50%, -40%);
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      pointer-events: none;
+      box-shadow: 0 0 22px 6px rgba(30, 136, 229, 0.12), 0 6px 18px rgba(255, 179, 0, 0.08);
+      transition: opacity 0.18s ease;
+      opacity: 1;
+    }
+  }
+
+  /* фокус клавиатурный */
+  &:focus {
+    outline: none;
+  }
+  &:focus-visible {
+    box-shadow: 0 0 0 4px var(--outline-color);
+    border-radius: 8px;
   }
 
   &__tooltip {
@@ -90,9 +173,31 @@ function selectPlace() {
     pointer-events: none;
     transition: opacity 0.12s ease, transform 0.12s ease;
     box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+    @media (max-width: 636px) {
+      bottom: calc(100% + 5px);
+    }
+    @media (max-width: 636px) {
+      bottom: calc(100% + 3px);
+    }
+  }
+
+  &.tooltip-bottom &__tooltip {
+    bottom: auto;
+    top: calc(100% - 10px);
+  }
+
+  &.tooltip-bottom &__tooltip::after {
+    top: auto;
+    bottom: 100%;
+    border-color: transparent transparent rgba(34, 34, 34, 0.95) transparent;
   }
 
   &:hover &__tooltip {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-4px);
+  }
+
+  &.is-selected &__tooltip {
     opacity: 1;
     transform: translateX(-50%) translateY(-4px);
   }

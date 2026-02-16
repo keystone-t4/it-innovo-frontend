@@ -153,11 +153,11 @@ export const useDemoDbStore = defineStore("demoDbStore", () => {
         requests.value = r;
     }
 
-    async function cancelRequest(requestId: string): Promise<Request> {
+    async function cancelRequest(requestId: string): Promise<Request | null> {
         if (!db.value) throw new Error("DB not initialized");
 
         if (!confirm("Вы действительно хотите отменить заявку?")) {
-            return null
+            return null;
         }
 
         const tx = db.value.transaction([STORES.requests], "readwrite");
