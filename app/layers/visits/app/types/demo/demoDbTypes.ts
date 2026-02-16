@@ -19,6 +19,7 @@ export interface ArrivalPlace {
     address: string;
     map_x: number;
     map_y: number;
+    link: string;
 }
 
 export interface Request {

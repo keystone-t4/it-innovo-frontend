@@ -46,11 +46,11 @@ export const demoSeed = {
     ],
 
     arrivalPlaces: [
-        { id: "pl_001", name: "Завод Север-1", address: "г. Санкт-Петербург, Промзона Север, 1", map_x: 410, map_y: 290 },
-        { id: "pl_002", name: "Завод Север-2", address: "г. Санкт-Петербург, Промзона Север, 14", map_x: 1080.1, map_y: 405 },
-        { id: "pl_003", name: "Завод Восток-1", address: "г. Кудрово, Индустриальная, 7", map_x: 300.0, map_y: 60 },
-        { id: "pl_004", name: "Завод Восток-2", address: "г. Мурино, Складская, 22", map_x: 710.3, map_y: 220.8 },
-        { id: "pl_005", name: "Завод Юг-1", address: "г. Пушкин, Заводская, 3", map_x: 370.7, map_y: 585 },
+        { id: "pl_001", name: "Завод Север-1", address: "г. Санкт-Петербург, переулок Каховского, 5А", map_x: 410, map_y: 290, link: 'https://yandex.ru/maps/2/saint-petersburg/house/pereulok_kakhovskogo_5a/Z0kYdANhTUwAQFtjfXV0c3RlZg==/?ll=30.241999%2C59.952804&z=17.16' },
+        { id: "pl_002", name: "Завод Север-2", address: "Деревня Заневка, Первый проезд, 1/38", map_x: 1080.1, map_y: 405, link: 'https://yandex.ru/maps/10174/saint-petersburg-and-leningrad-oblast/house/pervy_proyezd_1_38/Z0kYcwZgTEEFQFtjfXVzeXpjbQ==/?ll=30.511378%2C59.929194&z=16.6' },
+        { id: "pl_003", name: "Завод Восток-1", address: "г. Санкт-Петербург, Туристская улица, 22Б", map_x: 300.0, map_y: 60, link: 'https://yandex.ru/maps/2/saint-petersburg/house/turistskaya_ulitsa_22b/Z0kYdAdmSUQEQFtjfXV4eHhhZg==/?ll=30.205254%2C59.998348&z=16.97' },
+        { id: "pl_004", name: "Завод Восток-2", address: "г. Санкт-Петербург, Арсенальная улица, 78Б", map_x: 710.3, map_y: 220.8, link: 'https://yandex.ru/maps/2/saint-petersburg/house/arsenalnaya_ulitsa_78b/Z0kYdQFhQEMGQFtjfXV3eHxgbA==/?ll=30.363494%2C59.968233&z=16.61' },
+        { id: "pl_005", name: "Завод Юг-1", address: "г. Санкт-Петербург, Территория Вольный Остров, 4Е", map_x: 370.7, map_y: 585, link: 'https://yandex.ru/maps/2/saint-petersburg/house/territoriya_volny_ostrov_4ye/Z0kYdARiTEwDQFtjfXR4dH5qbQ==/?ll=30.233443%2C59.895865&z=16.57' },
     ],
 
     requests: [

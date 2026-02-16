@@ -25,7 +25,6 @@ const tooltipBottom = computed(() => {
     return props.y < 30;
   }
 
-  // fallback для px — не трогаем
   return false;
 });
 </script>
@@ -160,6 +159,7 @@ const tooltipBottom = computed(() => {
 
   &__tooltip {
     position: absolute;
+    min-width: 200px;
     bottom: calc(100% + 10px);
     left: 50%;
     transform: translateX(-50%);
@@ -168,15 +168,16 @@ const tooltipBottom = computed(() => {
     padding: 6px 10px;
     border-radius: 6px;
     font-size: 12px;
-    white-space: nowrap;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.12s ease, transform 0.12s ease;
     box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
     @media (max-width: 636px) {
       bottom: calc(100% + 5px);
+      font-size: 8px;
+      min-width: 160px;
     }
-    @media (max-width: 636px) {
+    @media (max-width: 360px) {
       bottom: calc(100% + 3px);
     }
   }
