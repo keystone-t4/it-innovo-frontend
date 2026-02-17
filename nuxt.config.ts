@@ -1,6 +1,6 @@
 export default defineNuxtConfig({
     app: {
-        baseURL: '/',
+        baseURL: '/it-innovo-frontend/',
         head: {
             title: 'ИННОВО',
             htmlAttrs: { lang: 'ru', dir: 'ltr' },

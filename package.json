@@ -2,16 +2,19 @@
   "name": "it-innovo-frontend",
   "type": "module",
   "private": true,
+  "homepage": "https://keystone-t4.github.io/it-innovo-frontend/",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "deploy": "npm run generate && gh-pages -d dist"
   },
   "dependencies": {
     "@nuxt/image": "^2.0.0",
     "@pinia/nuxt": "^0.11.3",
+    "gh-pages": "^6.3.0",
     "nuxt": "^4.3.0",
     "nuxt-headlessui": "^1.2.2",
     "pinia": "^3.0.4",
