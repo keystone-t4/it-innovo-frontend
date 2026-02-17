@@ -14,10 +14,10 @@ interface Props {
 const props = defineProps<Props>();
 const store = useDemoStore();
 
-const isSelected = computed(() => store.selectedArrivalPlaceId === props.id);
+const isSelected = computed(() => store.currentArrivalPlaceId === props.id);
 
 function selectPlace() {
-  store.selectedArrivalPlaceId = props.id;
+  store.currentArrivalPlaceId = props.id;
 }
 
 const tooltipBottom = computed(() => {

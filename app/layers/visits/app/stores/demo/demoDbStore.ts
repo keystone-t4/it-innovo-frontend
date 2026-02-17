@@ -1,6 +1,11 @@
 import { defineStore } from "pinia";
 import { demoSeed} from "~/layers/visits/app/data/demo/demoSeed";
-import type {ArrivalPlace, Driver, TransportCompany, Request} from "~/layers/visits/app/types/demo/demoDbTypes";
+import type {
+    ArrivalPlaceType,
+    DriverType,
+    TransportCompanyType,
+    RequestType
+} from "~/layers/visits/app/types/demo/demoDbTypes";
 
 // Подними DB_VERSION когда хочешь полностью пересоздать демо-БД у всех пользователей
 const DB_NAME = "visits_demo_db";
@@ -32,10 +37,10 @@ export const useDemoDbStore = defineStore("demoDbStore", () => {
     const db = ref<IDBDatabase | null>(null);
 
     // кеш ui таблиц для
-    const companies = ref<TransportCompany[]>([]);
-    const drivers = ref<Driver[]>([]);
-    const arrivalPlaces = ref<ArrivalPlace[]>([]);
-    const requests = ref<Request[]>([]);
+    const companies = ref<TransportCompanyType[]>([]);
+    const drivers = ref<DriverType[]>([]);
+    const arrivalPlaces = ref<ArrivalPlaceType[]>([]);
+    const requests = ref<RequestType[]>([]);
 
     async function initDb() {
         if (!isClient()) return;
@@ -153,7 +158,7 @@ export const useDemoDbStore = defineStore("demoDbStore", () => {
         requests.value = r;
     }
 
-    async function cancelRequest(requestId: string): Promise<Request | null> {
+    async function cancelRequest(requestId: string): Promise<RequestType | null> {
         if (!db.value) throw new Error("DB not initialized");
 
         if (!confirm("Вы действительно хотите отменить заявку?")) {
@@ -163,18 +168,75 @@ export const useDemoDbStore = defineStore("demoDbStore", () => {
         const tx = db.value.transaction([STORES.requests], "readwrite");
         const store = tx.objectStore(STORES.requests);
 
-        const request = await reqToPromise<Request | undefined>(store.get(requestId));
+        const request = await reqToPromise<RequestType | undefined>(store.get(requestId));
         if (!request) throw new Error(`Request ${requestId} not found`);
         if (request.status !== "active") throw new Error(`Cannot cancel request with status ${request.status}`);
 
-        const updated: Request = { ...request, status: "rejected" };
+        const updated: RequestType = { ...request, status: "rejected" };
         await reqToPromise(store.put(updated));
 
-        const index = requests.value.findIndex(r => r.id === requestId);
+        const index = requests.value.findIndex(r  => r.id === requestId);
         if (index !== -1) requests.value[index] = updated;
         else requests.value.push(updated);
 
         return updated;
+    }
+
+    async function sendRequest(payload: Omit<RequestType, 'id' | 'status' | 'created_at'>) {
+        if (!db.value) throw new Error("DB not initialized");
+
+        // Сгенерировать id — используем crypto.randomUUID() если доступен, иначе fallback
+        const newId = (isClient() && typeof (window as any).crypto?.randomUUID === "function")
+            ? (window as any).crypto.randomUUID()
+            : `req_${Date.now()}_${Math.random().toString(36).slice(2,8)}`;
+
+        const created_at = new Date().toISOString();
+        const status: RequestType['status'] = "active";
+
+        const request: RequestType = {
+            ...payload,
+            id: newId,
+            created_at,
+            status,
+        };
+
+        const tx = db.value.transaction([STORES.requests], "readwrite");
+        const storeReq = tx.objectStore(STORES.requests);
+
+        await reqToPromise(storeReq.add(request));
+
+        // Пуш в локальный кеш
+        requests.value.push(request);
+
+        return request;
+    }
+
+    function getArrivalPlaceNameById(id?: string | null): string {
+        if (!id) return '-';
+
+        const place = arrivalPlaces.value.find(p => p.id === id);
+        return place?.name ?? '-';
+    }
+
+    function getCurrentDriverById(id?: string | null): DriverType {
+        const notExistsDriver = {id: '-', company_id: '-', full_name: '-', truck_number: '-', trailer_number: '-'};
+        if (!id) return notExistsDriver;
+
+        const driver = drivers.value.find(d => d.id === id);
+        return driver ?? notExistsDriver;
+    }
+
+    function getCurrentDriverRequestsById(driverId?: string | null): RequestType[] {
+        if (!driverId) return [];
+        return requests.value.filter(r => r.driver_id === driverId);
+    }
+
+    function isCurrentDriverHaveActiveRequestById(id?: string | null): boolean {
+        if (!id) return false;
+
+        return requests.value.some(
+            r => r.driver_id === id && r.status === "active"
+        );
     }
 
     return {
@@ -192,5 +254,11 @@ export const useDemoDbStore = defineStore("demoDbStore", () => {
         initDb,
         loadAll,
         cancelRequest,
+        sendRequest,
+
+        getArrivalPlaceNameById,
+        getCurrentDriverById,
+        getCurrentDriverRequestsById,
+        isCurrentDriverHaveActiveRequestById,
     };
 });

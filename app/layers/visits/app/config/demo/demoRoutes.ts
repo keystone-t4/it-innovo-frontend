@@ -25,7 +25,7 @@ export const demoRouting: Record<demoRoleType, DemoRoleRouting> = {
         routes: [
             { key: "map", titleRu: "Карта" },
             { key: "applications", titleRu: "Заявки" },
-            { key: "submit", titleRu: "Создать заявку" },
+            { key: "submit", titleRu: "Оставить заявку" },
         ],
     },
     consignee: {

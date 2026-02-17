@@ -15,8 +15,8 @@ export const useDemoStore = defineStore('demoStore', () => {
     const consigneeViewRoute = ref<consigneeViewRouteType>("applications");
     const managerViewRoute = ref<managerViewRouteType>("applications");
 
-    const currentDriverId = ref<string | null>('drv_tc001_01');
-    const selectedArrivalPlaceId = ref<string | null>('pl_001');
+    const currentDriverId = ref<string>('drv_tc001_01');
+    const currentArrivalPlaceId = ref<string>('pl_001');
 
     const currentView = computed<allRoutesType>(() => {
         if (currentRole.value === "driver") return driverViewRoute.value;
@@ -53,7 +53,7 @@ export const useDemoStore = defineStore('demoStore', () => {
         managerViewRoute,
         currentView,
         currentDriverId,
-        selectedArrivalPlaceId,
+        currentArrivalPlaceId,
 
         getCurrentRouteTitle,
 

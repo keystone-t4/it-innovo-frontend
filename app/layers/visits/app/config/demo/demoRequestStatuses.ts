@@ -1,5 +1,5 @@
-import type { RequestStatus } from "../../types/demo/demoDbTypes";
-export const requestStatuses: Record<RequestStatus, string> = {
+import type { RequestStatusType } from "../../types/demo/demoDbTypes";
+export const requestStatuses: Record<RequestStatusType, string> = {
     active: 'План',
     accepted: 'Завершена',
     rejected: 'Отменена',

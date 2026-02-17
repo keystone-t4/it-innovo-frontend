@@ -1,24 +1,26 @@
 <script setup lang="ts">
 import {driverApplicationsHeaders} from "~/layers/visits/app/config/demo/tables/driverApplicationsHeaders";
 import type {driverApplicationRowType} from "~/layers/visits/app/types/demo/tables/driverApplicationsTypes";
-import {
-  getArrivalPlaceName,
-  getCurrentDriverRequests,
-  getDriverFullName
-} from "~/layers/visits/app/composables/demo/driver/applicationsActions";
 import {formatDate} from "~/layers/visits/app/utils/demo/formatDate";
 import {requestStatuses} from "~/layers/visits/app/config/demo/demoRequestStatuses";
 import {useDemoDbStore} from "~/layers/visits/app/stores/demo/demoDbStore";
+import {useDemoStore} from "~/layers/visits/app/stores/demo/demoStore";
 
 const demoDbStore = useDemoDbStore()
+const demoStore = useDemoStore()
+
+const currentDriverRequests = computed(() =>
+    demoDbStore.getCurrentDriverRequestsById(demoStore.currentDriverId)
+);
+const currentDriverName = demoDbStore.getCurrentDriverById(demoStore.currentDriverId).full_name;
 
 const tableRows = computed<driverApplicationRowType[]>(() => {
-  return [...getCurrentDriverRequests.value]
+  return [...currentDriverRequests.value]
       .sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime())
       .map(req => ({
         req_id: req.id,
-        full_name: getDriverFullName.value,
-        arrival_place_name: getArrivalPlaceName(req.arrival_place_id),
+        full_name: currentDriverName,
+        arrival_place_name: demoDbStore.getArrivalPlaceNameById(demoStore.currentArrivalPlaceId),
         created_at: formatDate(req.created_at, true),
         ttn_number: req.ttn_number,
         unload_date: formatDate(req.unload_date, false),
@@ -27,6 +29,20 @@ const tableRows = computed<driverApplicationRowType[]>(() => {
         interact: ""
       }));
 });
+
+const cancelingIds = ref<Set<string>>(new Set());
+
+async function onCancel(reqId: string) {
+  if (cancelingIds.value.has(reqId)) return;
+
+  cancelingIds.value.add(reqId);
+
+  try {
+    await demoDbStore.cancelRequest(reqId);
+  } finally {
+    cancelingIds.value.delete(reqId);
+  }
+}
 </script>
 
 <template>
@@ -45,11 +61,13 @@ const tableRows = computed<driverApplicationRowType[]>(() => {
       <tr class="table__row" v-for="row in tableRows" :key="row.ttn_number">
         <td class="table__cell" v-for="field in driverApplicationsHeaders" :data-label="field.title">
 
-          <button v-if="field.key === 'interact' && row.status === 'План'"
-                  class="table__button button"
-                  @click="demoDbStore.cancelRequest(row.req_id)"
+          <button
+              v-if="field.key === 'interact' && row.status === 'План'"
+              class="table__button button"
+              :disabled="cancelingIds.has(row.req_id)"
+              @click="onCancel(row.req_id)"
           >
-            Отменить
+            <span>Отменить</span>
           </button>
           <p v-else class="table__text">{{ row[field.key] }}</p>
         </td>
@@ -69,11 +87,13 @@ const tableRows = computed<driverApplicationRowType[]>(() => {
             :key="field.key"
         >
           <template v-if="field.key === 'interact'">
-            <button v-if="field.key === 'interact' && row.status === 'План'"
-                    class="table__button button"
-                    @click="demoDbStore.cancelRequest(row.req_id)"
+            <button
+                v-if="field.key === 'interact' && row.status === 'План'"
+                class="table__button button"
+                :disabled="cancelingIds.has(row.req_id)"
+                @click="onCancel(row.req_id)"
             >
-              Отменить
+              <span>Отменить</span>
             </button>
           </template>
           <template v-else>

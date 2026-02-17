@@ -1,11 +1,11 @@
-export type RequestStatus = "active" | "accepted" | "rejected";
+export type RequestStatusType = "active" | "accepted" | "rejected";
 
-export interface TransportCompany {
+export interface TransportCompanyType {
     id: string;
     name: string;
 }
 
-export interface Driver {
+export interface DriverType {
     id: string;
     company_id: string;
     full_name: string;
@@ -13,7 +13,7 @@ export interface Driver {
     trailer_number: string;
 }
 
-export interface ArrivalPlace {
+export interface ArrivalPlaceType {
     id: string;
     name: string;
     address: string;
@@ -22,7 +22,7 @@ export interface ArrivalPlace {
     link: string;
 }
 
-export interface Request {
+export interface RequestType {
     id: string;
     driver_id: string;
     arrival_place_id: string;
@@ -31,7 +31,7 @@ export interface Request {
     ttn_number: string;
     unload_date: string; // "YYYY-MM-DD"
     unload_start_time: string; // "HH:mm"
-    status: RequestStatus;
+    status: RequestStatusType;
 
     product_name: string;
     weight_ttn: number;
@@ -39,9 +39,9 @@ export interface Request {
     driver_phone: string;
 }
 
-export interface DemoSeed {
-    transportCompanies: TransportCompany[];
-    drivers: Driver[];
-    arrivalPlaces: ArrivalPlace[];
-    requests: Request[];
+export interface DemoSeedTypes {
+    transportCompanies: TransportCompanyType[];
+    drivers: DriverType[];
+    arrivalPlaces: ArrivalPlaceType[];
+    requests: RequestType[];
 }

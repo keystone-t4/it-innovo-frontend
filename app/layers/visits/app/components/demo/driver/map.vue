@@ -19,7 +19,7 @@ const placesPercent = computed(() =>
 
 const currentMapRouteLink = computed(() => {
   const item = demoDbStore.arrivalPlaces.find(
-      item => item.id === demoStore.selectedArrivalPlaceId
+      item => item.id === demoStore.currentArrivalPlaceId
   );
 
   return item?.link;

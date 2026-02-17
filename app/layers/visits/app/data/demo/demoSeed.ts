@@ -1,5 +1,7 @@
 // demoSeed.ts
-export const demoSeed = {
+import type {DemoSeedTypes} from "~/layers/visits/app/types/demo/demoDbTypes";
+
+export const demoSeed: DemoSeedTypes = {
     transportCompanies: [
         { id: "tc_001", name: "ТК Север" },
         { id: "tc_002", name: "ТК Восток" },
