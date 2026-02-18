@@ -9,7 +9,7 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "deploy": "npm run generate && gh-pages -d dist"
+    "deploy": "npm run build --present github_pages && gh-pages -d dist"
   },
   "dependencies": {
     "@nuxt/image": "^2.0.0",

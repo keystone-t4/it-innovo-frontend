@@ -1,13 +1,8 @@
 export default defineNuxtConfig({
-    ssr: false, // Обязательно для GH-Pages
-    // nitro: {
-    //     output: {
-    //         dir: 'dist' // Удобно для деплоя
-    //     }
-    // },
+    // ssr: false,
     app: {
-        // baseURL: '/',
-        baseURL: '/it-innovo-frontend/',
+        baseURL: '/',
+        // baseURL: '/it-innovo-frontend/',
         head: {
             title: 'ИННОВО',
             htmlAttrs: { lang: 'ru', dir: 'ltr' },
