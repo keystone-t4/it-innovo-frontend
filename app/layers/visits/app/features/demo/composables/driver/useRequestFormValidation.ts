@@ -1,8 +1,8 @@
-import { isValidPhone, normalizePhone } from '~/layers/visits/app/utils/demo/phone';
-import {getToday, isPastDate, isPastDateTime} from '~/layers/visits/app/utils/demo/date';
-import {useDemoDbStore} from "~/layers/visits/app/stores/demo/demoDbStore";
-import {useDemoStore} from "~/layers/visits/app/stores/demo/demoStore";
-import type {RequestType} from "~/layers/visits/app/types/demo/demoDbTypes";
+import { isValidPhone, normalizePhone } from '~/layers/visits/app/features/demo/utils/phone';
+import {getToday, isPastDate, isPastDateTime} from '~/layers/visits/app/features/demo/utils/date';
+import {useDemoDbStore} from "~/layers/visits/app/features/demo/stores/demoDbStore";
+import {useDemoStore} from "~/layers/visits/app/features/demo/stores/demoStore";
+import type {RequestType} from "~/layers/visits/app/features/demo/types/demoDbTypes";
 
 const demoDbStore = useDemoDbStore()
 const demoStore = useDemoStore()

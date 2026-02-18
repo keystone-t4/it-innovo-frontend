@@ -4,8 +4,8 @@ import type {
     demoRoleType,
     driverViewRouteType,
     managerViewRouteType
-} from "~/layers/visits/app/types/demo/demoTypes";
-import {demoRouting} from "~/layers/visits/app/config/demo/demoRoutes";
+} from "~/layers/visits/app/features/demo/types/demoTypes";
+import {demoRouting} from "~/layers/visits/app/features/demo/config/demoRoutes";
 
 // Выбор роли, роутинг демки для каждой роли и данные пользователя демки (предопределены)
 export const useDemoStore = defineStore('demoStore', () => {

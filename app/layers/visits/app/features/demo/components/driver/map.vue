@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import {useDemoDbStore} from "~/layers/visits/app/stores/demo/demoDbStore";
-import {useDemoStore} from "~/layers/visits/app/stores/demo/demoStore";
+import {useDemoDbStore} from "~/layers/visits/app/features/demo/stores/demoDbStore";
+import {useDemoStore} from "~/layers/visits/app/features/demo/stores/demoStore";
+import DriverMapMarker from "~/layers/visits/app/features/demo/components/driver/map/marker.vue"
 
 const demoDbStore = useDemoDbStore()
 const demoStore = useDemoStore()
@@ -36,12 +37,12 @@ const currentMapRouteLink = computed(() => {
 
     <div class="map">
       <img
-          src="../../../assets/img/map.png"
+          src="../../../../assets/img/map.png"
           alt="карта локаций"
           class="map__img"
       />
 
-      <DemoDriverMapMarker
+      <DriverMapMarker
           v-for="place in placesPercent"
           :key="place.id"
           :id="place.id"

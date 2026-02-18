@@ -1,11 +1,11 @@
 import { defineStore } from "pinia";
-import { demoSeed} from "~/layers/visits/app/data/demo/demoSeed";
+import { demoSeed} from "~/layers/visits/app/features/demo/data/demoSeed";
 import type {
     ArrivalPlaceType,
     DriverType,
     TransportCompanyType,
     RequestType
-} from "~/layers/visits/app/types/demo/demoDbTypes";
+} from "~/layers/visits/app/features/demo/types/demoDbTypes";
 
 // Подними DB_VERSION когда хочешь полностью пересоздать демо-БД у всех пользователей
 const DB_NAME = "visits_demo_db";

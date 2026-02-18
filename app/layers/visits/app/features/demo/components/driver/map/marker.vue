@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import { useDemoStore } from "~/layers/visits/app/stores/demo/demoStore";
+import { useDemoStore } from "~/layers/visits/app/features/demo/stores/demoStore";
 
 interface Props {
   id: string;

@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { useDemoDbStore } from '~/layers/visits/app/stores/demo/demoDbStore';
-import { useDemoStore } from '~/layers/visits/app/stores/demo/demoStore';
+import { useDemoDbStore } from '~/layers/visits/app/features/demo/stores/demoDbStore';
+import { useDemoStore } from '~/layers/visits/app/features/demo/stores/demoStore';
 import {reactive} from "vue";
-import {useRequestFormValidation} from "~/layers/visits/app/composables/demo/driver/useRequestFormValidation";
-import type {RequestType} from "~/layers/visits/app/types/demo/demoDbTypes";
-import {getCurrentTime, getToday} from "~/layers/visits/app/utils/demo/date";
+import {useRequestFormValidation} from "~/layers/visits/app/features/demo/composables/driver/useRequestFormValidation";
+import type {RequestType} from "~/layers/visits/app/features/demo/types/demoDbTypes";
+import {getCurrentTime, getToday} from "~/layers/visits/app/features/demo/utils/date";
 
 const demoDbStore = useDemoDbStore();
 const demoStore = useDemoStore();

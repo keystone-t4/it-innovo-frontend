@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { useDemoStore } from "~/layers/visits/app/stores/demo/demoStore";
-import { demoRouting } from "~/layers/visits/app/config/demo/demoRoutes";
+import { useDemoStore } from "~/layers/visits/app/features/demo/stores/demoStore";
+import { demoRouting } from "~/layers/visits/app/features/demo/config/demoRoutes";
 
 const demoStore = useDemoStore();
 

@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import {driverApplicationsHeaders} from "~/layers/visits/app/config/demo/tables/driverApplicationsHeaders";
-import type {driverApplicationRowType} from "~/layers/visits/app/types/demo/tables/driverApplicationsTypes";
-import {formatDate} from "~/layers/visits/app/utils/demo/formatDate";
-import {requestStatuses} from "~/layers/visits/app/config/demo/demoRequestStatuses";
-import {useDemoDbStore} from "~/layers/visits/app/stores/demo/demoDbStore";
-import {useDemoStore} from "~/layers/visits/app/stores/demo/demoStore";
+import {driverApplicationsHeaders} from "~/layers/visits/app/features/demo/config/tables/driverApplicationsHeaders";
+import type {driverApplicationRowType} from "~/layers/visits/app/features/demo/types/tables/driverApplicationsTypes";
+import {formatDate} from "~/layers/visits/app/features/demo/utils/formatDate";
+import {requestStatuses} from "~/layers/visits/app/features/demo/config/demoRequestStatuses";
+import {useDemoDbStore} from "~/layers/visits/app/features/demo/stores/demoDbStore";
+import {useDemoStore} from "~/layers/visits/app/features/demo/stores/demoStore";
 
 const demoDbStore = useDemoDbStore()
 const demoStore = useDemoStore()

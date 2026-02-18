@@ -1,5 +1,5 @@
 // demoSeed.ts
-import type {DemoSeedTypes} from "~/layers/visits/app/types/demo/demoDbTypes";
+import type {DemoSeedTypes} from "~/layers/visits/app/features/demo/types/demoDbTypes";
 
 export const demoSeed: DemoSeedTypes = {
     transportCompanies: [

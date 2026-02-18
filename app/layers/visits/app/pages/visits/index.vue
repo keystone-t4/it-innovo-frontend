@@ -1,3 +1,7 @@
+<script setup>
+import DemoViewport from '~/layers/visits/app/features/demo/components/demoViewport.vue'
+</script>
+
 <template>
   <main class="home">
     <div class="home__hero block">
@@ -16,7 +20,7 @@
     </div>
 
     <div class="home__demo block">
-      <Demo/>
+      <DemoViewport/>
     </div>
   </main>
 </template>

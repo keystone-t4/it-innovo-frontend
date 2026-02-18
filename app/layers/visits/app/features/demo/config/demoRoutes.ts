@@ -3,7 +3,7 @@ import type {
     driverViewRouteType,
     consigneeViewRouteType,
     managerViewRouteType,
-} from "~/layers/visits/app/types/demo/demoTypes";
+} from "~/layers/visits/app/features/demo/types/demoTypes";
 
 export type DemoRouteMeta<T extends string> = {
     key: T;

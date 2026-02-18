@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { useDemoStore } from "~/layers/visits/app/stores/demo/demoStore";
-import type { demoRoleType } from "~/layers/visits/app/types/demo/demoTypes";
+import { useDemoStore } from "~/layers/visits/app/features/demo/stores/demoStore";
+import type { demoRoleType } from "~/layers/visits/app/features/demo/types/demoTypes";
 
 type roleCard = {
   title: string;
