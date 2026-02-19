@@ -1,3 +1,7 @@
+export type tableHeader<T> = {
+    title: string;
+    key: keyof T;
+};
 
 // DTO (view-model) для строки таблицы водителя.
 // Значения берутся из разных сущностей \types\demoDbTypes.ts (Driver + ArrivalPlace + Request)
@@ -14,5 +18,16 @@ export type driverApplicationRowType = {
     unload_start_time: string
     status: string
 
+    interact: string
+}
+
+// DTO (view-model) для строки таблицы водителя.
+// Значения берутся из разных сущностей \types\demoDbTypes.ts (Driver + ArrivalPlace + Request)
+// и/или являются переименованными/подготовленными для UI.
+export type managerDriversTypes = {
+    driver_id: string
+    full_name: string
+    car_number: string
+    phone: string
     interact: string
 }

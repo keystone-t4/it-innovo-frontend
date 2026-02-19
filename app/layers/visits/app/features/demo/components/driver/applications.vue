@@ -1,18 +1,26 @@
 <script setup lang="ts">
-import {driverApplicationsHeaders} from "~/layers/visits/app/features/demo/config/tables/driverApplicationsHeaders";
-import type {driverApplicationRowType} from "~/layers/visits/app/features/demo/types/tables/driverApplicationsTypes";
+import {driverApplicationsHeaders} from "~/layers/visits/app/features/demo/config/demoTablesHeaders";
+import type {driverApplicationRowType} from "~/layers/visits/app/features/demo/types/demoTables";
+import {useDemoStore} from "~/layers/visits/app/features/demo/stores/demoStore";
+import {useDemoDbStore} from "~/layers/visits/app/features/demo/stores/demoDbStore";
 import {formatDate} from "~/layers/visits/app/features/demo/utils/formatDate";
 import {requestStatuses} from "~/layers/visits/app/features/demo/config/demoRequestStatuses";
-import {useDemoDbStore} from "~/layers/visits/app/features/demo/stores/demoDbStore";
-import {useDemoStore} from "~/layers/visits/app/features/demo/stores/demoStore";
+
+const props = defineProps<{
+  driver_id?: string
+}>()
 
 const demoDbStore = useDemoDbStore()
 const demoStore = useDemoStore()
 
+const currentDriverId = computed(() =>
+    props.driver_id || demoStore.currentDriverId
+)
+
 const currentDriverRequests = computed(() =>
-    demoDbStore.getCurrentDriverRequestsById(demoStore.currentDriverId)
+    demoDbStore.getCurrentDriverRequestsById(currentDriverId.value)
 );
-const currentDriverName = demoDbStore.getCurrentDriverById(demoStore.currentDriverId).full_name;
+const currentDriverName = demoDbStore.getCurrentDriverById(currentDriverId.value).full_name;
 
 const tableRows = computed<driverApplicationRowType[]>(() => {
   return [...currentDriverRequests.value]

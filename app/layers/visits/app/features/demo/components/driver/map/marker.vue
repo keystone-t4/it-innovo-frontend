@@ -2,16 +2,14 @@
 import { computed } from "vue";
 import { useDemoStore } from "~/layers/visits/app/features/demo/stores/demoStore";
 
-interface Props {
+const props = defineProps<{
   id: string;
   name: string;
   address: string;
   x: number;
   y: number;
   isPercent?: boolean;
-}
-
-const props = defineProps<Props>();
+}>();
 const store = useDemoStore();
 
 const isSelected = computed(() => store.currentArrivalPlaceId === props.id);
