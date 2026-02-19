@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type {managerDriversTypes} from "~/layers/visits/app/features/demo/types/demoTables";
+import type {managerDriversTypes} from "~/layers/visits/app/features/demo/types/demoTablesTypes";
 import {managerDriversHeaders} from "~/layers/visits/app/features/demo/config/demoTablesHeaders";
 import {useDemoDbStore} from "~/layers/visits/app/features/demo/stores/demoDbStore";
 import {useDemoStore} from "~/layers/visits/app/features/demo/stores/demoStore";

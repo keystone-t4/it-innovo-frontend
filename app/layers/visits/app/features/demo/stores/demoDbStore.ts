@@ -216,6 +216,13 @@ export const useDemoDbStore = defineStore("demoDbStore", () => {
         return drivers.value.filter(d => d.company_id === id)
     }
 
+    function getTransportCompanyNameById(id?: string | null): string {
+        if (!id) return '-';
+
+        const name = companies.value.find(c => c.id === id);
+        return name?.name ?? '-';
+    }
+
     function getArrivalPlaceNameById(id?: string | null): string {
         if (!id) return '-';
 
@@ -262,6 +269,7 @@ export const useDemoDbStore = defineStore("demoDbStore", () => {
         sendRequest,
 
         getAllTransportCompanyDriversById,
+        getTransportCompanyNameById,
         getArrivalPlaceNameById,
         getCurrentDriverById,
         getCurrentDriverRequestsById,

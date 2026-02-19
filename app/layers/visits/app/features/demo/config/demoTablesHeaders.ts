@@ -1,4 +1,9 @@
-import type {tableHeader, managerDriversTypes, driverApplicationRowType} from "~/layers/visits/app/features/demo/types/demoTables";
+import type {
+    tableHeader,
+    managerDriversTypes,
+    driverApplicationRowType,
+    consigneeQueueTypes
+} from "~/layers/visits/app/features/demo/types/demoTablesTypes";
 
 export const driverApplicationsHeaders: tableHeader<driverApplicationRowType>[] = [
     { title: "ФИО", key: "full_name" },
@@ -18,3 +23,9 @@ export const managerDriversHeaders: tableHeader<managerDriversTypes>[] = [
     { title: "Действие", key: "interact"},
 ];
 
+export const consigneeHeaders: tableHeader<consigneeQueueTypes>[] = [
+    { title: "Плановая дата и время выгрузки ТС", key: "unload_date" },
+    { title: "Гос номер ТС \n Номер прицепа", key: "transports_number" },
+    { title: "Перевозчик", key: "transport_company_name" },
+    { title: "Статус", key: "status"},
+];

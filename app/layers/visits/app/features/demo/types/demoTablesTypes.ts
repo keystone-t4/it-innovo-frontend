@@ -21,13 +21,18 @@ export type driverApplicationRowType = {
     interact: string
 }
 
-// DTO (view-model) для строки таблицы водителя.
-// Значения берутся из разных сущностей \types\demoDbTypes.ts (Driver + ArrivalPlace + Request)
-// и/или являются переименованными/подготовленными для UI.
 export type managerDriversTypes = {
     driver_id: string
     full_name: string
     car_number: string
     phone: string
     interact: string
+}
+
+export type consigneeQueueTypes = {
+    request_id: string
+    unload_date: string
+    transports_number: string
+    transport_company_name: string
+    status: string
 }
