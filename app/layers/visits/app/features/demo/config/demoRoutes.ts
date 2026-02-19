@@ -31,13 +31,15 @@ export const demoRouting: Record<demoRoleType, DemoRoleRouting> = {
     consignee: {
         titleRu: "Грузополучатель",
         routes: [
-            { key: "applications", titleRu: "Заявки" },
             { key: "queue", titleRu: "Очередь" },
             { key: "analytics", titleRu: "Аналитика" },
         ],
     },
     manager: {
         titleRu: "Менеджер ТК",
-        routes: [{ key: "applications", titleRu: "Заявки"}],
+        routes: [
+            { key: "drivers", titleRu: "Водители"}, //вложенная страница с заявками конкретного водителя
+            { key: "submit", titleRu: "Оставить заявку" },
+        ],
     },
 };

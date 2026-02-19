@@ -1,5 +1,5 @@
 import { isValidPhone, normalizePhone } from '~/layers/visits/app/features/demo/utils/phone';
-import {getToday, isPastDate, isPastDateTime} from '~/layers/visits/app/features/demo/utils/date';
+import {isPastDate, isPastDateTime} from '~/layers/visits/app/features/demo/utils/date';
 import {useDemoDbStore} from "~/layers/visits/app/features/demo/stores/demoDbStore";
 import {useDemoStore} from "~/layers/visits/app/features/demo/stores/demoStore";
 import type {RequestType} from "~/layers/visits/app/features/demo/types/demoDbTypes";
@@ -37,7 +37,7 @@ export function useRequestFormValidation(form: Omit<RequestType, 'id' | 'status'
             fieldErrors.driver_phone = 'Некорректный номер телефона — допустимо 10–15 цифр';
         }
 
-        if (form.ttn_number && demoDbStore.requests.some(r => r.ttn_number === form.ttn_number)) {
+        if (form.ttn_number && demoDbStore.requests.some(r => r.ttn_number === form.ttn_number && r.status !== 'rejected')) {
             fieldErrors.ttn_number = 'Заявка с таким ТТН уже существует';
         }
 

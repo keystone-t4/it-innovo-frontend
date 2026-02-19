@@ -86,7 +86,7 @@ export const useDemoDbStore = defineStore("demoDbStore", () => {
                     const requests = upgradeDb.createObjectStore(STORES.requests, { keyPath: "id" });
                     requests.createIndex("driver_id", "driver_id", { unique: false });
                     requests.createIndex("arrival_place_id", "arrival_place_id", { unique: false });
-                    requests.createIndex("ttn_number", "ttn_number", { unique: true });
+                    requests.createIndex("ttn_number", "ttn_number", { unique: false });
                     requests.createIndex("status", "status", { unique: false });
 
                     // 3) Запись seed данных
@@ -211,6 +211,11 @@ export const useDemoDbStore = defineStore("demoDbStore", () => {
         return request;
     }
 
+    function getAllTransportCompanyDriversById(id?: string | null): DriverType[] {
+        if (!id) return [];
+        return drivers.value.filter(d => d.company_id === id)
+    }
+
     function getArrivalPlaceNameById(id?: string | null): string {
         if (!id) return '-';
 
@@ -256,6 +261,7 @@ export const useDemoDbStore = defineStore("demoDbStore", () => {
         cancelRequest,
         sendRequest,
 
+        getAllTransportCompanyDriversById,
         getArrivalPlaceNameById,
         getCurrentDriverById,
         getCurrentDriverRequestsById,

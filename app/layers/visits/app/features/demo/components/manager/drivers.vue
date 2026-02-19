@@ -3,5 +3,5 @@
 </script>
 
 <template>
-заявки
+Водители
 </template>

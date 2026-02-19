@@ -11,12 +11,16 @@ import {demoRouting} from "~/layers/visits/app/features/demo/config/demoRoutes";
 export const useDemoStore = defineStore('demoStore', () => {
     const currentRole = ref<demoRoleType>("driver");
 
-    const driverViewRoute = ref<driverViewRouteType>("map");
-    const consigneeViewRoute = ref<consigneeViewRouteType>("applications");
-    const managerViewRoute = ref<managerViewRouteType>("applications");
-
+    const currentTransportCompanyId = ref<string>('tc_001')
+    const currentDriverOfTransportCompanyId = ref<string>('drv_tc001_01')
     const currentDriverId = ref<string>('drv_tc001_01');
     const currentArrivalPlaceId = ref<string>('pl_001');
+
+    const driverViewRoute = ref<driverViewRouteType>("map");
+    const consigneeViewRoute = ref<consigneeViewRouteType>("queue");
+    const managerViewRoute = ref<managerViewRouteType>("drivers");
+
+    const formSubmitSuccess = ref<boolean>(false)
 
     const currentView = computed<allRoutesType>(() => {
         if (currentRole.value === "driver") return driverViewRoute.value;
@@ -51,7 +55,10 @@ export const useDemoStore = defineStore('demoStore', () => {
         driverViewRoute,
         consigneeViewRoute,
         managerViewRoute,
+        formSubmitSuccess,
         currentView,
+        currentTransportCompanyId,
+        currentDriverOfTransportCompanyId,
         currentDriverId,
         currentArrivalPlaceId,
 
