@@ -18,7 +18,7 @@ const tableRows = computed<managerDriversTypes[]>(() => {
         driver_id: req.id,
         full_name: req.full_name,
         car_number: demoDbStore.getArrivalPlaceNameById(demoStore.currentArrivalPlaceId),
-        phone: req.trailer_number, //TODO: ЗАМЕНИТЬ НА НОМЕР ТЕЛФОНА
+        phone: req.trailer_number, //TODO: ЗАМЕНИТЬ НА НОМЕР ТЕЛЕФОНА
         interact: ""
       }));
 });

@@ -9,18 +9,20 @@ const demoDbStore = useDemoDbStore()
 
 const tableRows = computed<consigneeQueueTypes[]>(() => {
   return [...demoDbStore.requests]
+      .sort((a, b) => {
+        const dateA = new Date(`${a.unload_date}T${a.unload_start_time}`).getTime()
+        const dateB = new Date(`${b.unload_date}T${b.unload_start_time}`).getTime()
+        return dateA - dateB
+      })
       .map(req => ({
         request_id: req.id,
         unload_date: formatDate(req.unload_date, false) + ' ' +  req.unload_start_time,
-        transports_number: demoDbStore.getCurrentDriverById(req.driver_id).truck_number + ' ' + demoDbStore.getCurrentDriverById(req.driver_id).trailer_number,
-        transport_company_name: demoDbStore.getTransportCompanyNameById(demoDbStore.getCurrentDriverById(req.driver_id).company_id), //TODO: ЗАМЕНИТЬ НА НОМЕР ТЕЛЕФОНА
+        transports_number: demoDbStore.getCurrentDriverById(req.driver_id).truck_number + '\n' + demoDbStore.getCurrentDriverById(req.driver_id).trailer_number,
+        transport_company_name: 'OOO "' + demoDbStore.getTransportCompanyNameById(demoDbStore.getCurrentDriverById(req.driver_id).company_id) + '"',
         status: requestStatuses[req.status],
       }));
 });
 </script>
-
-<!--todo: добавить переносы символов-->
-<!--todo: добавить либо пагинацию либо скроллы (на первое время скроллы)!-->
 
 <template>
   <div class="drivers">
@@ -37,7 +39,11 @@ const tableRows = computed<consigneeQueueTypes[]>(() => {
       <tbody>
       <tr class="table__row" v-for="row in tableRows" :key="row.request_id">
         <td class="table__cell" v-for="field in consigneeHeaders" :data-label="field.key">
-          <p class="table__text">{{ row[field.key] }}</p>
+          <p class="table__text"
+             :class="field.key === 'unload_date' ? 'table__text--bold' : ''"
+          >
+            {{ row[field.key] }}
+          </p>
         </td>
       </tr>
       </tbody>
@@ -54,7 +60,6 @@ const tableRows = computed<consigneeQueueTypes[]>(() => {
             v-for="field in consigneeHeaders"
             :key="field.key"
         >
-          <template>
             <p class="mobile-table__header">
               {{ field.title + ':'}}
             </p>
@@ -62,9 +67,17 @@ const tableRows = computed<consigneeQueueTypes[]>(() => {
             <p class="mobile-table__text">
               {{ row[field.key] }}
             </p>
-          </template>
         </div>
       </div>
     </div>
   </div>
 </template>
+
+<style scoped lang="scss">
+.table__header, .table__text, .mobile-table__header, .mobile-table__text {
+  white-space: pre-line;
+}
+.table__text--bold {
+  font-weight: 700;
+}
+</style>

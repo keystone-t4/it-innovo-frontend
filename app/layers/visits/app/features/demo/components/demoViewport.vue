@@ -52,14 +52,16 @@ onMounted(async () => {
     <RolesNav/>
     <div class="demo__content">
       <RoutesNav/>
-      <ClientOnly>
-        <Suspense>
-          <component :is="viewComponent" :key="viewKey" />
-          <template #fallback>
-            <Loader />
-          </template>
-        </Suspense>
-      </ClientOnly>
+      <div class="demo__body">
+        <ClientOnly>
+          <Suspense>
+            <component :is="viewComponent" :key="viewKey" />
+            <template #fallback>
+              <Loader />
+            </template>
+          </Suspense>
+        </ClientOnly>
+      </div>
     </div>
   </div>
 </template>
@@ -74,12 +76,21 @@ onMounted(async () => {
   &__content {
     width: 100%;
     min-height: 600px;
+    overflow-y: auto;
     background-color: var(--bg-color);
     border-radius: 5px;
-    padding: 2rem;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.5rem;
+    padding: 2rem;
+    @media (max-width: 1024px) {
+      padding: var(--layout-indent);
+    }
+  }
+
+  &__body {
+    max-height: 765px;
+    overflow-y: auto;
   }
 }
 </style>
