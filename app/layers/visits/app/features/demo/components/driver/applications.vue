@@ -20,15 +20,15 @@ const currentDriverId = computed(() =>
 const currentDriverRequests = computed(() =>
     demoDbStore.getCurrentDriverRequestsById(currentDriverId.value)
 );
-const currentDriverName = demoDbStore.getCurrentDriverById(currentDriverId.value).full_name;
+const currentDriverName = demoDbStore.getCurrentDriverById(currentDriverId.value)?.full_name;
 
 const tableRows = computed<driverApplicationRowType[]>(() => {
   return [...currentDriverRequests.value]
       .sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime())
       .map(req => ({
         req_id: req.id,
-        full_name: currentDriverName,
-        arrival_place_name: demoDbStore.getArrivalPlaceNameById(demoStore.currentArrivalPlaceId),
+        full_name: currentDriverName ?? '-',
+        arrival_place_name: demoDbStore.getArrivalPlaceNameById(demoStore.currentArrivalPlaceId) ?? '-',
         created_at: formatDate(req.created_at, true),
         ttn_number: req.ttn_number,
         unload_date: formatDate(req.unload_date),

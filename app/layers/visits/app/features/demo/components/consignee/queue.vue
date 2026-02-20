@@ -17,8 +17,8 @@ const tableRows = computed<consigneeQueueTypes[]>(() => {
       .map(req => ({
         request_id: req.id,
         unload_date: formatDate(req.unload_date, false) + ' ' +  req.unload_start_time,
-        transports_number: demoDbStore.getCurrentDriverById(req.driver_id).truck_number + '\n' + demoDbStore.getCurrentDriverById(req.driver_id).trailer_number,
-        transport_company_name: 'OOO "' + demoDbStore.getTransportCompanyNameById(demoDbStore.getCurrentDriverById(req.driver_id).company_id) + '"',
+        transports_number: demoDbStore.getCurrentDriverById(req.driver_id)?.truck_number + '\n' + demoDbStore.getCurrentDriverById(req.driver_id)?.trailer_number,
+        transport_company_name: 'OOO "' + demoDbStore.getTransportCompanyNameById(demoDbStore.getCurrentDriverById(req.driver_id)?.company_id) + '"',
         status: requestStatuses[req.status],
       }));
 });

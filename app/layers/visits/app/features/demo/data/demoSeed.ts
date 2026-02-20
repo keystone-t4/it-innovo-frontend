@@ -12,39 +12,39 @@ export const demoSeed: DemoSeedTypes = {
 
     drivers: [
         // tc_001
-        { id: "drv_tc001_01", company_id: "tc_001", full_name: "Иванов Сергей Петрович", truck_number: "A101AA77", trailer_number: "TR-0001" },
-        { id: "drv_tc001_02", company_id: "tc_001", full_name: "Петров Алексей Игоревич", truck_number: "A102AA77", trailer_number: "TR-0002" },
-        { id: "drv_tc001_03", company_id: "tc_001", full_name: "Сидоров Дмитрий Андреевич", truck_number: "A103AA77", trailer_number: "TR-0003" },
-        { id: "drv_tc001_04", company_id: "tc_001", full_name: "Кузнецов Максим Олегович", truck_number: "A104AA77", trailer_number: "TR-0004" },
-        { id: "drv_tc001_05", company_id: "tc_001", full_name: "Смирнов Павел Николаевич", truck_number: "A105AA77", trailer_number: "TR-0005" },
+        { id: "drv_tc001_01", company_id: "tc_001", full_name: "Иванов Сергей Петрович", truck_number: "A101AA77", trailer_number: "TR-0001", phone: "89001001001" },
+        { id: "drv_tc001_02", company_id: "tc_001", full_name: "Петров Алексей Игоревич", truck_number: "A102AA77", trailer_number: "TR-0002", phone: "89001002034" },
+        { id: "drv_tc001_03", company_id: "tc_001", full_name: "Сидоров Дмитрий Андреевич", truck_number: "A103AA77", trailer_number: "TR-0003", phone: "89001001231" },
+        { id: "drv_tc001_04", company_id: "tc_001", full_name: "Кузнецов Максим Олегович", truck_number: "A104AA77", trailer_number: "TR-0004", phone: "89401001021" },
+        { id: "drv_tc001_05", company_id: "tc_001", full_name: "Смирнов Павел Николаевич", truck_number: "A105AA77", trailer_number: "TR-0005", phone: "89032001001" },
 
         // tc_002
-        { id: "drv_tc002_01", company_id: "tc_002", full_name: "Васильев Илья Сергеевич", truck_number: "B201BB77", trailer_number: "TR-0006" },
-        { id: "drv_tc002_02", company_id: "tc_002", full_name: "Морозов Артём Викторович", truck_number: "B202BB77", trailer_number: "TR-0007" },
-        { id: "drv_tc002_03", company_id: "tc_002", full_name: "Фёдоров Роман Евгеньевич", truck_number: "B203BB77", trailer_number: "TR-0008" },
-        { id: "drv_tc002_04", company_id: "tc_002", full_name: "Новиков Антон Михайлович", truck_number: "B204BB77", trailer_number: "TR-0009" },
-        { id: "drv_tc002_05", company_id: "tc_002", full_name: "Павлов Кирилл Денисович", truck_number: "B205BB77", trailer_number: "TR-0010" },
+        { id: "drv_tc002_01", company_id: "tc_002", full_name: "Васильев Илья Сергеевич", truck_number: "B201BB77", trailer_number: "TR-0006", phone: "89301001002" },
+        { id: "drv_tc002_02", company_id: "tc_002", full_name: "Морозов Артём Викторович", truck_number: "B202BB77", trailer_number: "TR-0007", phone: "89001001003" },
+        { id: "drv_tc002_03", company_id: "tc_002", full_name: "Фёдоров Роман Евгеньевич", truck_number: "B203BB77", trailer_number: "TR-0008", phone: "89001004001" },
+        { id: "drv_tc002_04", company_id: "tc_002", full_name: "Новиков Антон Михайлович", truck_number: "B204BB77", trailer_number: "TR-0009", phone: "89001001005" },
+        { id: "drv_tc002_05", company_id: "tc_002", full_name: "Павлов Кирилл Денисович", truck_number: "B205BB77", trailer_number: "TR-0010", phone: "89001001006" },
 
         // tc_003
-        { id: "drv_tc003_01", company_id: "tc_003", full_name: "Волков Николай Сергеевич", truck_number: "C301CC77", trailer_number: "TR-0011" },
-        { id: "drv_tc003_02", company_id: "tc_003", full_name: "Соколов Егор Павлович", truck_number: "C302CC77", trailer_number: "TR-0012" },
-        { id: "drv_tc003_03", company_id: "tc_003", full_name: "Лебедев Тимур Аркадьевич", truck_number: "C303CC77", trailer_number: "TR-0013" },
-        { id: "drv_tc003_04", company_id: "tc_003", full_name: "Козлов Денис Владимирович", truck_number: "C304CC77", trailer_number: "TR-0014" },
-        { id: "drv_tc003_05", company_id: "tc_003", full_name: "Попов Степан Анатольевич", truck_number: "C305CC77", trailer_number: "TR-0015" },
+        { id: "drv_tc003_01", company_id: "tc_003", full_name: "Волков Николай Сергеевич", truck_number: "C301CC77", trailer_number: "TR-0011", phone: "89001001007" },
+        { id: "drv_tc003_02", company_id: "tc_003", full_name: "Соколов Егор Павлович", truck_number: "C302CC77", trailer_number: "TR-0012", phone: "89211001008" },
+        { id: "drv_tc003_03", company_id: "tc_003", full_name: "Лебедев Тимур Аркадьевич", truck_number: "C303CC77", trailer_number: "TR-0013", phone: "89211001009" },
+        { id: "drv_tc003_04", company_id: "tc_003", full_name: "Козлов Денис Владимирович", truck_number: "C304CC77", trailer_number: "TR-0014", phone: "89001001010" },
+        { id: "drv_tc003_05", company_id: "tc_003", full_name: "Попов Степан Анатольевич", truck_number: "C305CC77", trailer_number: "TR-0015", phone: "89001001011" },
 
         // tc_004
-        { id: "drv_tc004_01", company_id: "tc_004", full_name: "Михайлов Владислав Игоревич", truck_number: "D401DD77", trailer_number: "TR-0016" },
-        { id: "drv_tc004_02", company_id: "tc_004", full_name: "Беляев Андрей Сергеевич", truck_number: "D402DD77", trailer_number: "TR-0017" },
-        { id: "drv_tc004_03", company_id: "tc_004", full_name: "Тарасов Глеб Константинович", truck_number: "D403DD77", trailer_number: "TR-0018" },
-        { id: "drv_tc004_04", company_id: "tc_004", full_name: "Захаров Ярослав Романович", truck_number: "D404DD77", trailer_number: "TR-0019" },
-        { id: "drv_tc004_05", company_id: "tc_004", full_name: "Орлов Виктор Станиславович", truck_number: "D405DD77", trailer_number: "TR-0020" },
+        { id: "drv_tc004_01", company_id: "tc_004", full_name: "Михайлов Владислав Игоревич", truck_number: "D401DD77", trailer_number: "TR-0016", phone: "89001009901" },
+        { id: "drv_tc004_02", company_id: "tc_004", full_name: "Беляев Андрей Сергеевич", truck_number: "D402DD77", trailer_number: "TR-0017", phone: "89211001012" },
+        { id: "drv_tc004_03", company_id: "tc_004", full_name: "Тарасов Глеб Константинович", truck_number: "D403DD77", trailer_number: "TR-0018", phone: "89001001013" },
+        { id: "drv_tc004_04", company_id: "tc_004", full_name: "Захаров Ярослав Романович", truck_number: "D404DD77", trailer_number: "TR-0019", phone: "89001001014" },
+        { id: "drv_tc004_05", company_id: "tc_004", full_name: "Орлов Виктор Станиславович", truck_number: "D405DD77", trailer_number: "TR-0020", phone: "89211001015" },
 
         // tc_005
-        { id: "drv_tc005_01", company_id: "tc_005", full_name: "Макаров Евгений Петрович", truck_number: "E501EE77", trailer_number: "TR-0021" },
-        { id: "drv_tc005_02", company_id: "tc_005", full_name: "Григорьев Арсений Олегович", truck_number: "E502EE77", trailer_number: "TR-0022" },
-        { id: "drv_tc005_03", company_id: "tc_005", full_name: "Данилов Игорь Николаевич", truck_number: "E503EE77", trailer_number: "TR-0023" },
-        { id: "drv_tc005_04", company_id: "tc_005", full_name: "Борисов Матвей Сергеевич", truck_number: "E504EE77", trailer_number: "TR-0024" },
-        { id: "drv_tc005_05", company_id: "tc_005", full_name: "Жуков Константин Юрьевич", truck_number: "E505EE77", trailer_number: "TR-0025" },
+        { id: "drv_tc005_01", company_id: "tc_005", full_name: "Макаров Евгений Петрович", truck_number: "E501EE77", trailer_number: "TR-0021", phone: "89001001016" },
+        { id: "drv_tc005_02", company_id: "tc_005", full_name: "Григорьев Арсений Олегович", truck_number: "E502EE77", trailer_number: "TR-0022", phone: "89001001017" },
+        { id: "drv_tc005_03", company_id: "tc_005", full_name: "Данилов Игорь Николаевич", truck_number: "E503EE77", trailer_number: "TR-0023", phone: "82101001019" },
+        { id: "drv_tc005_04", company_id: "tc_005", full_name: "Борисов Матвей Сергеевич", truck_number: "E504EE77", trailer_number: "TR-0024", phone: "89001001025" },
+        { id: "drv_tc005_05", company_id: "tc_005", full_name: "Жуков Константин Юрьевич", truck_number: "E505EE77", trailer_number: "TR-0025", phone: "89311001026" },
     ],
 
     arrivalPlaces: [

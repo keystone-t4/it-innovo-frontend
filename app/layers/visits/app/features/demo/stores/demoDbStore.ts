@@ -216,26 +216,19 @@ export const useDemoDbStore = defineStore("demoDbStore", () => {
         return drivers.value.filter(d => d.company_id === id)
     }
 
-    function getTransportCompanyNameById(id?: string | null): string {
-        if (!id) return '-';
-
-        const name = companies.value.find(c => c.id === id);
-        return name?.name ?? '-';
+    function getTransportCompanyNameById(id?: string | null): string | null {
+        if (!id) return null;
+        return companies.value.find(c => c.id === id)?.name ?? null;
     }
 
-    function getArrivalPlaceNameById(id?: string | null): string {
-        if (!id) return '-';
-
-        const place = arrivalPlaces.value.find(p => p.id === id);
-        return place?.name ?? '-';
+    function getArrivalPlaceNameById(id?: string | null): string | null {
+        if (!id) return null;
+        return arrivalPlaces.value.find(p => p.id === id)?.name ?? null;
     }
 
-    function getCurrentDriverById(id?: string | null): DriverType {
-        const notExistsDriver = {id: '-', company_id: '-', full_name: '-', truck_number: '-', trailer_number: '-'};
-        if (!id) return notExistsDriver;
-
-        const driver = drivers.value.find(d => d.id === id);
-        return driver ?? notExistsDriver;
+    function getCurrentDriverById(id?: string | null): DriverType | null {
+        if (!id) return null;
+        return drivers.value.find(d => d.id === id) ?? null;
     }
 
     function getCurrentDriverRequestsById(driverId?: string | null): RequestType[] {

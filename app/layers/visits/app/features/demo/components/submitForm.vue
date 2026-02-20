@@ -8,10 +8,6 @@ import {getCurrentTime, getToday} from "~/layers/visits/app/features/demo/utils/
 const demoDbStore = useDemoDbStore();
 const demoStore = useDemoStore();
 
-const minTime = computed(() =>
-    form.unload_date === getToday() ? getCurrentTime() : undefined
-);
-
 const form = reactive({
   ttn_number: '',
   unload_date: '',
@@ -20,6 +16,10 @@ const form = reactive({
   weight_ttn: NaN,
   driver_phone: '',
 } as Omit<RequestType, 'id' | 'status' | 'created_at' | 'driver_id' | 'arrival_place_id'>);
+
+const minTime = computed(() =>
+    form.unload_date === getToday() ? getCurrentTime() : undefined
+);
 
 const { fieldErrors, validate, normalizeForm, resetForm } = useRequestFormValidation(form);
 
@@ -37,7 +37,7 @@ const currentDriver = computed(() => {
 })
 
 const switchCurrentDriver = computed({
-  get: () => currentDriver.value.id,
+  get: () => currentDriver.value?.id ?? '-',
   set: (newDriverId) => {
     demoStore.formSubmitSuccess = false;
     demoStore.currentDriverOfTransportCompanyId = newDriverId
@@ -58,7 +58,7 @@ async function onSubmit() {
   sending.value = true;
   try {
     await demoDbStore.sendRequest({
-      driver_id: currentDriver.value.id,
+      driver_id: currentDriver.value?.id ?? '-',
       arrival_place_id: demoStore.currentArrivalPlaceId,
       ...normalizeForm(),
     });

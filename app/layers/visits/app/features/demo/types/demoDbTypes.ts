@@ -11,6 +11,7 @@ export interface DriverType {
     full_name: string;
     truck_number: string;
     trailer_number: string;
+    phone: string;
 }
 
 export interface ArrivalPlaceType {

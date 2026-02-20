@@ -4,6 +4,7 @@ import {managerDriversHeaders} from "~/layers/visits/app/features/demo/config/de
 import {useDemoDbStore} from "~/layers/visits/app/features/demo/stores/demoDbStore";
 import {useDemoStore} from "~/layers/visits/app/features/demo/stores/demoStore";
 import DriverApplications from "~/layers/visits/app/features/demo/components/driver/applications.vue";
+import {formatPhoneForUI} from "~/layers/visits/app/features/demo/utils/phone";
 
 const demoDbStore = useDemoDbStore()
 const demoStore = useDemoStore()
@@ -17,8 +18,8 @@ const tableRows = computed<managerDriversTypes[]>(() => {
       .map(req => ({
         driver_id: req.id,
         full_name: req.full_name,
-        car_number: demoDbStore.getArrivalPlaceNameById(demoStore.currentArrivalPlaceId),
-        phone: req.trailer_number, //TODO: ЗАМЕНИТЬ НА НОМЕР ТЕЛЕФОНА
+        car_number: demoDbStore.getArrivalPlaceNameById(demoStore.currentArrivalPlaceId) ?? '-',
+        phone: formatPhoneForUI(req.phone),
         interact: ""
       }));
 });

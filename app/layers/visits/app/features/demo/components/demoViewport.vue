@@ -90,7 +90,9 @@ onMounted(async () => {
 
   &__body {
     max-height: 765px;
+    min-height: 485px;
     overflow-y: auto;
+
   }
 }
 </style>
