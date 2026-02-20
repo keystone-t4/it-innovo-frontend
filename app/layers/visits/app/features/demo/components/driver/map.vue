@@ -68,8 +68,8 @@ const currentMapRouteLink = computed(() => {
 <style scoped lang="scss">
 .map-container {
   position: relative;
-  width: 100%;
-  height: 100%;
+  width: fit-content;
+  margin: 0 auto;
 }
 
 .map {
@@ -81,11 +81,12 @@ const currentMapRouteLink = computed(() => {
   @media (max-width: 636px) {
     margin-top: 2rem;
   }
+  width: fit-content;
 
   &__img {
+    max-height: var(--demo-layout-body-height);
     border-radius: 5px;
     display: block;
-    width: 100%;
   }
 }
 

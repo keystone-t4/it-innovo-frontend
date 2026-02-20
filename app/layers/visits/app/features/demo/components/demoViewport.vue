@@ -75,7 +75,7 @@ onMounted(async () => {
 
   &__content {
     width: 100%;
-    min-height: 600px;
+    min-height: var(--demo-layout-height);
     overflow-y: auto;
     background-color: var(--bg-color);
     border-radius: 5px;
@@ -89,10 +89,8 @@ onMounted(async () => {
   }
 
   &__body {
-    max-height: 765px;
-    min-height: 485px;
+    height: var(--demo-layout-body-height);
     overflow-y: auto;
-
   }
 }
 </style>
