@@ -28,16 +28,12 @@ const currentAnalytics = ref('chart')
   <div class="analytics__body">
     <AnalyticsChart v-if="currentAnalytics === 'chart'"/>
     <AnalyticsTable v-else/>
-
   </div>
 </template>
 
 <style scoped lang="scss">
-.analytics {
-
-  &__line {
-    margin-bottom: 1rem;
-  }
+.analytics__line {
+  margin-bottom: 1rem;
 }
 
 .nav {

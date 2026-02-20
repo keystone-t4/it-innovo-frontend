@@ -26,9 +26,14 @@ const chartData = computed<ChartData<'bar'>>(() => ({
   labels: ['January', 'February', 'March'],
   datasets: [
     {
-      label: 'Sales',
+      label: 'Завершено',
       data: [40, 20, 12],
-      backgroundColor: '#42A5F5'
+      backgroundColor: '#b9e093'
+    },
+    {
+      label: 'План',
+      data: [0, 0, 4],
+      backgroundColor: '#95b7de'
     }
   ]
 }))
@@ -38,10 +43,21 @@ const chartOptions: ChartOptions<'bar'> = {
   plugins: {
     legend: {
       display: true
+    }
+  },
+  scales: {
+    x: {
+      title: {
+        display: true,
+        text: 'Месяцы'
+      }
     },
-    title: {
-      display: true,
-      text: 'Monthly Data'
+    y: {
+      title: {
+        display: true,
+        text: 'Количество заявок'
+      },
+      beginAtZero: true
     }
   }
 }
