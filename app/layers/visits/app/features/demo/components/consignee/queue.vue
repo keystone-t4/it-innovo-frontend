@@ -12,7 +12,7 @@ const tableRows = computed<consigneeQueueTypes[]>(() => {
       .sort((a, b) => {
         const dateA = new Date(`${a.unload_date}T${a.unload_start_time}`).getTime()
         const dateB = new Date(`${b.unload_date}T${b.unload_start_time}`).getTime()
-        return dateA - dateB
+        return dateB - dateA
       })
       .map(req => ({
         request_id: req.id,
