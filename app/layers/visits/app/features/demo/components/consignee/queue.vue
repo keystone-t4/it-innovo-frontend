@@ -4,12 +4,12 @@ import {consigneeHeaders} from "~/layers/visits/app/features/demo/config/demoTab
 import {useDemoDbStore} from "~/layers/visits/app/features/demo/stores/demoDbStore";
 import {formatDate} from "~/layers/visits/app/features/demo/utils/formatDate";
 import {requestStatuses} from "~/layers/visits/app/features/demo/config/demoRequestStatuses";
-import {sortByDateTimeDesc} from "~/layers/visits/app/features/demo/utils/sort";
+import {sortByDateTime} from "~/layers/visits/app/features/demo/utils/sort";
 
 const demoDbStore = useDemoDbStore()
 
 const tableRows = computed<consigneeQueueTypes[]>(() => {
-  return sortByDateTimeDesc(
+  return sortByDateTime(
       demoDbStore.requests,
       "unload_date",
       "unload_start_time"

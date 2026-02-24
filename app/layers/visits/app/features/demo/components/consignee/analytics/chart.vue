@@ -12,6 +12,51 @@ import {
   type ChartOptions,
   type ChartData
 } from 'chart.js'
+import {useDemoDbStore} from "~/layers/visits/app/features/demo/stores/demoDbStore";
+import {sortByDateTime} from "~/layers/visits/app/features/demo/utils/sort";
+
+const demoDbStore = useDemoDbStore()
+
+const notDeclineRequests = computed(() => {
+  return demoDbStore.requests.filter((request) => request.status === 'active' || request.status === 'accepted')
+})
+
+const requestsByDataKey = computed(() => {
+  return sortByDateTime(notDeclineRequests.value, 'unload_date', 'unload_start_time', false)
+})
+
+const last14DaysStats = computed(() => {
+  const result: Record<string, [number, number]> = {}
+  const seenDates = new Set<string>()
+
+  for (const r of requestsByDataKey.value) {
+    const date = r.unload_date
+
+    // если уже 14 дат и эта новая — пропускаем
+    if (!seenDates.has(date) && seenDates.size >= 14) {
+      continue
+    }
+
+    if (!result[date]) {
+      result[date] = [0, 0] // [accepted, active]
+      seenDates.add(date)
+    }
+
+    if (r.status === 'accepted') {
+      result[date][0]++
+    }
+
+    if (r.status === 'active') {
+      result[date][1]++
+    }
+  }
+
+  return result
+})
+
+const labelsArray = Object.keys(last14DaysStats.value)
+const acceptedRequestArray = Object.values(last14DaysStats.value).map(d => d[0])
+const activeRequestArray = Object.values(last14DaysStats.value).map(d => d[1])
 
 ChartJS.register(
     Title,
@@ -23,16 +68,16 @@ ChartJS.register(
 )
 
 const chartData = computed<ChartData<'bar'>>(() => ({
-  labels: ['January', 'February', 'March'],
+  labels: labelsArray,
   datasets: [
     {
       label: 'Завершено',
-      data: [40, 20, 12],
+      data: acceptedRequestArray,
       backgroundColor: '#b9e093'
     },
     {
       label: 'План',
-      data: [0, 0, 4],
+      data: activeRequestArray,
       backgroundColor: '#95b7de'
     }
   ]
@@ -55,12 +100,13 @@ const chartOptions: ChartOptions<'bar'> = {
     y: {
       title: {
         display: true,
-        text: 'Количество заявок'
+        text: 'Кол-во заявок'
       },
       beginAtZero: true
     }
   }
 }
+
 </script>
 
 <template>
@@ -73,6 +119,7 @@ const chartOptions: ChartOptions<'bar'> = {
 
 <style scoped lang="scss">
 #my-chart-id {
+  max-width: 100%;
   max-height: 100%;
 }
 </style>

@@ -6,7 +6,7 @@ import type {
     TransportCompanyType,
     RequestType
 } from "~/layers/visits/app/features/demo/types/demoDbTypes";
-import {sortByDateTimeDesc} from "~/layers/visits/app/features/demo/utils/sort";
+import {sortByDateTime} from "~/layers/visits/app/features/demo/utils/sort";
 
 // Подними DB_VERSION когда хочешь полностью пересоздать демо-БД у всех пользователей
 const DB_NAME = "visits_demo_db";
