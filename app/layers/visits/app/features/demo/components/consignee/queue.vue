@@ -2,7 +2,7 @@
 import type {consigneeQueueTypes} from "~/layers/visits/app/features/demo/types/demoTablesTypes";
 import {consigneeHeaders} from "~/layers/visits/app/features/demo/config/demoTablesHeaders";
 import {useDemoDbStore} from "~/layers/visits/app/features/demo/stores/demoDbStore";
-import {formatDate} from "~/layers/visits/app/features/demo/utils/formatDate";
+import {dateTimeFormat} from "~/layers/visits/app/features/demo/utils/date&time";
 import {requestStatuses} from "~/layers/visits/app/features/demo/config/demoRequestStatuses";
 import {sortByDateTime} from "~/layers/visits/app/features/demo/utils/sort";
 
@@ -16,7 +16,7 @@ const tableRows = computed<consigneeQueueTypes[]>(() => {
       )
       .map(req => ({
         request_id: req.id,
-        unload_date: formatDate(req.unload_date, false) + ' ' +  req.unload_start_time,
+        unload_date: dateTimeFormat(req.unload_date, false) + ' ' +  req.unload_start_time,
         transports_number: demoDbStore.getCurrentDriverById(req.driver_id)?.truck_number + '\n' + demoDbStore.getCurrentDriverById(req.driver_id)?.trailer_number,
         transport_company_name: 'OOO "' + demoDbStore.getTransportCompanyNameById(demoDbStore.getCurrentDriverById(req.driver_id)?.company_id) + '"',
         status: requestStatuses[req.status],

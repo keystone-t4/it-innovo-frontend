@@ -3,7 +3,7 @@ import { useDemoDbStore } from '~/layers/visits/app/features/demo/stores/demoDbS
 import { useDemoStore } from '~/layers/visits/app/features/demo/stores/demoStore';
 import {useRequestFormValidation} from "~/layers/visits/app/features/demo/composables/driver/useRequestFormValidation";
 import type {RequestType} from "~/layers/visits/app/features/demo/types/demoDbTypes";
-import {getCurrentTime, getToday} from "~/layers/visits/app/features/demo/utils/date";
+import {getCurrentTime, getToday} from "~/layers/visits/app/features/demo/utils/currentDate";
 
 const demoDbStore = useDemoDbStore();
 const demoStore = useDemoStore();

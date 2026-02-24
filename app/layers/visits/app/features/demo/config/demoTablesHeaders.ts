@@ -2,7 +2,7 @@ import type {
     tableHeader,
     managerDriversTypes,
     driverApplicationRowType,
-    consigneeQueueTypes
+    consigneeQueueTypes, consigneeAnalyticsTypes
 } from "~/layers/visits/app/features/demo/types/demoTablesTypes";
 
 export const driverApplicationsHeaders: tableHeader<driverApplicationRowType>[] = [
@@ -28,4 +28,13 @@ export const consigneeHeaders: tableHeader<consigneeQueueTypes>[] = [
     { title: "Гос номер ТС \n Номер прицепа", key: "transports_number" },
     { title: "Перевозчик", key: "transport_company_name" },
     { title: "Статус", key: "status"},
+];
+
+export const consigneeAnalyticsHeaders: tableHeader<consigneeAnalyticsTypes>[] = [
+    { title: "Перевозчик", key: "transport_company_name" },
+    { title: "ФИО водителя", key: "full_name" },
+    { title: "Продукт", key: "product_name" },
+    { title: "План", key: "unload_datetime" },
+    { title: "Заехал", key: "real_unload_datetime" },
+    { title: "Отклонение", key: "plan_deviation" },
 ];

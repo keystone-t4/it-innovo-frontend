@@ -36,3 +36,15 @@ export type consigneeQueueTypes = {
     transport_company_name: string
     status: string
 }
+
+export type consigneeAnalyticsTypes = {
+    request_id: string
+    transport_company_name: string
+    full_name: string
+    product_name: string
+
+    unload_datetime: string
+    real_unload_datetime: string
+
+    plan_deviation: string
+}

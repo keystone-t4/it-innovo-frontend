@@ -54,7 +54,7 @@ export const demoSeed: DemoSeedTypes = {
         { id: "pl_004", name: "Завод Восток-2", address: "г. Санкт-Петербург, Арсенальная улица, 78Б", map_x: 710.3, map_y: 220.8, link: 'https://yandex.ru/maps/2/saint-petersburg/house/arsenalnaya_ulitsa_78b/Z0kYdQFhQEMGQFtjfXV3eHxgbA==/?ll=30.363494%2C59.968233&z=16.61' },
         { id: "pl_005", name: "Завод Юг-1", address: "г. Санкт-Петербург, Территория Вольный Остров, 4Е", map_x: 370.7, map_y: 585, link: 'https://yandex.ru/maps/2/saint-petersburg/house/territoriya_volny_ostrov_4ye/Z0kYdARiTEwDQFtjfXR4dH5qbQ==/?ll=30.233443%2C59.895865&z=16.57' },
     ],
-
+    // todo: склеить две строки upload_date и upload_time!!!
     requests: [
         // drv_tc001_01 (has active)
         { id: "req_drv_tc001_01_01", driver_id: "drv_tc001_01", arrival_place_id: "pl_001", created_at: "2026-02-03T09:12:32", ttn_number: "TTN-2026-00001", unload_date: "2026-02-04", unload_start_time: "10:00", real_unload_datetime: "2026-02-04T09:23:45", status: "accepted", product_name: "Цемент М500", weight_ttn: 20.5, driver_phone: "+7 999 200-00-01" },
