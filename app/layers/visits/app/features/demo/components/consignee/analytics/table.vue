@@ -20,11 +20,10 @@ const tableRows = computed<consigneeAnalyticsTypes[]>(() => {
       acceptedRequests.value,
       "unload_date",
       "unload_start_time"
-  )
-      .map(req => ({
+  ).map(req => ({
         request_id: req.id,
         transport_company_name: 'OOO "' + demoDbStore.getTransportCompanyNameById(demoDbStore.getCurrentDriverById(req.driver_id)?.company_id) + '"',
-        full_name: demoDbStore.getCurrentDriverById(req.driver_id)?.full_name,
+        full_name: demoDbStore.getCurrentDriverById(req.driver_id)?.full_name ?? '-',
         product_name: req.product_name,
         unload_datetime: dateTimeFormat(combineDateAndTime(req.unload_date, req.unload_start_time)),
         real_unload_datetime: dateTimeFormat(req.real_unload_datetime),
