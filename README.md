@@ -46,7 +46,7 @@ erDiagram
         decimal  weight_ttn "NOT NULL"
         string   driver_phone "NOT NULL"
 
-	string   real_unload_datetime "NOT NULL (NOT "" WHEN status === 'accepted)" 
+	string   real_unload_datetime "NOT NULL (NOT emptyString WHEN status === accepted)" 
     }
 
 ```
