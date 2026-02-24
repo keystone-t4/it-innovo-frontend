@@ -15,7 +15,7 @@ const form = reactive({
   product_name: '',
   weight_ttn: NaN,
   driver_phone: '',
-} as Omit<RequestType, 'id' | 'status' | 'created_at' | 'driver_id' | 'arrival_place_id'>);
+} as Pick<RequestType, 'ttn_number' | 'unload_date' | 'unload_start_time' | 'product_name' | 'weight_ttn' | 'driver_phone'>);
 
 const minTime = computed(() =>
     form.unload_date === getToday() ? getCurrentTime() : undefined

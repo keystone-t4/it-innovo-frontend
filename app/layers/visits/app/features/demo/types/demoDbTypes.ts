@@ -32,6 +32,7 @@ export interface RequestType {
     ttn_number: string;
     unload_date: string; // "YYYY-MM-DD"
     unload_start_time: string; // "HH:mm"
+    real_unload_datetime: string;
     status: RequestStatusType;
 
     product_name: string;

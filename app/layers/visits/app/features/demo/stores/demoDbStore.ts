@@ -183,7 +183,7 @@ export const useDemoDbStore = defineStore("demoDbStore", () => {
         return updated;
     }
 
-    async function sendRequest(payload: Omit<RequestType, 'id' | 'status' | 'created_at'>) {
+    async function sendRequest(payload: Pick<RequestType, 'driver_id' | 'arrival_place_id' | 'ttn_number' | 'unload_date' | 'unload_start_time' | 'product_name' | 'weight_ttn' | 'driver_phone'>) {
         if (!db.value) throw new Error("DB not initialized");
 
         // Сгенерировать id — используем crypto.randomUUID() если доступен, иначе fallback
@@ -198,6 +198,7 @@ export const useDemoDbStore = defineStore("demoDbStore", () => {
             ...payload,
             id: newId,
             created_at,
+            real_unload_datetime: '',
             status,
         };
 

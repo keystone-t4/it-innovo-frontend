@@ -7,7 +7,7 @@ import type {RequestType} from "~/layers/visits/app/features/demo/types/demoDbTy
 const demoDbStore = useDemoDbStore()
 const demoStore = useDemoStore()
 
-export function useRequestFormValidation(form: Omit<RequestType, 'id' | 'status' | 'created_at'| 'driver_id' | 'arrival_place_id'>) {
+export function useRequestFormValidation(form: Pick<RequestType, 'ttn_number' | 'unload_date' | 'unload_start_time' | 'product_name' | 'weight_ttn' | 'driver_phone'>) {
     const fieldErrors = reactive<Record<string, string>>({});
 
     const validate = () => {
