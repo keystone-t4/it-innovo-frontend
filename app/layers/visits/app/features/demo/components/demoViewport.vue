@@ -91,6 +91,8 @@ onMounted(async () => {
   &__body {
     height: var(--demo-layout-body-height);
     overflow-y: auto;
+    display: flex;
+    flex-direction: column;
   }
 }
 </style>

@@ -3,6 +3,8 @@ import AnalyticsChart from "~/layers/visits/app/features/demo/components/consign
 import AnalyticsTable from "~/layers/visits/app/features/demo/components/consignee/analytics/table.vue";
 
 const currentAnalytics = ref('chart')
+
+
 </script>
 
 <template>
@@ -32,29 +34,36 @@ const currentAnalytics = ref('chart')
 </template>
 
 <style scoped lang="scss">
-.analytics__line {
-  margin-bottom: 1rem;
+.analytics {
+  &__line {
+    margin-bottom: 1rem;
+  }
+
+  &__body {
+    flex: 1;
+  }
 }
 
 .nav {
-  margin: 1rem 0;
+    margin: 1rem 0;
 
-  &__button {
-    text-transform: none;
-    background-color: rgba(0,0,0,0);
-    padding: 0.5rem;
-    color: var(--link-color);
-    transition: color 200ms ease, transform 200ms ease, background-color 200ms ease;
-    &:hover {
-      color: var(--link-color-hover);
-    }
+    &__button {
+      text-transform: none;
+      background-color: rgba(0,0,0,0);
+      padding: 0.5rem;
+      color: var(--link-color);
+      transition: color 200ms ease, transform 200ms ease, background-color 200ms ease;
+      &:hover {
+        color: var(--link-color-hover);
+      }
 
-    &--active {
-      background-color: white;
-      border-radius: 3px;
+      &--active {
+        background-color: white;
+        border-radius: 3px;
+      }
     }
-  }
 }
+
 
 
 </style>

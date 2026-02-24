@@ -6,6 +6,7 @@ import type {
     TransportCompanyType,
     RequestType
 } from "~/layers/visits/app/features/demo/types/demoDbTypes";
+import {sortByDateTimeDesc} from "~/layers/visits/app/features/demo/utils/sort";
 
 // Подними DB_VERSION когда хочешь полностью пересоздать демо-БД у всех пользователей
 const DB_NAME = "visits_demo_db";
@@ -140,16 +141,16 @@ export const useDemoDbStore = defineStore("demoDbStore", () => {
             "readonly"
         );
 
-        const cReq = tx.objectStore(STORES.companies).getAll();
-        const dReq = tx.objectStore(STORES.drivers).getAll();
-        const pReq = tx.objectStore(STORES.places).getAll();
-        const rReq = tx.objectStore(STORES.requests).getAll();
+        const cReq = tx.objectStore(STORES.companies).getAll() as IDBRequest<TransportCompanyType[]>;
+        const dReq = tx.objectStore(STORES.drivers).getAll() as IDBRequest<DriverType[]>;
+        const pReq = tx.objectStore(STORES.places).getAll() as IDBRequest<ArrivalPlaceType[]>;
+        const rReq = tx.objectStore(STORES.requests).getAll() as IDBRequest<RequestType[]>;
 
         const [c, d, p, r] = await Promise.all([
-            reqToPromise<any[]>(cReq),
-            reqToPromise<any[]>(dReq),
-            reqToPromise<any[]>(pReq),
-            reqToPromise<any[]>(rReq),
+            reqToPromise<TransportCompanyType[]>(cReq),
+            reqToPromise<DriverType[]>(dReq),
+            reqToPromise<ArrivalPlaceType[]>(pReq),
+            reqToPromise<RequestType[]>(rReq),
         ]);
 
         companies.value = c;

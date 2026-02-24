@@ -72,5 +72,7 @@ const chartOptions: ChartOptions<'bar'> = {
 </template>
 
 <style scoped lang="scss">
-
+#my-chart-id {
+  max-height: 100%;
+}
 </style>
