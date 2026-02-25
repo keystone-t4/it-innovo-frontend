@@ -75,16 +75,14 @@ const currentMapRouteLink = computed(() => {
 .map {
   position: relative;
   overflow: visible;
-  @media (max-width: 892px) {
-    margin-top: 1rem;
-  }
+  margin-top: 1rem;
   @media (max-width: 636px) {
     margin-top: 2rem;
   }
   width: fit-content;
 
   &__img {
-    max-height: var(--demo-layout-body-height);
+    max-height: calc(var(--demo-layout-body-height) - 1rem);
     border-radius: 5px;
     display: block;
   }

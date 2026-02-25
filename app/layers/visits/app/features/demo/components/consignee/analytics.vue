@@ -23,7 +23,6 @@ const currentAnalytics = ref('chart')
       </button>
     </nav>
   </div>
-  <hr class="analytics__line line"/>
 
   <div class="analytics__body">
     <AnalyticsChart v-if="currentAnalytics === 'chart'"/>
@@ -43,7 +42,7 @@ const currentAnalytics = ref('chart')
 }
 
 .nav {
-    margin: 1rem 0;
+    margin: 1rem 0 0 0;
 
     &__button {
       text-transform: none;
