@@ -21,6 +21,8 @@ const minTime = computed(() =>
     form.unload_date === getToday() ? getCurrentTime() : undefined
 );
 
+//todo: сделать в заявке добавление номера действительно необязательным шагом, в валидации пропускать null номер,
+
 const { fieldErrors, validate, normalizeForm, resetForm } = useRequestFormValidation(form);
 
 // UX state
@@ -87,7 +89,10 @@ onMounted(() => {
   <form class="request-form" @submit.prevent="onSubmit" novalidate>
 
     <div class="request-form__row">
-      <label class="request-form__label">ФИО водителя</label>
+      <label class="request-form__label">
+        ФИО водителя
+        <span class="required-star">*</span>
+      </label>
 
       <input v-if="currentRole === 'driver'" class="request-form__input" type="text" disabled
              :value="currentDriver?.full_name ?? ''"/>
@@ -140,13 +145,19 @@ onMounted(() => {
 
     <template v-if="(!isCurrentDriverOfTransportCompanyHaveActiveRequest && currentRole === 'manager') || currentRole === 'driver'">
       <div class="request-form__row">
-        <label class="request-form__label">Место прибытия</label>
+        <label class="request-form__label">
+          Место прибытия
+          <span class="required-star">*</span>
+        </label>
         <input class="request-form__input" type="text" disabled
                :value="currentPlaceName ?? ''"/>
       </div>
 
       <div class="request-form__row">
-        <label class="request-form__label">Номер ТТН</label>
+        <label class="request-form__label">
+          Номер ТТН
+          <span class="required-star">*</span>
+        </label>
         <input class="request-form__input"
                v-model="form.ttn_number"
                type="text"
@@ -157,19 +168,28 @@ onMounted(() => {
       </div>
 
       <div class="request-form__row">
-        <label class="request-form__label">Номер машины</label>
+        <label class="request-form__label">
+          Номер машины
+          <span class="required-star">*</span>
+        </label>
         <input class="request-form__input" type="text" disabled
                :value="currentDriver?.truck_number ?? ''"/>
       </div>
 
       <div class="request-form__row">
-        <label class="request-form__label">Номер прицепа</label>
+        <label class="request-form__label">
+          Номер прицепа
+          <span class="required-star">*</span>
+        </label>
         <input class="request-form__input" type="text" disabled
                :value="currentDriver?.trailer_number ?? ''"/>
       </div>
 
       <div class="request-form__row">
-        <label class="request-form__label">Дата разгрузки</label>
+        <label class="request-form__label">
+          Дата разгрузки
+          <span class="required-star">*</span>
+        </label>
         <input
             class="request-form__input"
             v-model="form.unload_date"
@@ -183,7 +203,10 @@ onMounted(() => {
       </div>
 
       <div class="request-form__row">
-        <label class="request-form__label">Время начала разгрузки</label>
+        <label class="request-form__label">
+          Время начала разгрузки
+          <span class="required-star">*</span>
+        </label>
         <input
             class="request-form__input"
             v-model="form.unload_start_time"
@@ -197,7 +220,10 @@ onMounted(() => {
       </div>
 
       <div class="request-form__row">
-        <label class="request-form__label">Наименование продукта</label>
+        <label class="request-form__label">
+          Наименование продукта
+          <span class="required-star">*</span>
+        </label>
         <input class="request-form__input"
                v-model="form.product_name"
                type="text"
@@ -210,7 +236,10 @@ onMounted(() => {
       </div>
 
       <div class="request-form__row">
-        <label class="request-form__label">Вес по ТТН (kg)</label>
+        <label class="request-form__label">
+          Вес по ТТН (кг)
+          <span class="required-star">*</span>
+        </label>
         <input class="request-form__input"
                v-model.number="form.weight_ttn"
                type="number"
@@ -284,6 +313,15 @@ onMounted(() => {
   &__label {
     font-weight: 600;
     font-size: 0.95rem;
+
+    .required-star {
+      color: var(--reject-color);
+      margin-left: -0.08rem;
+      font-size: 1rem;
+      line-height: 1;
+      position: relative;
+      top: -0.25rem;
+    }
   }
 
   &__input {

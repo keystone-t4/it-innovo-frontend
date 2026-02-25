@@ -2,6 +2,8 @@
 import {useDemoDbStore} from "~/layers/visits/app/features/demo/stores/demoDbStore";
 import {useDemoStore} from "~/layers/visits/app/features/demo/stores/demoStore";
 import DriverMapMarker from "~/layers/visits/app/features/demo/components/driver/map/marker.vue"
+import SubmitForm from "~/layers/visits/app/features/demo/components/submitForm.vue";
+
 
 const demoDbStore = useDemoDbStore()
 const demoStore = useDemoStore()

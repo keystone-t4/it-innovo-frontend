@@ -9,12 +9,12 @@ const props = defineProps<{
   y: number;
   isPercent?: boolean;
 }>();
-const store = useDemoStore();
+const demoStore = useDemoStore();
 
-const isSelected = computed(() => store.currentArrivalPlaceId === props.id);
+const isSelected = computed(() => demoStore.currentArrivalPlaceId === props.id);
 
 function selectPlace() {
-  store.currentArrivalPlaceId = props.id;
+  demoStore.currentArrivalPlaceId = props.id;
 }
 
 const tooltipBottom = computed(() => {
@@ -24,9 +24,8 @@ const tooltipBottom = computed(() => {
   return false;
 });
 
-function onGoto(evt: Event) {
-  evt.stopPropagation?.();
-  console.log('переход!');
+function goToSubmitForm() {
+  demoStore.driverViewRoute = 'submit'
 }
 </script>
 
@@ -65,8 +64,8 @@ function onGoto(evt: Event) {
       <div class="marker__actions">
         <button
             class="marker__button button"
-            @click.stop="onGoto"
-            @keydown.stop.enter.prevent="onGoto"
+            @click.stop="goToSubmitForm"
+            @keydown.stop.enter.prevent="goToSubmitForm"
             type="button"
         >
           Перейти к форме
