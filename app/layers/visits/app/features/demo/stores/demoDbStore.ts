@@ -6,7 +6,7 @@ import type {
     TransportCompanyType,
     RequestType
 } from "~/layers/visits/app/features/demo/types/demoDbTypes";
-import {sortByDateTime} from "~/layers/visits/app/features/demo/utils/sort";
+import type {requestFormDTOType} from "~/layers/visits/app/features/demo/types/demoDbTypes";
 
 // Подними DB_VERSION когда хочешь полностью пересоздать демо-БД у всех пользователей
 const DB_NAME = "visits_demo_db";
@@ -183,7 +183,7 @@ export const useDemoDbStore = defineStore("demoDbStore", () => {
         return updated;
     }
 
-    async function sendRequest(payload: Pick<RequestType, 'driver_id' | 'arrival_place_id' | 'ttn_number' | 'unload_date' | 'unload_start_time' | 'product_name' | 'weight_ttn' | 'driver_phone'>) {
+    async function sendRequest(payload: requestFormDTOType) {
         if (!db.value) throw new Error("DB not initialized");
 
         // Сгенерировать id — используем crypto.randomUUID() если доступен, иначе fallback
@@ -194,12 +194,17 @@ export const useDemoDbStore = defineStore("demoDbStore", () => {
         const created_at = new Date().toISOString();
         const status: RequestType['status'] = "active";
 
+        const { unload_date, unload_start_time, ...rest } = payload;
+
+        const unload_datetime = `${unload_date}T${unload_start_time}:00`
+
         const request: RequestType = {
-            ...payload,
+            ...rest,
             id: newId,
             created_at,
-            real_unload_datetime: '',
             status,
+            real_unload_datetime: '',
+            unload_datetime,
         };
 
         const tx = db.value.transaction([STORES.requests], "readwrite");

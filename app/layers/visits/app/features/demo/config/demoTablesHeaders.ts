@@ -36,5 +36,5 @@ export const consigneeAnalyticsHeaders: tableHeader<consigneeAnalyticsTypes>[] =
     { title: "Продукт", key: "product_name" },
     { title: "План", key: "unload_datetime" },
     { title: "Заехал", key: "real_unload_datetime" },
-    { title: "Отклонение", key: "plan_deviation" },
+    { title: "Отклонение от плана, ч", key: "plan_deviation" },
 ];

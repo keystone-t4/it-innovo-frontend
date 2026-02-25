@@ -30,9 +30,8 @@ export interface RequestType {
 
     created_at: string; // ISO datetime, e.g. "2026-02-08T13:30:00"
     ttn_number: string;
-    unload_date: string; // "YYYY-MM-DD"
-    unload_start_time: string; // "HH:mm"
-    real_unload_datetime: string;
+    unload_datetime: string; // ISO datetime
+    real_unload_datetime: string; // ISO datetime
     status: RequestStatusType;
 
     product_name: string;
@@ -46,4 +45,22 @@ export interface DemoSeedTypes {
     drivers: DriverType[];
     arrivalPlaces: ArrivalPlaceType[];
     requests: RequestType[];
+}
+
+export type requestTableRowType = {
+    ttn_number: string;
+    unload_date: string;
+    unload_start_time: string;
+    product_name: string;
+    weight_ttn: number | null;
+    driver_phone: string;
+};
+
+export type validRequestFormType = requestTableRowType & {
+    weight_ttn: number;
+};
+
+export type requestFormDTOType = validRequestFormType & {
+    driver_id: string;
+    arrival_place_id: string;
 }

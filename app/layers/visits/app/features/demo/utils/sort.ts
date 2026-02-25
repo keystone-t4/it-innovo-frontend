@@ -1,16 +1,14 @@
-export const sortByDateTime = <
+export const sortByDatetime = <
     T extends Record<string, unknown>,
-    D extends keyof T,
-    U extends keyof T
+    K extends keyof T
 >(
     items: T[],
-    dateKey: D,
-    timeKey: U,
+    datetimeKey: K,
     isDesc: boolean = true
 ): T[] => {
     return [...items].sort((a, b) => {
-        const dateA = new Date(`${a[dateKey]}T${a[timeKey]}`).getTime()
-        const dateB = new Date(`${b[dateKey]}T${b[timeKey]}`).getTime()
-        return isDesc ? dateB - dateA : dateA - dateB
-    })
-}
+        const timeA = new Date(a[datetimeKey] as string).getTime();
+        const timeB = new Date(b[datetimeKey] as string).getTime();
+        return isDesc ? timeB - timeA : timeA - timeB;
+    });
+};

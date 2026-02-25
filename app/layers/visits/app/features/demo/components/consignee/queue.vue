@@ -4,23 +4,21 @@ import {consigneeHeaders} from "~/layers/visits/app/features/demo/config/demoTab
 import {useDemoDbStore} from "~/layers/visits/app/features/demo/stores/demoDbStore";
 import {dateTimeFormat} from "~/layers/visits/app/features/demo/utils/date&time";
 import {requestStatuses} from "~/layers/visits/app/features/demo/config/demoRequestStatuses";
-import {sortByDateTime} from "~/layers/visits/app/features/demo/utils/sort";
+import {sortByDatetime} from "~/layers/visits/app/features/demo/utils/sort";
 
 const demoDbStore = useDemoDbStore()
 
 const tableRows = computed<consigneeQueueTypes[]>(() => {
-  return sortByDateTime(
-      demoDbStore.requests,
-      "unload_date",
-      "unload_start_time"
-      )
-      .map(req => ({
-        request_id: req.id,
-        unload_date: dateTimeFormat(req.unload_date, false) + ' ' +  req.unload_start_time,
-        transports_number: demoDbStore.getCurrentDriverById(req.driver_id)?.truck_number + '\n' + demoDbStore.getCurrentDriverById(req.driver_id)?.trailer_number,
-        transport_company_name: 'OOO "' + demoDbStore.getTransportCompanyNameById(demoDbStore.getCurrentDriverById(req.driver_id)?.company_id) + '"',
-        status: requestStatuses[req.status],
-      }));
+  return sortByDatetime(demoDbStore.requests, 'unload_datetime')
+      .map(req => {
+        return ({
+          request_id: req.id,
+          unload_date: dateTimeFormat(req.unload_datetime),
+          transports_number: demoDbStore.getCurrentDriverById(req.driver_id)?.truck_number + '\n' + demoDbStore.getCurrentDriverById(req.driver_id)?.trailer_number,
+          transport_company_name: 'OOO "' + demoDbStore.getTransportCompanyNameById(demoDbStore.getCurrentDriverById(req.driver_id)?.company_id) + '"',
+          status: requestStatuses[req.status],
+        });
+      })
 });
 </script>
 

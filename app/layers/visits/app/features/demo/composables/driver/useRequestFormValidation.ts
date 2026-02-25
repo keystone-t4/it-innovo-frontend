@@ -2,42 +2,42 @@ import { isValidPhone, normalizePhone } from '~/layers/visits/app/features/demo/
 import {isPastDate, isPastDateTime} from '~/layers/visits/app/features/demo/utils/currentDate';
 import {useDemoDbStore} from "~/layers/visits/app/features/demo/stores/demoDbStore";
 import {useDemoStore} from "~/layers/visits/app/features/demo/stores/demoStore";
-import type {RequestType} from "~/layers/visits/app/features/demo/types/demoDbTypes";
+import type {requestTableRowType, validRequestFormType} from "~/layers/visits/app/features/demo/types/demoDbTypes";
 
 const demoDbStore = useDemoDbStore()
 const demoStore = useDemoStore()
 
-export function useRequestFormValidation(form: Pick<RequestType, 'ttn_number' | 'unload_date' | 'unload_start_time' | 'product_name' | 'weight_ttn' | 'driver_phone'>) {
+export function useRequestFormValidation(form: requestTableRowType) {
     const fieldErrors = reactive<Record<string, string>>({});
 
-    const validate = () => {
+    const validate = (f: requestTableRowType = form): f is validRequestFormType => {
         Object.keys(fieldErrors).forEach(k => delete fieldErrors[k]);
 
-        if (!form.ttn_number?.trim()) fieldErrors.ttn_number = 'Введите номер ТТН';
-        if (!form.unload_date) fieldErrors.unload_date = 'Выберите дату разгрузки';
-        if (form.unload_date && isPastDate(form.unload_date)) {
+        if (!f.ttn_number?.trim()) fieldErrors.ttn_number = 'Введите номер ТТН';
+        if (!f.unload_date) fieldErrors.unload_date = 'Выберите дату разгрузки';
+        if (f.unload_date && isPastDate(f.unload_date)) {
             fieldErrors.unload_date = 'Дата разгрузки не может быть в прошлом';
         }
-        if (!form.unload_start_time) fieldErrors.unload_start_time = 'Укажите время начала';
+        if (!f.unload_start_time) fieldErrors.unload_start_time = 'Укажите время начала';
         if (
-            form.unload_date &&
-            form.unload_start_time &&
+            f.unload_date &&
+            f.unload_start_time &&
             !fieldErrors.unload_date &&
-            isPastDateTime(form.unload_date, form.unload_start_time)
+            isPastDateTime(f.unload_date, f.unload_start_time)
         ) {
             fieldErrors.unload_start_time = 'Время разгрузки не может быть в прошлом';
         }
-        if (!form.product_name?.trim()) fieldErrors.product_name = 'Укажите наименование продукта';
-        if (form.weight_ttn === null || Number.isNaN(form.weight_ttn) || form.weight_ttn <= 0) {
+        if (!f.product_name?.trim()) fieldErrors.product_name = 'Укажите наименование продукта';
+        if (!f.weight_ttn || Number.isNaN(f.weight_ttn) || f.weight_ttn <= 0) {
             fieldErrors.weight_ttn = 'Укажите корректный вес';
         }
-        if (!form.driver_phone?.trim()) {
+        if (!f.driver_phone?.trim()) {
             fieldErrors.driver_phone = 'Укажите телефон водителя';
-        } else if (!isValidPhone(form.driver_phone)) {
+        } else if (!isValidPhone(f.driver_phone)) {
             fieldErrors.driver_phone = 'Некорректный номер телефона — допустимо 10–15 цифр';
         }
 
-        if (form.ttn_number && demoDbStore.requests.some(r => r.ttn_number === form.ttn_number && r.status !== 'rejected')) {
+        if (f.ttn_number && demoDbStore.requests.some(r => r.ttn_number === f.ttn_number && r.status !== 'rejected')) {
             fieldErrors.ttn_number = 'Заявка с таким ТТН уже существует';
         }
 
@@ -58,7 +58,7 @@ export function useRequestFormValidation(form: Pick<RequestType, 'ttn_number' | 
         form.unload_date = '';
         form.unload_start_time = '';
         form.product_name = '';
-        form.weight_ttn = NaN;
+        form.weight_ttn = null;
         form.driver_phone = '';
     };
 

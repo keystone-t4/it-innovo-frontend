@@ -3,8 +3,6 @@ import AnalyticsChart from "~/layers/visits/app/features/demo/components/consign
 import AnalyticsTable from "~/layers/visits/app/features/demo/components/consignee/analytics/table.vue";
 
 const currentAnalytics = ref('chart')
-
-
 </script>
 
 <template>
@@ -63,7 +61,4 @@ const currentAnalytics = ref('chart')
       }
     }
 }
-
-
-
 </style>

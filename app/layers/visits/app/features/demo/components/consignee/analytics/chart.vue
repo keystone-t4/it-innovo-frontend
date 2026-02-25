@@ -13,7 +13,8 @@ import {
   type ChartData
 } from 'chart.js'
 import {useDemoDbStore} from "~/layers/visits/app/features/demo/stores/demoDbStore";
-import {sortByDateTime} from "~/layers/visits/app/features/demo/utils/sort";
+import {sortByDatetime} from "~/layers/visits/app/features/demo/utils/sort";
+import {dateTimeFormat} from "~/layers/visits/app/features/demo/utils/date&time";
 
 const demoDbStore = useDemoDbStore()
 
@@ -22,7 +23,7 @@ const notDeclineRequests = computed(() => {
 })
 
 const requestsByDataKey = computed(() => {
-  return sortByDateTime(notDeclineRequests.value, 'unload_date', 'unload_start_time', false)
+  return sortByDatetime(notDeclineRequests.value, 'unload_datetime', false)
 })
 
 const last14DaysStats = computed(() => {
@@ -30,31 +31,24 @@ const last14DaysStats = computed(() => {
   const seenDates = new Set<string>()
 
   for (const r of requestsByDataKey.value) {
-    const date = r.unload_date
 
-    // если уже 14 дат и эта новая — пропускаем
-    if (!seenDates.has(date) && seenDates.size >= 14) {
-      continue
-    }
+    const date = r.unload_datetime.slice(0, 10)
+
+    if (!seenDates.has(date) && seenDates.size >= 14) continue;
 
     if (!result[date]) {
-      result[date] = [0, 0] // [accepted, active]
+      result[date] = [0, 0]; // [accepted, active]
       seenDates.add(date)
     }
 
-    if (r.status === 'accepted') {
-      result[date][0]++
-    }
-
-    if (r.status === 'active') {
-      result[date][1]++
-    }
+    if (r.status === 'accepted') result[date][0]++;
+    if (r.status === 'active') result[date][1]++;
   }
 
   return result
 })
 
-const labelsArray = Object.keys(last14DaysStats.value)
+const labelsArray = Object.keys(last14DaysStats.value).map((day) => dateTimeFormat(day, false))
 const acceptedRequestArray = Object.values(last14DaysStats.value).map(d => d[0])
 const activeRequestArray = Object.values(last14DaysStats.value).map(d => d[1])
 

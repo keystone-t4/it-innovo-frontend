@@ -19,21 +19,6 @@ export function dateTimeFormat(
     return `${dd}.${mm}.${yyyy} ${hh}:${min}`;
 }
 
-export function combineDateAndTime(
-    dateStr: string,
-    timeStr: string
-): Date {
-    const datePart = dateStr.split('T')[0];
-    const rawTime = timeStr.includes('T')
-        ? timeStr.split('T')[1]
-        : timeStr;
-
-    const timePart =
-        rawTime?.length === 5 ? `${rawTime}:00` : rawTime;
-
-    return new Date(`${datePart}T${timePart}`);
-}
-
 export function timeDifference(
     fromISO: string,
     toISO: string
@@ -58,4 +43,12 @@ export function timeDifference(
     const mm = String(minutes).padStart(2, '0');
 
     return `${sign}${hh}:${mm}`;
+}
+
+export function getTime(value: string | Date): string {
+    const d = value instanceof Date ? value : new Date(value);
+    if (isNaN(d.getTime())) return '';
+    const hh = String(d.getHours()).padStart(2, '0');
+    const mm = String(d.getMinutes()).padStart(2, '0');
+    return `${hh}:${mm}`;
 }

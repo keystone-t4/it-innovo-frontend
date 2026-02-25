@@ -2,8 +2,8 @@
 import { useDemoDbStore } from '~/layers/visits/app/features/demo/stores/demoDbStore';
 import { useDemoStore } from '~/layers/visits/app/features/demo/stores/demoStore';
 import {useRequestFormValidation} from "~/layers/visits/app/features/demo/composables/driver/useRequestFormValidation";
-import type {RequestType} from "~/layers/visits/app/features/demo/types/demoDbTypes";
 import {getCurrentTime, getToday} from "~/layers/visits/app/features/demo/utils/currentDate";
+import type {requestTableRowType} from "~/layers/visits/app/features/demo/types/demoDbTypes";
 
 const demoDbStore = useDemoDbStore();
 const demoStore = useDemoStore();
@@ -13,9 +13,9 @@ const form = reactive({
   unload_date: '',
   unload_start_time: '',
   product_name: '',
-  weight_ttn: NaN,
+  weight_ttn: null,
   driver_phone: '',
-} as Pick<RequestType, 'ttn_number' | 'unload_date' | 'unload_start_time' | 'product_name' | 'weight_ttn' | 'driver_phone'>);
+} as requestTableRowType);
 
 const minTime = computed(() =>
     form.unload_date === getToday() ? getCurrentTime() : undefined

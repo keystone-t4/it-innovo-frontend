@@ -3,7 +3,7 @@ import {driverApplicationsHeaders} from "~/layers/visits/app/features/demo/confi
 import type {driverApplicationRowType} from "~/layers/visits/app/features/demo/types/demoTablesTypes";
 import {useDemoStore} from "~/layers/visits/app/features/demo/stores/demoStore";
 import {useDemoDbStore} from "~/layers/visits/app/features/demo/stores/demoDbStore";
-import {dateTimeFormat} from "~/layers/visits/app/features/demo/utils/date&time";
+import {dateTimeFormat, getTime} from "~/layers/visits/app/features/demo/utils/date&time";
 import {requestStatuses} from "~/layers/visits/app/features/demo/config/demoRequestStatuses";
 
 const props = defineProps<{
@@ -31,8 +31,8 @@ const tableRows = computed<driverApplicationRowType[]>(() => {
         arrival_place_name: demoDbStore.getArrivalPlaceNameById(demoStore.currentArrivalPlaceId) ?? '-',
         created_at: dateTimeFormat(req.created_at, true),
         ttn_number: req.ttn_number,
-        unload_date: dateTimeFormat(req.unload_date, false),
-        unload_start_time: req.unload_start_time,
+        unload_date: dateTimeFormat(req.unload_datetime, false),
+        unload_start_time: getTime(req.unload_datetime),
         status: requestStatuses[req.status],
         interact: ""
       }));
