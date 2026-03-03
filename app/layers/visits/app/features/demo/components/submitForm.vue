@@ -14,14 +14,12 @@ const form = reactive({
   unload_start_time: '',
   product_name: '',
   weight_ttn: null,
-  driver_phone: '',
+  driver_phone: null,
 } as requestTableRowType);
 
 const minTime = computed(() =>
     form.unload_date === getToday() ? getCurrentTime() : undefined
 );
-
-//todo: сделать в заявке добавление номера действительно необязательным шагом, в валидации пропускать null номер,
 
 const { fieldErrors, validate, normalizeForm, resetForm } = useRequestFormValidation(form);
 

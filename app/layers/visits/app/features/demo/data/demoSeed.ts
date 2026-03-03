@@ -63,16 +63,16 @@ export const demoSeed: DemoSeedTypes = {
 
         // drv_tc001_02
         { id: "req_drv_tc001_02_01", driver_id: "drv_tc001_02", arrival_place_id: "pl_001", created_at: "2026-02-02T11:20:02", ttn_number: "TTN-2026-00004", unload_datetime: "2026-02-03T08:45:00", real_unload_datetime: "2026-02-03T10:02:57", status: "accepted", product_name: "Металлопрокат", weight_ttn: 16.8, driver_phone: "+7 999 200-00-02" },
-        { id: "req_drv_tc001_02_02", driver_id: "drv_tc001_02", arrival_place_id: "pl_002", created_at: "2026-02-05T16:10:44", ttn_number: "TTN-2026-00005", unload_datetime: "2026-02-06T14:00:00", real_unload_datetime: '', status: "rejected", product_name: "Кирпич рядовой", weight_ttn: 12.4, driver_phone: "+7 999 200-00-02" },
+        { id: "req_drv_tc001_02_02", driver_id: "drv_tc001_02", arrival_place_id: "pl_002", created_at: "2026-02-05T16:10:44", ttn_number: "TTN-2026-00005", unload_datetime: "2026-02-06T14:00:00", real_unload_datetime: '', status: "rejected", product_name: "Кирпич рядовой", weight_ttn: 12.4, driver_phone: null },
 
         // drv_tc001_03 (has active)
-        { id: "req_drv_tc001_03_01", driver_id: "drv_tc001_03", arrival_place_id: "pl_003", created_at: "2026-02-04T10:00:54", ttn_number: "TTN-2026-00006", unload_datetime: "2026-02-05T09:00:00", real_unload_datetime: "2026-02-05T08:55:11", status: "accepted", product_name: "Гипс", weight_ttn: 10.0, driver_phone: "+7 999 200-00-03" },
-        { id: "req_drv_tc001_03_02", driver_id: "drv_tc001_03", arrival_place_id: "pl_004", created_at: "2026-02-07T09:40:38", ttn_number: "TTN-2026-00007", unload_datetime: "2026-03-18T11:30:00", real_unload_datetime: '', status: "active", product_name: "Плитка керамическая", weight_ttn: 8.6, driver_phone: "+7 999 200-00-03" },
+        { id: "req_drv_tc001_03_01", driver_id: "drv_tc001_03", arrival_place_id: "pl_003", created_at: "2026-02-04T10:00:54", ttn_number: "TTN-2026-00006", unload_datetime: "2026-02-05T09:00:00", real_unload_datetime: "2026-02-05T08:55:11", status: "accepted", product_name: "Гипс", weight_ttn: 10.0, driver_phone: null },
+        { id: "req_drv_tc001_03_02", driver_id: "drv_tc001_03", arrival_place_id: "pl_004", created_at: "2026-02-07T09:40:38", ttn_number: "TTN-2026-00007", unload_datetime: "2026-03-18T11:30:00", real_unload_datetime: '', status: "active", product_name: "Плитка керамическая", weight_ttn: 8.6, driver_phone: null },
         { id: "req_drv_tc001_03_03", driver_id: "drv_tc001_03", arrival_place_id: "pl_001", created_at: "2026-01-31T13:15:42", ttn_number: "TTN-2026-00008", unload_datetime: "2026-02-01T15:00:00", real_unload_datetime: '', status: "rejected", product_name: "Сухие смеси", weight_ttn: 14.2, driver_phone: "+7 999 200-00-03" },
 
         // drv_tc001_04
         { id: "req_drv_tc001_04_01", driver_id: "drv_tc001_04", arrival_place_id: "pl_004", created_at: "2026-02-03T07:55:23", ttn_number: "TTN-2026-00009", unload_datetime: "2026-02-03T13:20:00", real_unload_datetime: '', status: "rejected", product_name: "Арматура", weight_ttn: 19.7, driver_phone: "+7 999 200-00-04" },
-        { id: "req_drv_tc001_04_02", driver_id: "drv_tc001_04", arrival_place_id: "pl_005", created_at: "2026-02-06T12:05:59", ttn_number: "TTN-2026-00010", unload_datetime: "2026-02-07T10:10:00", real_unload_datetime: "2026-02-07T09:58:23", status: "accepted", product_name: "Плиты перекрытия", weight_ttn: 22.9, driver_phone: "+7 999 200-00-04" },
+        { id: "req_drv_tc001_04_02", driver_id: "drv_tc001_04", arrival_place_id: "pl_005", created_at: "2026-02-06T12:05:59", ttn_number: "TTN-2026-00010", unload_datetime: "2026-02-07T10:10:00", real_unload_datetime: "2026-02-07T09:58:23", status: "accepted", product_name: "Плиты перекрытия", weight_ttn: 22.9, driver_phone: null },
 
         // drv_tc001_05
         { id: "req_drv_tc001_05_01", driver_id: "drv_tc001_05", arrival_place_id: "pl_001", created_at: "2026-02-01T10:10:00", ttn_number: "TTN-2026-00011", unload_datetime: "2026-02-02T09:10:00", real_unload_datetime: "2026-02-02T09:08:42", status: "accepted", product_name: "Песок строительный", weight_ttn: 21.0, driver_phone: "+7 999 200-00-05" },
@@ -80,7 +80,7 @@ export const demoSeed: DemoSeedTypes = {
 
         // drv_tc002_01 (has active)
         { id: "req_drv_tc002_01_01", driver_id: "drv_tc002_01", arrival_place_id: "pl_003", created_at: "2026-02-02T08:35:11", ttn_number: "TTN-2026-00013", unload_datetime: "2026-02-02T14:30:00", real_unload_datetime: "2026-02-02T14:42:15", status: "accepted", product_name: "Кирпич рядовой", weight_ttn: 13.1, driver_phone: "+7 999 200-00-06" },
-        { id: "req_drv_tc002_01_02", driver_id: "drv_tc002_01", arrival_place_id: "pl_004", created_at: "2026-02-08T09:05:41", ttn_number: "TTN-2026-00014", unload_datetime: "2026-03-17T10:30:00", real_unload_datetime: '', status: "active", product_name: "Сухие смеси", weight_ttn: 9.8, driver_phone: "+7 999 200-00-06" },
+        { id: "req_drv_tc002_01_02", driver_id: "drv_tc002_01", arrival_place_id: "pl_004", created_at: "2026-02-08T09:05:41", ttn_number: "TTN-2026-00014", unload_datetime: "2026-03-17T10:30:00", real_unload_datetime: '', status: "active", product_name: "Сухие смеси", weight_ttn: 9.8, driver_phone: null },
         { id: "req_drv_tc002_01_03", driver_id: "drv_tc002_01", arrival_place_id: "pl_003", created_at: "2026-02-05T17:40:32", ttn_number: "TTN-2026-00015", unload_datetime: "2026-02-06T09:20:00", real_unload_datetime: '', status: "rejected", product_name: "Гипсокартон", weight_ttn: 6.2, driver_phone: "+7 999 200-00-06" },
         // drv_tc002_02
         { id: "req_drv_tc002_02_01", driver_id: "drv_tc002_02", arrival_place_id: "pl_005", created_at: "2026-02-01T12:00:33", ttn_number: "TTN-2026-00016", unload_datetime: "2026-02-02T11:00:00", real_unload_datetime: '', status: "rejected", product_name: "Металлопрокат", weight_ttn: 17.3, driver_phone: "+7 999 200-00-07" },
@@ -88,8 +88,8 @@ export const demoSeed: DemoSeedTypes = {
 
         // drv_tc002_03 (has active)
         { id: "req_drv_tc002_03_01", driver_id: "drv_tc002_03", arrival_place_id: "pl_002", created_at: "2026-02-04T18:10:53", ttn_number: "TTN-2026-00018", unload_datetime: "2026-02-05T13:00:00", real_unload_datetime: "2026-02-05T12:44:00", status: "accepted", product_name: "Плитка керамическая", weight_ttn: 7.9, driver_phone: "+7 999 200-00-08" },
-        { id: "req_drv_tc002_03_02", driver_id: "drv_tc002_03", arrival_place_id: "pl_001", created_at: "2026-02-08T10:20:51", ttn_number: "TTN-2026-00019", unload_datetime: "2026-03-25T09:00:00", real_unload_datetime: '', status: "active", product_name: "Кирпич облицовочный", weight_ttn: 11.6, driver_phone: "+7 999 200-00-08" },
-        { id: "req_drv_tc002_03_03", driver_id: "drv_tc002_03", arrival_place_id: "pl_002", created_at: "2026-02-02T07:50:12", ttn_number: "TTN-2026-00020", unload_datetime: "2026-02-03T16:10:00", real_unload_datetime: '', status: "rejected", product_name: "Песок строительный", weight_ttn: 20.0, driver_phone: "+7 999 200-00-08" },
+        { id: "req_drv_tc002_03_02", driver_id: "drv_tc002_03", arrival_place_id: "pl_001", created_at: "2026-02-08T10:20:51", ttn_number: "TTN-2026-00019", unload_datetime: "2026-03-25T09:00:00", real_unload_datetime: '', status: "active", product_name: "Кирпич облицовочный", weight_ttn: 11.6, driver_phone: null },
+        { id: "req_drv_tc002_03_03", driver_id: "drv_tc002_03", arrival_place_id: "pl_002", created_at: "2026-02-02T07:50:12", ttn_number: "TTN-2026-00020", unload_datetime: "2026-02-03T16:10:00", real_unload_datetime: '', status: "rejected", product_name: "Песок строительный", weight_ttn: 20.0, driver_phone: null },
 
         // drv_tc002_04
         { id: "req_drv_tc002_04_01", driver_id: "drv_tc002_04", arrival_place_id: "pl_004", created_at: "2026-02-03T13:35:43", ttn_number: "TTN-2026-00021", unload_datetime: "2026-02-04T12:00:00", real_unload_datetime: '2026-02-04T12:12:15', status: "accepted", product_name: "Арматура", weight_ttn: 18.0, driver_phone: "+7 999 200-00-09" },
@@ -97,11 +97,11 @@ export const demoSeed: DemoSeedTypes = {
 
         // drv_tc002_05
         { id: "req_drv_tc002_05_01", driver_id: "drv_tc002_05", arrival_place_id: "pl_003", created_at: "2026-02-02T15:00:01", ttn_number: "TTN-2026-00023", unload_datetime: "2026-02-03T10:40:00", real_unload_datetime: '', status: "rejected", product_name: "Гипс", weight_ttn: 9.1, driver_phone: "+7 999 200-00-10" },
-        { id: "req_drv_tc002_05_02", driver_id: "drv_tc002_05", arrival_place_id: "pl_004", created_at: "2026-02-05T09:25:48", ttn_number: "TTN-2026-00024", unload_datetime: "2026-02-06T15:10:00", real_unload_datetime: '2026-02-06T15:00:00', status: "accepted", product_name: "Сухие смеси", weight_ttn: 12.0, driver_phone: "+7 999 200-00-10" },
+        { id: "req_drv_tc002_05_02", driver_id: "drv_tc002_05", arrival_place_id: "pl_004", created_at: "2026-02-05T09:25:48", ttn_number: "TTN-2026-00024", unload_datetime: "2026-02-06T15:10:00", real_unload_datetime: '2026-02-06T15:00:00', status: "accepted", product_name: "Сухие смеси", weight_ttn: 12.0, driver_phone: null },
 
         // drv_tc003_01
-        { id: "req_drv_tc003_01_01", driver_id: "drv_tc003_01", arrival_place_id: "pl_005", created_at: "2026-02-01T09:45:09", ttn_number: "TTN-2026-00025", unload_datetime: "2026-02-02T12:40:00", real_unload_datetime: '2026-02-02T12:41:00', status: "accepted", product_name: "Цемент М500", weight_ttn: 20.0, driver_phone: "+7 999 200-00-11" },
-        { id: "req_drv_tc003_01_02", driver_id: "drv_tc003_01", arrival_place_id: "pl_002", created_at: "2026-02-04T11:10:52", ttn_number: "TTN-2026-00026", unload_datetime: "2026-02-05T09:25:00", real_unload_datetime: '', status: "rejected", product_name: "Щебень фр. 5-20", weight_ttn: 24.5, driver_phone: "+7 999 200-00-11" },
+        { id: "req_drv_tc003_01_01", driver_id: "drv_tc003_01", arrival_place_id: "pl_005", created_at: "2026-02-01T09:45:09", ttn_number: "TTN-2026-00025", unload_datetime: "2026-02-02T12:40:00", real_unload_datetime: '2026-02-02T12:41:00', status: "accepted", product_name: "Цемент М500", weight_ttn: 20.0, driver_phone: null },
+        { id: "req_drv_tc003_01_02", driver_id: "drv_tc003_01", arrival_place_id: "pl_002", created_at: "2026-02-04T11:10:52", ttn_number: "TTN-2026-00026", unload_datetime: "2026-02-05T09:25:00", real_unload_datetime: '', status: "rejected", product_name: "Щебень фр. 5-20", weight_ttn: 24.5, driver_phone: null },
 
         // drv_tc003_02 (has active)
         { id: "req_drv_tc003_02_01", driver_id: "drv_tc003_02", arrival_place_id: "pl_004", created_at: "2026-02-03T10:30:43", ttn_number: "TTN-2026-00027", unload_datetime: "2026-02-04T10:10:00", real_unload_datetime: '2026-02-04T08:36:00', status: "accepted", product_name: "Металлопрокат", weight_ttn: 15.2, driver_phone: "+7 999 200-00-12" },
@@ -112,7 +112,7 @@ export const demoSeed: DemoSeedTypes = {
         { id: "req_drv_tc003_03_02", driver_id: "drv_tc003_03", arrival_place_id: "pl_004", created_at: "2026-02-06T10:05:37", ttn_number: "TTN-2026-00031", unload_datetime: "2026-03-07T14:20:00", real_unload_datetime: '', status: "rejected", product_name: "Плитка керамическая", weight_ttn: 8.1, driver_phone: "+7 999 200-00-13" },
 
         // drv_tc003_04
-        { id: "req_drv_tc003_04_01", driver_id: "drv_tc003_04", arrival_place_id: "pl_003", created_at: "2026-02-03T12:10:27", ttn_number: "TTN-2026-00032", unload_datetime: "2026-03-04T15:30:00", real_unload_datetime: '', status: "rejected", product_name: "Кирпич рядовой", weight_ttn: 12.9, driver_phone: "+7 999 200-00-14" },
+        { id: "req_drv_tc003_04_01", driver_id: "drv_tc003_04", arrival_place_id: "pl_003", created_at: "2026-02-03T12:10:27", ttn_number: "TTN-2026-00032", unload_datetime: "2026-03-04T15:30:00", real_unload_datetime: '', status: "rejected", product_name: "Кирпич рядовой", weight_ttn: 12.9, driver_phone: null },
         { id: "req_drv_tc003_04_02", driver_id: "drv_tc003_04", arrival_place_id: "pl_004", created_at: "2026-02-05T09:35:35", ttn_number: "TTN-2026-00033", unload_datetime: "2026-03-06T10:05:00", real_unload_datetime: '2026-03-06T10:05:10', status: "accepted", product_name: "Сухие смеси", weight_ttn: 11.4, driver_phone: "+7 999 200-00-14" },
 
         // drv_tc003_05 (has active)
@@ -121,8 +121,8 @@ export const demoSeed: DemoSeedTypes = {
         { id: "req_drv_tc003_05_03", driver_id: "drv_tc003_05", arrival_place_id: "pl_003", created_at: "2026-02-04T17:05:23", ttn_number: "TTN-2026-00036", unload_datetime: "2026-02-05T09:40:00", real_unload_datetime: '2026-02-05T09:41:00', status: "accepted", product_name: "Песок строительный", weight_ttn: 18.7, driver_phone: "+7 999 200-00-15" },
 
         // drv_tc004_01
-        { id: "req_drv_tc004_01_01", driver_id: "drv_tc004_01", arrival_place_id: "pl_001", created_at: "2026-02-02T09:05:00", ttn_number: "TTN-2026-00037", unload_datetime: "2026-02-03T12:10:00", real_unload_datetime: '2026-02-03T12:12:00', status: "accepted", product_name: "Арматура", weight_ttn: 17.8, driver_phone: "+7 999 200-00-16" },
-        { id: "req_drv_tc004_01_02", driver_id: "drv_tc004_01", arrival_place_id: "pl_003", created_at: "2026-02-06T13:30:32", ttn_number: "TTN-2026-00038", unload_datetime: "2026-02-07T09:00:00", real_unload_datetime: '', status: "rejected", product_name: "Металлопрокат", weight_ttn: 15.9, driver_phone: "+7 999 200-00-16" },
+        { id: "req_drv_tc004_01_01", driver_id: "drv_tc004_01", arrival_place_id: "pl_001", created_at: "2026-02-02T09:05:00", ttn_number: "TTN-2026-00037", unload_datetime: "2026-02-03T12:10:00", real_unload_datetime: '2026-02-03T12:12:00', status: "accepted", product_name: "Арматура", weight_ttn: 17.8, driver_phone: null },
+        { id: "req_drv_tc004_01_02", driver_id: "drv_tc004_01", arrival_place_id: "pl_003", created_at: "2026-02-06T13:30:32", ttn_number: "TTN-2026-00038", unload_datetime: "2026-02-07T09:00:00", real_unload_datetime: '', status: "rejected", product_name: "Металлопрокат", weight_ttn: 15.9, driver_phone: null },
 
         // drv_tc004_02 (has active)
         { id: "req_drv_tc004_02_01", driver_id: "drv_tc004_02", arrival_place_id: "pl_003", created_at: "2026-02-03T08:25:09", ttn_number: "TTN-2026-00039", unload_datetime: "2026-02-04T09:30:00", real_unload_datetime: '2026-02-04T09:28:21', status: "accepted", product_name: "Кирпич облицовочный", weight_ttn: 11.2, driver_phone: "+7 999 200-00-17" },
@@ -143,11 +143,11 @@ export const demoSeed: DemoSeedTypes = {
         { id: "req_drv_tc004_05_02", driver_id: "drv_tc004_05", arrival_place_id: "pl_003", created_at: "2026-02-06T07:40:10", ttn_number: "TTN-2026-00048", unload_datetime: "2026-02-07T08:30:00", real_unload_datetime: '', status: "rejected", product_name: "Арматура", weight_ttn: 18.1, driver_phone: "+7 999 200-00-20" },
         // drv_tc005_01 (has active)
         { id: "req_drv_tc005_01_01", driver_id: "drv_tc005_01", arrival_place_id: "pl_005", created_at: "2026-02-04T09:10:22", ttn_number: "TTN-2026-00049", unload_datetime: "2026-02-05T10:30:00", real_unload_datetime: '2026-02-05T12:34:04', status: "accepted", product_name: "Плиты перекрытия", weight_ttn: 22.1, driver_phone: "+7 999 200-00-21" },
-        { id: "req_drv_tc005_01_02", driver_id: "drv_tc005_01", arrival_place_id: "pl_004", created_at: "2026-02-08T11:00:12", ttn_number: "TTN-2026-00050", unload_datetime: "2026-03-17T12:00:00", real_unload_datetime: '', status: "active", product_name: "Песок строительный", weight_ttn: 19.9, driver_phone: "+7 999 200-00-21" },
+        { id: "req_drv_tc005_01_02", driver_id: "drv_tc005_01", arrival_place_id: "pl_004", created_at: "2026-02-08T11:00:12", ttn_number: "TTN-2026-00050", unload_datetime: "2026-03-17T12:00:00", real_unload_datetime: '', status: "active", product_name: "Песок строительный", weight_ttn: 19.9, driver_phone: null },
         { id: "req_drv_tc005_01_03", driver_id: "drv_tc005_01", arrival_place_id: "pl_001", created_at: "2026-02-02T14:40:43", ttn_number: "TTN-2026-00051", unload_datetime: "2026-02-03T09:50:00", real_unload_datetime: '', status: "rejected", product_name: "Сухие смеси", weight_ttn: 12.1, driver_phone: "+7 999 200-00-21" },
 
         // drv_tc005_02
-        { id: "req_drv_tc005_02_01", driver_id: "drv_tc005_02", arrival_place_id: "pl_003", created_at: "2026-02-01T11:30:00", ttn_number: "TTN-2026-00052", unload_datetime: "2026-02-02T14:10:00", real_unload_datetime: '', status: "rejected", product_name: "Кирпич облицовочный", weight_ttn: 10.7, driver_phone: "+7 999 200-00-22" },
+        { id: "req_drv_tc005_02_01", driver_id: "drv_tc005_02", arrival_place_id: "pl_003", created_at: "2026-02-01T11:30:00", ttn_number: "TTN-2026-00052", unload_datetime: "2026-02-02T14:10:00", real_unload_datetime: '', status: "rejected", product_name: "Кирпич облицовочный", weight_ttn: 10.7, driver_phone: null },
         { id: "req_drv_tc005_02_02", driver_id: "drv_tc005_02", arrival_place_id: "pl_004", created_at: "2026-02-05T08:05:52", ttn_number: "TTN-2026-00053", unload_datetime: "2026-02-06T09:30:00", real_unload_datetime: '2026-02-06T09:30:48', status: "accepted", product_name: "Плитка керамическая", weight_ttn: 7.6, driver_phone: "+7 999 200-00-22" },
 
         // drv_tc005_03 (has active)
@@ -156,8 +156,8 @@ export const demoSeed: DemoSeedTypes = {
         { id: "req_drv_tc005_03_03", driver_id: "drv_tc005_03", arrival_place_id: "pl_004", created_at: "2026-02-04T18:20:49", ttn_number: "TTN-2026-00056", unload_datetime: "2026-02-05T11:00:00", real_unload_datetime: '2026-02-05T10:44:10', status: "accepted", product_name: "Металлопрокат", weight_ttn: 16.1, driver_phone: "+7 999 200-00-23" },
 
         // drv_tc005_04
-        { id: "req_drv_tc005_04_01", driver_id: "drv_tc005_04", arrival_place_id: "pl_005", created_at: "2026-02-02T10:10:12", ttn_number: "TTN-2026-00057", unload_datetime: "2026-03-03T15:20:00", real_unload_datetime: '2026-03-03T13:10:11', status: "accepted", product_name: "Арматура", weight_ttn: 18.6, driver_phone: "+7 999 200-00-24" },
-        { id: "req_drv_tc005_04_02", driver_id: "drv_tc005_04", arrival_place_id: "pl_001", created_at: "2026-02-06T09:45:17", ttn_number: "TTN-2026-00058", unload_datetime: "2026-03-07T10:30:00", real_unload_datetime: '', status: "rejected", product_name: "Гипсокартон", weight_ttn: 6.5, driver_phone: "+7 999 200-00-24" },
+        { id: "req_drv_tc005_04_01", driver_id: "drv_tc005_04", arrival_place_id: "pl_005", created_at: "2026-02-02T10:10:12", ttn_number: "TTN-2026-00057", unload_datetime: "2026-03-03T15:20:00", real_unload_datetime: '2026-03-03T13:10:11', status: "accepted", product_name: "Арматура", weight_ttn: 18.6, driver_phone: null },
+        { id: "req_drv_tc005_04_02", driver_id: "drv_tc005_04", arrival_place_id: "pl_001", created_at: "2026-02-06T09:45:17", ttn_number: "TTN-2026-00058", unload_datetime: "2026-03-07T10:30:00", real_unload_datetime: '', status: "rejected", product_name: "Гипсокартон", weight_ttn: 6.5, driver_phone: null },
 
         // drv_tc005_05
         { id: "req_drv_tc005_05_01", driver_id: "drv_tc005_05", arrival_place_id: "pl_005", created_at: "2026-02-03T11:25:05", ttn_number: "TTN-2026-00059", unload_datetime: "2026-03-04T12:30:00", real_unload_datetime: '', status: "rejected", product_name: "Песок строительный", weight_ttn: 18.9, driver_phone: "+7 999 200-00-25" },

@@ -16,7 +16,8 @@ export function isValidPhone(input: string) {
 }
 
 // +7 (321) 215-43-42 -> 73212154342
-export function normalizePhone(input: string) {
+export function normalizePhone(input: string | null) {
+    if (!input) return null
     return onlyDigits(input);
 }
 

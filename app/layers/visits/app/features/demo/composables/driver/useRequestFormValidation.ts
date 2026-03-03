@@ -31,9 +31,7 @@ export function useRequestFormValidation(form: requestTableRowType) {
         if (!f.weight_ttn || Number.isNaN(f.weight_ttn) || f.weight_ttn <= 0) {
             fieldErrors.weight_ttn = 'Укажите корректный вес';
         }
-        if (!f.driver_phone?.trim()) {
-            fieldErrors.driver_phone = 'Укажите телефон водителя';
-        } else if (!isValidPhone(f.driver_phone)) {
+        if (f.driver_phone?.trim() && !isValidPhone(f.driver_phone)) {
             fieldErrors.driver_phone = 'Некорректный номер телефона — допустимо 10–15 цифр';
         }
 
@@ -59,7 +57,7 @@ export function useRequestFormValidation(form: requestTableRowType) {
         form.unload_start_time = '';
         form.product_name = '';
         form.weight_ttn = null;
-        form.driver_phone = '';
+        form.driver_phone = null;
     };
 
     return { fieldErrors, validate, normalizeForm, resetForm };

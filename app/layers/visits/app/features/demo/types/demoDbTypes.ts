@@ -37,7 +37,7 @@ export interface RequestType {
     product_name: string;
     weight_ttn: number;
 
-    driver_phone: string;
+    driver_phone: string | null;
 }
 
 export interface DemoSeedTypes {
@@ -53,7 +53,7 @@ export type requestTableRowType = {
     unload_start_time: string;
     product_name: string;
     weight_ttn: number | null;
-    driver_phone: string;
+    driver_phone: string | null;
 };
 
 export type validRequestFormType = requestTableRowType & {
