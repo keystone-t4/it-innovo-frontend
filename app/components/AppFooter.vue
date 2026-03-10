@@ -10,6 +10,7 @@
 
 <style scoped lang="scss">
 .footer {
+  margin-top: 50px;
   width: 100%;
   display: flex;
   justify-content: center;

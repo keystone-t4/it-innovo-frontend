@@ -53,8 +53,8 @@
     width: 100%;
     display: flex;
     gap: 80px;
-    padding-top: var(--layout-indent);
-    padding-bottom: var(--layout-indent);
+    padding-top: 30px;
+    padding-bottom: 30px;
     align-items: center;
     justify-content: space-between;
     @media (max-width: 1024px) {
