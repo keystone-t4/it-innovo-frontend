@@ -1,0 +1,1 @@
+import o from"./DXL8_rcy.js";import{g as t,o as r,K as e}from"#entry";import"./m5hXkFWM.js";import"./CnrP678C.js";import"./eDrIXSnC.js";const u=t({__name:"submit",setup(m){return(p,a)=>(r(),e(o))}});export{u as default};
