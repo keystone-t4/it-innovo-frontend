@@ -1,7 +1,9 @@
+<script setup lang="ts">
+</script>
 <template>
   <header class="header">
     <div class="header__inner block">
-      <NuxtLink class="header__logo" to="/visits" aria-label="To home">
+      <NuxtLink class="header__logo" to="/" aria-label="To home">
         <NuxtImg
             src="/img/logo.webp"
             alt="logo"
@@ -9,6 +11,29 @@
             fallback="/img/logo.png"
         />
       </NuxtLink>
+      <nav class="header__menu">
+        <ul class="header__menu-list">
+          <li class="header__menu-item">
+            <NuxtLink to="/" class="header__menu-link "
+                      active-class="header__menu-link--active"
+            >
+              Главная
+            </NuxtLink>
+          </li>
+          <li class="header__menu-item">
+            <NuxtLink to="/visits" class="header__menu-link"
+                      active-class="header__menu-link--active"
+            >
+              «Визиты»
+            </NuxtLink>
+          </li>
+          <li class="header__menu-item">
+            <button class="header__menu-dialog-button button">
+              Обсудить&nbspпроект
+            </button>
+          </li>
+        </ul>
+      </nav>
     </div>
   </header>
 </template>
@@ -22,19 +47,72 @@
   display: flex;
   justify-content: center;
   background: white;
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
-}
-.header__inner {
-  width: 100%;
-  display: grid;
-  padding: 1rem var(--layout-indent);
-  grid-template-columns: 1fr;
-  align-items: end;
-}
-.header__logo {
-  width: 140px;
-  @media (max-width: 636px) {
-    width: 100px;
+  backdrop-filter: blur(60%);
+
+  &__inner {
+    width: 100%;
+    display: flex;
+    gap: 80px;
+    padding-top: var(--layout-indent);
+    padding-bottom: var(--layout-indent);
+    align-items: center;
+    justify-content: space-between;
+    @media (max-width: 1024px) {
+      gap: 40px;
+    }
+    @media (max-width: 576px) {
+      gap: 20px;
+    }
+  }
+
+  &__logo {
+    width: 220px;
+    height: fit-content;
+    @media (max-width: 1024px) {
+      width: 160px;
+    }
+    @media (max-width: 768px) {
+      width: 140px;
+    }
+    @media (max-width: 576px) {
+      width: 120px;
+    }
+  }
+
+  &__menu {
+    display: flex;
+    align-items: center;
+  }
+
+  &__menu-list {
+    display: flex;
+    gap: 80px;
+    align-items: center;
+    @media (max-width: 1024px) {
+      gap: 40px;
+    }
+    @media (max-width: 768px) {
+      gap: 20px;
+    }
+  }
+
+  &__menu-link {
+    color: var(--text-dark);
+    text-decoration: none;
+    font-size: var(--text-md);
+    @media (max-width: 1024px) {
+      font-size: var(--text-s);
+    }
+    @media (max-width: 576px) {
+      font-size: var(--text-xs);
+    }
+    &:hover {
+      color: var(--text-dark-hover);
+    }
+
+    &--active {
+      font-weight: 700;
+    }
   }
 }
 </style>

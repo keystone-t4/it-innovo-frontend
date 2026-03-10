@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  Это главная
+  <h1>Это главная</h1>
 </template>
 
 <style scoped lang="scss">

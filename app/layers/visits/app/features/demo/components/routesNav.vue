@@ -45,7 +45,7 @@ const switchPath = computed({
                  :class="{ 'tabs-mobile__icon--open': open }"
                  aria-hidden="true"
             >
-              <use href="/sprite.svg#down-chevron" />
+              <use href="/sprite-visits.svg#down-chevron" />
             </svg>
           </HeadlessListboxButton>
 

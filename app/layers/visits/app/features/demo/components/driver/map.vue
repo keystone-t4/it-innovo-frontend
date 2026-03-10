@@ -60,7 +60,7 @@ const currentMapRouteLink = computed(() => {
       <a class="go-to-yndx-btn__link" :href="currentMapRouteLink" target="_blank">
         Построить маршрут
         <svg class="go-to-yndx-btn__icon">
-          <use href="/sprite.svg#map-marker"></use>
+          <use href="/sprite-visits.svg#map-marker"></use>
         </svg>
       </a>
     </div>

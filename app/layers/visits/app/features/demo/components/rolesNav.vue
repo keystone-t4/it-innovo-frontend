@@ -15,19 +15,19 @@ const roleCards: Record<demoRoleType, roleCard> = {
   driver: {
     title: "Водитель грузового ТС",
     description: "Бронирование слотов и въезд на территорию",
-    iconPath: "/sprite.svg#driver",
+    iconPath: "/sprite-visits.svg#driver",
     role: "driver",
   },
   consignee: {
     title: "Грузополучатель",
     description: "Контроль очереди и операций",
-    iconPath: "/sprite.svg#consignee",
+    iconPath: "/sprite-visits.svg#consignee",
     role: "consignee",
   },
   manager: {
     title: "Менеджер транспортной компании",
     description: "Планирование отгрузок и мониторинг",
-    iconPath: "/sprite.svg#manager",
+    iconPath: "/sprite-visits.svg#manager",
     role: "manager",
   },
 };
@@ -61,7 +61,7 @@ const currentRole = computed<demoRoleType>({
            :class="{ 'role-card__chevron--show': currentRole === card.role }"
            aria-hidden="true"
       >
-        <use href="/sprite.svg#down-chevron" />
+        <use href="/sprite-visits.svg#down-chevron" />
       </svg>
     </label>
   </div>

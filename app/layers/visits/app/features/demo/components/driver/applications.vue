@@ -71,7 +71,7 @@ async function onCancel(reqId: string) {
 
           <button
               v-if="field.key === 'interact' && row.status === 'План'"
-              class="table__button button"
+              class="table__button visits-button"
               :disabled="cancelingIds.has(row.req_id)"
               @click="onCancel(row.req_id)"
           >
@@ -97,7 +97,7 @@ async function onCancel(reqId: string) {
           <template v-if="field.key === 'interact'">
             <button
                 v-if="field.key === 'interact' && row.status === 'План'"
-                class="table__button button"
+                class="table__button visits-button"
                 :disabled="cancelingIds.has(row.req_id)"
                 @click="onCancel(row.req_id)"
             >

@@ -63,7 +63,7 @@ function goToSubmitForm() {
 
       <div class="marker__actions">
         <button
-            class="marker__button button"
+            class="marker__button visits-button"
             @click.stop="goToSubmitForm"
             @keydown.stop.enter.prevent="goToSubmitForm"
             type="button"

@@ -1,7 +1,6 @@
 <template>
   <footer class="footer">
     <div class="footer__inner block">
-      <hr class="footer__line line"/>
       <p class="footer__copyright">
         © 2025 Инново. Все права защищены.
       </p>

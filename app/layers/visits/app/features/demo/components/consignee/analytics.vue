@@ -9,13 +9,13 @@ const currentAnalytics = ref('chart')
   <div class="analytics">
     <h3 class="analytics__title">Сбор статистических данных и показателей</h3>
     <nav class="analytics__nav nav">
-      <button class="nav__button button"
+      <button class="nav__button visits-button"
               :class="currentAnalytics === 'chart' ? 'nav__button--active' : ''"
               @click="currentAnalytics = 'chart'"
       >
         Количество принятых машин
       </button>
-      <button class="nav__button button"
+      <button class="nav__button visits-button"
               :class="currentAnalytics === 'table' ? 'nav__button--active' : ''"
               @click="currentAnalytics = 'table'"
       >

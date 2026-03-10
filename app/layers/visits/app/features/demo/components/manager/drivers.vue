@@ -40,7 +40,7 @@ const goToDriverApplications = (driver_id: string) => {
 <template>
   <button
       v-if="isDriverSubpage"
-      class="nav-button button"
+      class="nav-button visits-button"
       @click="goBackToDriversTable"
   >
     <span>Вернуться к списку водителей</span>
@@ -63,7 +63,7 @@ const goToDriverApplications = (driver_id: string) => {
 
           <button
               v-if="field.key === 'interact'"
-              class="table__button button"
+              class="table__button visits-button"
               @click="goToDriverApplications(row.driver_id)"
           >
             <span>Заявки</span>
@@ -88,7 +88,7 @@ const goToDriverApplications = (driver_id: string) => {
           <template v-if="field.key === 'interact'">
             <button
                 v-if="field.key === 'interact'"
-                class="table__button button"
+                class="table__button visits-button"
                 @click="goToDriverApplications(row.driver_id)"
             >
               <span>Заявки</span>
