@@ -48,10 +48,10 @@ const currentAnalytics = ref('chart')
       text-transform: none;
       background-color: rgba(0,0,0,0);
       padding: 0.5rem;
-      color: var(--link-color);
+      color: var(--visits-link-color);
       transition: color 200ms ease, transform 200ms ease, background-color 200ms ease;
       &:hover {
-        color: var(--link-color-hover);
+        color: var(--visits-link-color-hover);
       }
 
       &--active {

@@ -1,13 +1,48 @@
+//Шрифты подключаются через глобальный main.scss!
+
+:root {
+  --visits-outline-color: #101010;
+  --visits-outline-shadow: rgba(16, 16, 16, 0.5);
+
+  --visits-accent-color: rgb(0, 121, 194);
+  --visits-accent-color-hover: rgb(0, 121, 194, 0.8);
+  --visits-bg-color: rgb(242, 239, 235);
+  --visits-bg-color-light: #e7f1f9;
+  --visits-bg-color-active: #eaf2f9;
+
+  --visits-accept-color: #00CD65;
+  --visits-reject-color: #E32636;
+
+  --visits-icon-bg-color-active: #bed8ee;
+
+  --visits-border-color: rgb(212 223 235);
+  --visits-border-color-hover: rgb(183 213 237);
+  --visits-border-color-active: rgb(15 116 197);
+
+  --visits-card-color: rgb(207 226 255);
+  --visits-card-border-color: rgb(184 218 255);
+
+  --visits-link-color: #0d6efd;
+  --visits-link-color-hover: #0a58ca;
+
+  --visits-text-dark: rgb(51, 51, 51);
+  --visits-text-dark-accent: #084298;
+  --visits-text-light: white;
+
+  --visits-demo-layout-height: 600px;
+  --visits-demo-layout-body-height: 485px;
+}
+
 .button {
   border: none;
-  background: var(--accent-color);
+  background: var(--visits-accent-color);
   border-radius: 5px;
   color: white;
   text-transform: uppercase;
   padding: 0.5rem 0.75rem;
 
   &:hover {
-    background: var(--accent-color-hover);
+    background: var(--visits-accent-color-hover);
   }
 }
 
@@ -89,12 +124,12 @@
 }
 
 .info-card {
-  background-color: var(--card-color);
-  border: 1px solid var(--card-border-color);
+  background-color: var(--visits-card-color);
+  border: 1px solid var(--visits-card-border-color);
   padding: 1rem;
   border-radius: 10px;
   margin-top: 1rem;
-  color: var(--text-dark-accent);
+  color: var(--visits-text-dark-accent);
   width: 100%;
 }
 
@@ -104,4 +139,9 @@
 }
 @media (max-width: 1024px) {
   .mobile-table { display: block;}
+}
+
+.visits-block {
+  max-width: var(--layout-width, 1140px);
+  padding: 0 var(--layout-indent, 1rem);
 }

@@ -4,7 +4,7 @@ import DemoViewport from '~/layers/visits/app/features/demo/components/demoViewp
 
 <template>
   <main class="home">
-    <div class="home__hero block">
+    <div class="home__hero visits-block">
         <div class="home__hero-text">
           <h1 class="home__hero-title">
             Система «Визиты»
@@ -19,7 +19,7 @@ import DemoViewport from '~/layers/visits/app/features/demo/components/demoViewp
         </div>
     </div>
 
-    <div class="home__demo block">
+    <div class="home__demo visits-block">
       <DemoViewport/>
     </div>
   </main>
@@ -40,7 +40,7 @@ import DemoViewport from '~/layers/visits/app/features/demo/components/demoViewp
   &__hero-text {
     max-width: 1024px;
     padding-left: 30px;
-    border-left: 1.5px solid var(--text-dark);
+    border-left: 1.5px solid var(--visits-text-dark);
     @media (max-width: 480px) {
       padding-left: 18px;
     }

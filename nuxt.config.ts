@@ -1,9 +1,8 @@
 export default defineNuxtConfig({
-    // ssr: true,
-    ssr: false,
+    // ssr: false,
     app: {
-        // baseURL: '/',
-        baseURL: process.env.NUXT_APP_BASE_URL,
+        baseURL: '/',
+        // baseURL: '/it-innovo-frontend/',
         head: {
             title: 'ИННОВО',
             htmlAttrs: { lang: 'ru', dir: 'ltr' },

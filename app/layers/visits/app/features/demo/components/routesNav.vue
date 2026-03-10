@@ -97,7 +97,7 @@ const switchPath = computed({
   &__item {
     position: relative;
     &:has(:focus-visible) {
-      outline: 2px solid var(--outline-color);
+      outline: 2px solid var(--visits-outline-color);
       outline-offset: 2px;
     }
   }
@@ -118,10 +118,10 @@ const switchPath = computed({
 
   &__label {
     padding: 0.5rem;
-    color: var(--link-color);
+    color: var(--visits-link-color);
     transition: color 200ms ease, transform 200ms ease, background-color 200ms ease;
     &:hover {
-      color: var(--link-color-hover);
+      color: var(--visits-link-color-hover);
     }
 
     &--active {
@@ -164,17 +164,17 @@ const switchPath = computed({
     padding: 0.5rem 0.75rem;
     text-align: left;
     outline: none;
-    color: var(--accent-color);
+    color: var(--visits-accent-color);
     line-height: 1.25rem;
-    border: 1px solid var(--accent-color);
+    border: 1px solid var(--visits-accent-color);
     display: flex;
     justify-content: space-between;
     &:hover {
       background-color: white;
     }
     &:focus-visible {
-      border-color: var(--outline-color);
-      box-shadow: 0 0 0 2px var(--outline-shadow);
+      border-color: var(--visits-outline-color);
+      box-shadow: 0 0 0 2px var(--visits-outline-shadow);
     }
   }
 
@@ -195,7 +195,7 @@ const switchPath = computed({
     background-color: #fff;
     padding: 0.25rem 0;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    border: 1px solid var(--accent-color);
+    border: 1px solid var(--visits-accent-color);
     z-index: 10;
   }
 
@@ -207,8 +207,8 @@ const switchPath = computed({
     transition: background-color 0.1s ease;
 
       &--active {
-        background-color: var(--bg-color-active);
-        color: var(--accent-color);
+        background-color: var(--visits-bg-color-active);
+        color: var(--visits-accent-color);
         cursor: pointer;
       }
   }

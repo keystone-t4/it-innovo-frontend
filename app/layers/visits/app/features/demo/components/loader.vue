@@ -23,7 +23,7 @@
   padding: 8px;
   aspect-ratio: 1;
   border-radius: 50%;
-  background: var(--accent-color);
+  background: var(--visits-accent-color);
   --_m:
       conic-gradient(#0000 10%,#000),
       linear-gradient(#000 0 0) content-box;

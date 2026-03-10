@@ -161,7 +161,7 @@ function goToSubmitForm() {
     outline: none;
   }
   &:focus-visible {
-    box-shadow: 0 0 0 4px var(--outline-color);
+    box-shadow: 0 0 0 4px var(--visits-outline-color);
     border-radius: 8px;
   }
 
@@ -173,7 +173,7 @@ function goToSubmitForm() {
     left: 50%;
     transform: translateX(-50%);
     background: white;
-    color: var(--text-dark);
+    color: var(--visits-text-dark);
     padding: 0.5rem;
     border-radius: 6px;
     font-size: 12px;
@@ -221,7 +221,7 @@ function goToSubmitForm() {
 
   .marker__title,
   .marker__address {
-    color: var(--text-dark);
+    color: var(--visits-text-dark);
     font-size: 13px;
     line-height: 1.2;
   }

@@ -88,7 +88,7 @@ const currentRole = computed<demoRoleType>({
   cursor: pointer;
   user-select: none;
 
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--visits-border-color);
   border-radius: 10px;
   background-color: white;
   padding: 2rem;
@@ -102,29 +102,29 @@ const currentRole = computed<demoRoleType>({
   transition: box-shadow 200ms ease, border-color 200ms ease, transform 200ms ease, background-color 200ms ease;
 
   &:hover {
-    border-color: var(--border-color-hover);
+    border-color: var(--visits-border-color-hover);
     box-shadow:
         0 4px 6px -1px rgba(0, 0, 0, 0.10),
         0 2px 4px -2px rgba(0, 0, 0, 0.10);
   }
 
   &--active {
-    border-color: var(--border-color-active);
-    background-color: var(--bg-color-active);
+    border-color: var(--visits-border-color-active);
+    background-color: var(--visits-bg-color-active);
     box-shadow:
         0 4px 6px -1px rgba(0, 0, 0, 0.10),
         0 2px 4px -2px rgba(0, 0, 0, 0.10);
     &:hover {
-      border-color: var(--border-color-active)
+      border-color: var(--visits-border-color-active)
     }
     &:has(:focus-visible) {
-      outline: 2px solid var(--outline-color);
+      outline: 2px solid var(--visits-outline-color);
       outline-offset: 2px;
     }
   }
 
   &--active .role-card__icon {
-    background-color: var(--icon-bg-color-active);
+    background-color: var(--visits-icon-bg-color-active);
   }
 
   &__radio {
@@ -144,8 +144,8 @@ const currentRole = computed<demoRoleType>({
   &__icon {
     width: 44px;
     height: 44px;
-    color: var(--accent-color);
-    background-color: var(--bg-color-light);
+    color: var(--visits-accent-color);
+    background-color: var(--visits-bg-color-light);
     padding: 10px;
     border-radius: 10px;
     transition: background-color 200ms ease;
@@ -167,7 +167,7 @@ const currentRole = computed<demoRoleType>({
     width: 44px;
     rotate: 90deg;
     height: 24px;
-    color: var(--accent-color);
+    color: var(--visits-accent-color);
     transition: background-color 200ms ease;
     &--show {
       visibility: visible;

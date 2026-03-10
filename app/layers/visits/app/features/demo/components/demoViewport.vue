@@ -75,21 +75,21 @@ onMounted(async () => {
 
   &__content {
     width: 100%;
-    min-height: var(--demo-layout-height);
+    min-height: var(--visits-demo-layout-height);
     overflow-y: auto;
-    background-color: var(--bg-color);
+    background-color: var(--visits-bg-color);
     border-radius: 5px;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
     padding: 2rem;
     @media (max-width: 1024px) {
-      padding: var(--layout-indent);
+      padding: var(--layout-indent, 1.5rem);;
     }
   }
 
   &__body {
-    height: var(--demo-layout-body-height);
+    height: var(--visits-demo-layout-body-height);
     overflow-y: auto;
     display: flex;
     flex-direction: column;

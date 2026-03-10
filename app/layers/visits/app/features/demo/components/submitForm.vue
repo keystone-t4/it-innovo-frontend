@@ -313,7 +313,7 @@ onMounted(() => {
     font-size: 0.95rem;
 
     .required-star {
-      color: var(--reject-color);
+      color: var(--visits-reject-color);
       margin-left: -0.08rem;
       font-size: 1rem;
       line-height: 1;
@@ -340,19 +340,19 @@ onMounted(() => {
   &__button {
     padding: 0.6rem 1rem;
     border-radius: 5px;
-    background: var(--accent-color);
+    background: var(--visits-accent-color);
     color: white;
     border: none;
     cursor: pointer;
   }
 
   &__error {
-    color: var(--reject-color);
+    color: var(--visits-reject-color);
     font-size: 0.85rem;
   }
 
   &__success {
-    color: var(--accept-color);
+    color: var(--visits-accept-color);
     font-size: 0.95rem;
   }
 }
@@ -385,17 +385,17 @@ onMounted(() => {
     padding: 0.5rem 0.75rem;
     text-align: left;
     outline: none;
-    color: var(--accent-color);
+    color: var(--visits-accent-color);
     line-height: 1.25rem;
-    border: 1px solid var(--accent-color);
+    border: 1px solid var(--visits-accent-color);
     display: flex;
     justify-content: space-between;
     &:hover {
       background-color: white;
     }
     &:focus-visible {
-      border-color: var(--outline-color);
-      box-shadow: 0 0 0 2px var(--outline-shadow);
+      border-color: var(--visits-outline-color);
+      box-shadow: 0 0 0 2px var(--visits-outline-shadow);
     }
   }
 
@@ -416,7 +416,7 @@ onMounted(() => {
     background-color: #fff;
     padding: 0.25rem 0;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    border: 1px solid var(--accent-color);
+    border: 1px solid var(--visits-accent-color);
     z-index: 10;
   }
 
@@ -428,8 +428,8 @@ onMounted(() => {
     transition: background-color 0.1s ease;
 
     &--active {
-      background-color: var(--bg-color-active);
-      color: var(--accent-color);
+      background-color: var(--visits-bg-color-active);
+      color: var(--visits-accent-color);
       cursor: pointer;
     }
   }

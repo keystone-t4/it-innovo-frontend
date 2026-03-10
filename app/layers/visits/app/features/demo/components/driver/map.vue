@@ -84,7 +84,7 @@ const currentMapRouteLink = computed(() => {
   width: fit-content;
 
   &__img {
-    max-height: calc(var(--demo-layout-body-height) - 1rem);
+    max-height: calc(var(--visits-demo-layout-body-height) - 1rem);
     border-radius: 5px;
     display: block;
   }
@@ -101,8 +101,8 @@ const currentMapRouteLink = computed(() => {
     border-radius: 5px;
     padding: 0.5rem 0.75rem;;
     text-decoration: none;
-    color: var(--accent-color);
-    border: 1px solid var(--accent-color);
+    color: var(--visits-accent-color);
+    border: 1px solid var(--visits-accent-color);
     gap: 0.3rem;
     @media (max-width: 892px) {
       padding: 0.25rem 0.5rem;
@@ -118,7 +118,7 @@ const currentMapRouteLink = computed(() => {
   &__icon {
     width: 12px;
     height: 24px;
-    color: var(--accent-color);
+    color: var(--visits-accent-color);
     @media (max-width: 636px) {
       width: 9px;
       height: 18px;

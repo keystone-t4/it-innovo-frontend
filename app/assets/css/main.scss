@@ -23,33 +23,7 @@
 }
 
 :root {
-  --outline-color: #101010;
-  --outline-shadow: rgba(16, 16, 16, 0.5);
-
-  --accent-color: rgb(0, 121, 194);
-  --accent-color-hover: rgb(0, 121, 194, 0.8);
-  --bg-color: rgb(242, 239, 235);
-  --bg-color-light: #e7f1f9;
-  --bg-color-active: #eaf2f9;
-
-  --accept-color: #00CD65;
-  --reject-color: #E32636;
-
-  --icon-bg-color-active: #bed8ee;
-
-  --border-color: rgb(212 223 235);
-  --border-color-hover: rgb(183 213 237);
-  --border-color-active: rgb(15 116 197);
-
-  --card-color: rgb(207 226 255);
-  --card-border-color: rgb(184 218 255);
-
-  --link-color: #0d6efd;
-  --link-color-hover: #0a58ca;
-
-  --text-dark-accent: #084298;
   --text-dark: rgb(51, 51, 51);
-  --text-light: white;
 
   --text-xxl: 56px;
   --text-xl: 44px;
@@ -58,8 +32,6 @@
   --text-xs: 16px;
   --text-s: 14px;
 
-  --demo-layout-height: 600px;
-  --demo-layout-body-height: 485px;
   --layout-width: 1140px;
   --layout-indent: 1.5rem;
   @media (max-width: 576px) {
