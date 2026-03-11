@@ -4,9 +4,9 @@
 
 <template>
   <div class="default">
-    <AppHeader/>
+<!--    <AppHeader/>-->
     <slot/>
-    <AppFooter/>
+<!--    <AppFooter/>-->
   </div>
 </template>
 
