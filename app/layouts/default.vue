@@ -4,7 +4,7 @@
 
 <template>
   <div class="default">
-<!--    <AppHeader/>-->
+    <AppHeader/>
     <slot/>
 <!--    <AppFooter/>-->
   </div>

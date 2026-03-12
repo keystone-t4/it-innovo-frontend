@@ -25,7 +25,10 @@
         Над вашим проектом будут работать
       </h2>
       <div class="contacts__team-member">
-        <img class="contacts__team-member-icon" src="/img/Sasha-photo.png"/>
+        <NuxtImg class="contacts__team-member-icon"
+                 src="/img/Sasha-photo.png"
+                 alt="фото Александра"
+        />
         <div class="contacts__team-member-description">
           <p class="contacts__team-member-name paragraph">
             Александр Васильев
@@ -36,7 +39,10 @@
         </div>
       </div>
       <div class="contacts__team-member">
-        <img class="contacts__team-member-icon" src="/img/Sonya-photo.png"/>
+        <NuxtImg class="contacts__team-member-icon"
+                 src="/img/Sonya-photo.png"
+                 alt="фото Софии"
+        />
         <div class="contacts__team-member-description">
           <p class="contacts__team-member-name paragraph">
             София Хен
@@ -47,7 +53,10 @@
         </div>
       </div>
       <div class="contacts__team-member">
-        <img class="contacts__team-member-icon" src="/img/Radik-photo.png"/>
+        <NuxtImg class="contacts__team-member-icon"
+                 src="/img/Radik-photo.png"
+                 alt="фото Радика"
+        />
         <div class="contacts__team-member-description">
           <p class="contacts__team-member-name paragraph">
             Радик Гайнутдинов
@@ -58,7 +67,10 @@
         </div>
       </div>
       <div class="contacts__team-member">
-        <img class="contacts__team-member-icon" src="/img/David-photo.png"/>
+        <NuxtImg class="contacts__team-member-icon"
+                 src="/img/David-photo.png"
+                 alt="фото Давыда"
+        />
         <div class="contacts__team-member-description">
           <p class="contacts__team-member-name paragraph">
             Давыд Седеньо-Андреев
@@ -69,7 +81,10 @@
         </div>
       </div>
       <div class="contacts__team-member">
-        <img class="contacts__team-member-icon" src="/img/Masha-photo.png"/>
+        <NuxtImg class="contacts__team-member-icon"
+                 src="/img/Masha-photo.png"
+                 alt="фото Марии"
+        />
         <div class="contacts__team-member-description">
           <p class="contacts__team-member-name paragraph">
             Мария Шаркова
@@ -79,7 +94,6 @@
           </p>
         </div>
       </div>
-
     </div>
     <div class="contacts__cta">
       <div class="contacts__cta-item">

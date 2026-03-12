@@ -46,8 +46,13 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  background: white;
-  backdrop-filter: blur(60%);
+  background: rgba(255, 255, 255, 0.65);
+  /* blur стекла */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px); // для Safari
+
+  /* опционально — лёгкая граница как у glass UI */
+  border-bottom: 1px solid rgba(255,255,255,0.3);
 
   &__inner {
     width: 100%;
