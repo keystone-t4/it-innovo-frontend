@@ -125,13 +125,13 @@ p {
   border: none;
   color: var(--text-light);
   background-color: var(--color-accent);
-  padding: 0.625rem 1.125rem;
+  padding: 0.625rem 2rem;
   font-weight: 600;
   font-size: var(--text-md);
   @media (max-width: 1024px) {
     width: 160px;
     font-size: var(--text-s);
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 1.7rem;
 
   }
   @media (max-width: 768px) {
