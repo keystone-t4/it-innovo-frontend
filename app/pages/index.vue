@@ -160,10 +160,10 @@
                   </svg>
                 </NuxtLink>
               </div>
-              <div class="article__video">
-                <!--              <video autoplay muted loop playsinline>-->
-                <!--                <source src="/video/???.mp4" type="video/mp4">-->
-                <!--              </video>-->
+              <div class="article__video-wrapper">
+                <video class="article__video" autoplay muted loop playsinline>
+                  <source src="/video/visits.mp4" type="video/mp4">
+                </video>
               </div>
             </div>
           </article>
@@ -265,15 +265,62 @@
         </div>
       </div>
     </section>
+
+    <section class="approach block">
+      <h1 class="approach__title">
+        Наш <span class="accent-text">Подход</span>
+      </h1>
+      <p class="approach__description">
+        Мы не предлагаем «универсальную платформу»<br>
+        и абстрактную «цифровизацию». Мы:
+      </p>
+      <div class="approach__cards">
+        <div class="approach__card">
+          <p class="approach__card-description">
+            <strong>Анализируем</strong> процессы предприятия
+          </p>
+          <div class="approach__card-label">
+            01
+          </div>
+        </div><div class="approach__card">
+          <p class="approach__card-description">
+            <strong>Выявляем</strong> точки операционных потерь
+          </p>
+          <div class="approach__card-label">
+            02
+          </div>
+        </div><div class="approach__card">
+          <p class="approach__card-description">
+            <strong>Предлагаем</strong> решение, которое оправдано экономикой
+          </p>
+          <div class="approach__card-label">
+            03
+          </div>
+        </div><div class="approach__card">
+          <p class="approach__card-description">
+            <strong>Развиваем</strong> систему по&nbsp;мере роста задач
+          </p>
+          <div class="approach__card-label">
+            04
+          </div>
+        </div>
+
+      </div>
+    </section>
   </main>
 </template>
 
 <style scoped lang="scss">
 .main {
+  --cards-gap: 1.5rem;
   width: 100%;
   padding: 0 1.5rem;
-  @media (max-width: 668px) {
+  @media (max-width: 768px) {
+    --cards-gap: 1.125rem;
     padding: 0 1rem;
+  }
+  @media (max-width: 480px) {
+    --cards-gap: 0.875rem;
   }
 }
 
@@ -311,6 +358,27 @@ section {
   display: flex;
   flex-direction: column;
   gap: var(--layout-indent);
+}
+
+.about__card, .about__card-conclusion, .approach__card {
+  border-radius: 10px;
+  padding: 30px 40px;
+  @media (max-width: 1024px) {
+    padding: 20px 30px;
+  }
+  @media (max-width: 576px) {
+    padding: 15px 25px;
+  }
+}
+
+.article__description, .article__result-title, .article__result-item-text, .approach__card-description {
+  font-size: var(--text-lg);
+  @media (max-width: 1024px) {
+    font-size: var(--text-md);
+  }
+  @media (max-width: 576px) {
+    font-size: var(--text-xs);
+  }
 }
 
 .hero {
@@ -355,42 +423,36 @@ section {
     margin-top: var(--layout-gap);
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 24px;
+    gap: var(--cards-gap);
     @media (max-width: 1220px) {
       grid-template-columns: 1fr 1fr;
     }
-    @media (max-width: 668px) {
+    @media (max-width: 768px) {
       grid-template-columns: 1fr;
-    }
-  }
-
-  &__card, &__card-conclusion {
-    padding: 30px 40px;
-    @media (max-width: 1024px) {
-      padding: 20px 30px;
-    }
-    @media (max-width: 576px) {
-      padding: 15px 25px;
     }
   }
 
   &__card {
     background-color: var(--color-light-gray);
-    border-radius: 10px;
     display: flex;
     gap: 10px;
-
+    justify-content: space-between;
+    align-items: center;
   }
 
   &__card-icon {
     margin-top: auto;
     width: 34px;
     height: 20px;
+    @media (max-width: 1220px) {
+      margin-top: 0;
+      width: 25px;
+      height: 11px;
+    }
   }
 
   &__card-conclusion {
     border: 3px solid var(--color-accent);
-    border-radius: 10px;
   }
 
   &__card-conclusion-text {
@@ -429,6 +491,7 @@ section {
   }
 }
 
+
 .directions {
   &__articles {
     display: flex;
@@ -436,7 +499,6 @@ section {
     gap: var(--layout-gap);
   }
 }
-
 .article {
   background-color: white;
   display: flex;
@@ -454,16 +516,6 @@ section {
     gap: var(--layout-gap);
     @media (max-width: 1060px) {
       grid-template-columns: 1fr;
-    }
-  }
-
-  &__desctiption, &__result-title, &__result-item-text {
-    font-size: var(--text-lg);
-    @media (max-width: 1024px) {
-      font-size: var(--text-md);
-    }
-    @media (max-width: 576px) {
-      font-size: var(--text-xs);
     }
   }
 
@@ -529,11 +581,34 @@ section {
     gap: 30px;
   }
 
-  &__video {
+  &__video-wrapper {
     width: 100%;
     height: 200px;
     background-color: var(--dark-gray);
     border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.2);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .article__video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      position: relative;
+      z-index: 0;
+    }
   }
 
   &__additional-text {
@@ -556,6 +631,64 @@ section {
     height: 12px;
     margin: auto 0 auto 20px;
     color: white;
+  }
+}
+
+
+.approach {
+  &__title, &__description {
+    margin-bottom: var(--layout-gap);
+  }
+
+  &__cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--cards-gap);
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__card {
+    background-color: var(--color-light-gray);
+    position: relative;
+    height: 217px;
+    @media (max-width: 1024px) {
+      height: 160px;
+
+    }
+    @media (max-width: 576px) {
+      height: 110px;
+
+    }
+  }
+
+  &__card-description {
+    max-width: 340px;
+  }
+
+  &__card-label {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background: white;
+    padding-top: 30px;
+    padding-left: 30px;
+    border-top-left-radius: 10px;
+    font-size: 4.375rem;
+    font-weight: 600;
+    color: var(--color-accent);
+    line-height: 1;
+    @media (max-width: 1024px) {
+      padding-top: 20px;
+      padding-left: 20px;
+      font-size: 3.375rem;
+    }
+    @media (max-width: 576px) {
+      padding-top: 10px;
+      padding-left: 10px;
+      font-size: 2.375rem;
+    }
   }
 }
 </style>
