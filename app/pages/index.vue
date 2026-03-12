@@ -272,11 +272,26 @@
 .main {
   width: 100%;
   padding: 0 1.5rem;
+  @media (max-width: 668px) {
+    padding: 0 1rem;
+  }
 }
 
 section {
   padding-top: 100px;
   padding-bottom: 100px;
+  @media (max-width: 1220px) {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+  @media (max-width: 1024px) {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  @media (max-width: 576px) {
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
 }
 
 .hero, .directions {
@@ -284,15 +299,18 @@ section {
   display: flex;
   align-items: center;
   margin: 0 auto;
-  border-radius: 35px;
+  border-radius: 20px;
   background-color: var(--color-light-gray);
+  @media (max-width: 1024px) {
+    border-radius: 16px;
+  }
 }
 
 .hero__inner, .directions__inner {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: var(--layout-indent);
 }
 
 .hero {
@@ -329,12 +347,12 @@ section {
 .about {
   &__title {
     max-width: 750px;
-    margin-bottom: 30px;
+    margin-bottom: var(--layout-gap);
   }
 
   &__cards {
     max-width: 100%;
-    margin-top: 30px;
+    margin-top: var(--layout-gap);
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 24px;
@@ -346,18 +364,22 @@ section {
     }
   }
 
-  &__card {
+  &__card, &__card-conclusion {
     padding: 30px 40px;
+    @media (max-width: 1024px) {
+      padding: 20px 30px;
+    }
+    @media (max-width: 576px) {
+      padding: 15px 25px;
+    }
+  }
+
+  &__card {
     background-color: var(--color-light-gray);
     border-radius: 10px;
     display: flex;
     gap: 10px;
-    @media (max-width: 1220px) {
-      padding: 20px 30px;
-    }
-    @media (max-width: 668px) {
-      padding: 15px 25px;
-    }
+
   }
 
   &__card-icon {
@@ -367,15 +389,8 @@ section {
   }
 
   &__card-conclusion {
-    padding: 30px 40px;
     border: 3px solid var(--color-accent);
     border-radius: 10px;
-    @media (max-width: 1024px) {
-      padding: 20px 30px;
-    }
-    @media (max-width: 576px) {
-      padding: 15px 25px;
-    }
   }
 
   &__card-conclusion-text {
@@ -383,7 +398,7 @@ section {
   }
 
   &__footer {
-    margin-top: 70px;
+    margin-top: var(--layout-gap);
     display: grid;
     grid-template-columns: auto auto;
     gap: 20px;
@@ -418,7 +433,7 @@ section {
   &__articles {
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: var(--layout-gap);
   }
 }
 
@@ -426,31 +441,34 @@ section {
   background-color: white;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: var(--layout-gap);
   padding: 90px 100px 90px 50px;
   border-radius: 10px;
   @media (max-width: 1220px) {
-    padding: 45px;
-  }
-  @media (max-width: 576px) {
-    padding: 90px 100px 90px 50px;
+    padding: var(--layout-indent);
   }
 
   &__about, &__additional-info {
     display: grid;
     grid-template-columns: 1.22fr 0.78fr;
-    gap: 40px;
-    @media (max-width: 1220px) {
-      grid-template-columns: 1.1fr 0.9fr;
-    }
-    @media (max-width: 1024px) {
+    gap: var(--layout-gap);
+    @media (max-width: 1060px) {
       grid-template-columns: 1fr;
     }
   }
 
-  &__description {
-    margin-top: 40px;
+  &__desctiption, &__result-title, &__result-item-text {
     font-size: var(--text-lg);
+    @media (max-width: 1024px) {
+      font-size: var(--text-md);
+    }
+    @media (max-width: 576px) {
+      font-size: var(--text-xs);
+    }
+  }
+
+  &__description {
+    margin-top: var(--layout-gap);
     max-width: 590px;
   }
 
@@ -464,26 +482,39 @@ section {
     background-color: var(--color-accent);
     border-radius: 10px;
     color: white;
-    font-size: var(--text-lg);
     font-weight: 700;
+    @media (max-width: 1024px) {
+      padding: 15px 20px;
+    }
+    @media (max-width: 576px) {
+      padding: 10px 15px;
+
+    }
   }
 
   &__result-list {
     padding: 30px 30px 30px 43px; ;
+    @media (max-width: 1024px) {
+      padding: 20px 33px;
+    }
+    @media (max-width: 576px) {
+      padding: 15px 28px;
+    }
   }
 
-  &__result-item:nth-child(n+2) {
-    margin-top: 10px;
-  }
+  &__result-item {
 
-  &__result-item::marker {
-    color: var(--color-accent);
-    font-size: 1rem;
-    content: "◆";
+    &:nth-child(n+2) {
+      margin-top: 10px;
+    }
+    &::marker {
+      color: var(--color-accent);
+      font-size: 1rem;
+      content: "◆";
+    }
   }
 
   &__result-item-text {
-    font-size: var(--text-lg);
     margin-left: 12px;
   }
 
@@ -508,6 +539,12 @@ section {
   &__additional-text {
     font-size: var(--text-xs);
     color: var(--dark-gray);
+    @media (max-width: 1024px) {
+      font-size: var(--text-xxs);
+    }
+    @media (max-width: 576px) {
+      font-size: var(--text-3xs);
+    }
   }
 
   &__button {

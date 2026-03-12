@@ -41,14 +41,22 @@
   --text-md: 1.375rem; //22px
   --text-s: 1.25rem;   //20px
   --text-xs: 1.125rem; //18px
+  --text-xxs: 1rem;    //16px
+  --text-3xs: 0.875rem; //14px
 
   --layout-width: 1440px;
   --layout-indent: 3.125rem;
+  --layout-gap: 2.5rem;
   @media (max-width: 1024px) {
     --layout-indent: 2rem;
+    --layout-gap: 2rem;
   }
   @media (max-width: 576px) {
     --layout-indent: 1rem;
+    --layout-gap: 1.7rem;
+  }
+  @media (max-width: 480px) {
+    --layout-gap: 1.2rem;
   }
 }
 
@@ -73,6 +81,9 @@ h1 {
   @media (max-width: 576px) {
     font-size: var(--text-xl);
   }
+  @media (max-width: 480px) {
+    font-size: var(--text-lg);
+  }
 }
 
 h2 {
@@ -93,7 +104,7 @@ h2 {
 p {
   font-weight: 400;
   font-size: var(--text-md);
-  @media (max-width: 1220px) {
+  @media (max-width: 1024px) {
     font-size: var(--text-s);
   }
   @media (max-width: 576px) {
@@ -125,7 +136,9 @@ p {
   }
   @media (max-width: 768px) {
     font-size: var(--text-xs);
-
+  }
+  @media (max-width: 768px) {
+    font-size: var(--text-xxs);
   }
   &:hover {
     background-color: var(--color-accent-hover);
