@@ -282,21 +282,24 @@
           <div class="approach__card-label">
             01
           </div>
-        </div><div class="approach__card">
+        </div>
+        <div class="approach__card">
           <p class="approach__card-description">
             <strong>Выявляем</strong> точки операционных потерь
           </p>
           <div class="approach__card-label">
             02
           </div>
-        </div><div class="approach__card">
+        </div>
+        <div class="approach__card">
           <p class="approach__card-description">
             <strong>Предлагаем</strong> решение, которое оправдано экономикой
           </p>
           <div class="approach__card-label">
             03
           </div>
-        </div><div class="approach__card">
+        </div>
+        <div class="approach__card">
           <p class="approach__card-description">
             <strong>Развиваем</strong> систему по&nbsp;мере роста задач
           </p>
@@ -304,7 +307,69 @@
             04
           </div>
         </div>
+      </div>
+    </section>
 
+    <section class="benefits">
+      <div class="benefits__inner block">
+        <h1 class="benefits__title">
+          Где наши решения дают
+          <span class="accent-text">максимальный</span> эффект
+        </h1>
+        <div class="benefits__cards">
+          <div class="benefits__card">
+            <p class="benefits__card-description">
+              Выявляем точки операционных потерь
+            </p>
+            <svg class="benefits__card-icon" aria-hidden="true">
+              <use href="/sprite.svg#logo-beige-cut"/>
+            </svg>
+          </div>
+          <div class="benefits__card">
+            <p class="benefits__card-description">
+              Выявляем точки операционных потерь
+            </p>
+            <svg class="benefits__card-icon" aria-hidden="true">
+              <use href="/sprite.svg#logo-beige-cut"/>
+            </svg>
+          </div>
+          <div class="benefits__card">
+            <p class="benefits__card-description">
+              Выявляем точки операционных потерь
+            </p>
+            <svg class="benefits__card-icon" aria-hidden="true">
+              <use href="/sprite.svg#logo-beige-cut"/>
+            </svg>
+          </div>
+          <div class="benefits__card">
+            <p class="benefits__card-description">
+              Выявляем точки операционных потерь
+            </p>
+            <svg class="benefits__card-icon" aria-hidden="true">
+              <use href="/sprite.svg#logo-beige-cut"/>
+            </svg>
+          </div>
+          <div class="benefits__card">
+            <p class="benefits__card-description">
+              Выявляем точки операционных потерь
+            </p>
+            <svg class="benefits__card-icon" aria-hidden="true">
+              <use href="/sprite.svg#logo-beige-cut"/>
+            </svg>
+          </div>
+          <div class="benefits__card">
+            <p class="benefits__card-description">
+              Выявляем точки операционных потерь
+            </p>
+            <svg class="benefits__card-icon" aria-hidden="true">
+              <use href="/sprite.svg#logo-beige-cut"/>
+            </svg>
+          </div>
+        </div>
+        <h2 class="benefits__conclusion">
+          Мы помогаем компаниям переходить от ручного управления
+          к системной управляемости.
+        </h2>
       </div>
     </section>
   </main>
@@ -341,7 +406,7 @@ section {
   }
 }
 
-.hero, .directions {
+.hero, .directions, .benefits {
   max-width: 1920px;
   display: flex;
   align-items: center;
@@ -353,14 +418,14 @@ section {
   }
 }
 
-.hero__inner, .directions__inner {
+.hero__inner, .directions__inner, .benefits__inner {
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: var(--layout-indent);
 }
 
-.about__card, .about__card-conclusion, .approach__card {
+.about__card, .about__card-conclusion, .approach__card, .benefits__card {
   border-radius: 10px;
   padding: 30px 40px;
   @media (max-width: 1024px) {
@@ -371,13 +436,26 @@ section {
   }
 }
 
-.article__description, .article__result-title, .article__result-item-text, .approach__card-description {
+.article__description, .article__result-title, .article__result-item-text,
+.approach__card-description, .benefits__card-description {
   font-size: var(--text-lg);
   @media (max-width: 1024px) {
     font-size: var(--text-md);
   }
   @media (max-width: 576px) {
     font-size: var(--text-xs);
+  }
+}
+
+.about__cards, .benefits__cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: var(--cards-gap);
+  @media (max-width: 1220px) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -421,15 +499,6 @@ section {
   &__cards {
     max-width: 100%;
     margin-top: var(--layout-gap);
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: var(--cards-gap);
-    @media (max-width: 1220px) {
-      grid-template-columns: 1fr 1fr;
-    }
-    @media (max-width: 768px) {
-      grid-template-columns: 1fr;
-    }
   }
 
   &__card {
@@ -655,11 +724,9 @@ section {
     height: 217px;
     @media (max-width: 1024px) {
       height: 160px;
-
     }
     @media (max-width: 576px) {
       height: 110px;
-
     }
   }
 
@@ -689,6 +756,47 @@ section {
       padding-left: 10px;
       font-size: 2.375rem;
     }
+  }
+}
+
+.benefits {
+  &__title {
+    max-width: 600px
+  }
+
+  &__cards {
+    margin-bottom: var(--layout-gap);
+  }
+
+  &__card {
+    background-color: white;
+    position: relative;
+  }
+
+  &__card-description {
+    max-width: 330px;
+    position: relative;
+    z-index: 5;
+  }
+
+  &__card-icon {
+    z-index: 0;
+    width: 90px;
+    height: 90px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    @media (max-width: 1024px) {
+
+    }
+    @media (max-width: 768px) {
+      width: 80px;
+      height: 80px;
+    }
+  }
+
+  &__conclusion {
+    max-width: 1062px;
   }
 }
 </style>
