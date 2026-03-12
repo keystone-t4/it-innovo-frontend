@@ -58,6 +58,14 @@
   @media (max-width: 480px) {
     --layout-gap: 1.2rem;
   }
+
+  --cards-gap: 1.5rem;
+  @media (max-width: 768px) {
+    --cards-gap: 1.125rem;
+  }
+  @media (max-width: 480px) {
+    --cards-gap: 0.875rem;
+  }
 }
 
 body {
@@ -112,10 +120,79 @@ p {
   }
 }
 
+section {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  @media (max-width: 1220px) {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+  @media (max-width: 1024px) {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  @media (max-width: 576px) {
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
+}
+
 .block {
   max-width: calc(var(--layout-width) + (var(--layout-indent) * 2));
-  padding: 0 var(--layout-indent);
+  padding-right: var(--layout-indent);
+  padding-left: var(--layout-indent);
   margin: 0 auto;
+}
+
+.inner {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--layout-indent);
+}
+
+.grey-section {
+  max-width: 1920px;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  border-radius: 20px;
+  background-color: var(--color-light-gray);
+  @media (max-width: 1024px) {
+    border-radius: 16px;
+  }
+}
+
+.grid-3fr {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: var(--cards-gap);
+  @media (max-width: 1220px) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.grid-2fr {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--cards-gap);
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  border-radius: 10px;
+  padding: 30px 40px;
+  @media (max-width: 1024px) {
+    padding: 20px 30px;
+  }
+  @media (max-width: 576px) {
+    padding: 15px 25px;
+  }
 }
 
 .button {
@@ -150,5 +227,15 @@ p {
     &:hover {
       background-color: var(--color-gray-hover);
     }
+  }
+}
+
+.paragraph {
+  font-size: var(--text-lg);
+  @media (max-width: 1024px) {
+    font-size: var(--text-md);
+  }
+  @media (max-width: 576px) {
+    font-size: var(--text-xs);
   }
 }

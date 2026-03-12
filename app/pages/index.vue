@@ -4,8 +4,8 @@
 
 <template>
   <main class="main">
-    <div class="hero">
-      <div class="hero__inner block">
+    <div class="hero grey-section">
+      <div class="block inner">
         <h1 class="hero__title">
           Управляемость процессов вместо операционного хаоса
         </h1>
@@ -35,8 +35,8 @@
         <br><br>И в какой-то момент:
       </p>
 
-      <div class="about__cards">
-        <div class="about__card">
+      <div class="about__cards grid-3fr">
+        <div class="about__card card">
           <p class="about__card-description">
             смены работают в&nbsp;режиме ожидания
           </p>
@@ -44,7 +44,7 @@
             <use href="/sprite.svg#arrow" />
           </svg>
         </div>
-        <div class="about__card">
+        <div class="about__card card">
           <p class="about__card-description">
             появляются авралы и&nbsp;сверхурочные
           </p>
@@ -52,7 +52,7 @@
             <use href="/sprite.svg#arrow" />
           </svg>
         </div>
-        <div class="about__card">
+        <div class="about__card card">
           <p class="about__card-description">
             теряется прозрачность загрузки
           </p>
@@ -60,7 +60,7 @@
             <use href="/sprite.svg#arrow" />
           </svg>
         </div>
-        <div class="about__card">
+        <div class="about__card card">
           <p class="about__card-description">
             учёт становится фрагментарным
           </p>
@@ -68,7 +68,7 @@
             <use href="/sprite.svg#arrow" />
           </svg>
         </div>
-        <div class="about__card">
+        <div class="about__card card">
           <p class="about__card-description">
             решения принимаются «вручную»
           </p>
@@ -76,7 +76,7 @@
             <use href="/sprite.svg#arrow" />
           </svg>
         </div>
-        <div class="about__card-conclusion">
+        <div class="about__card-conclusion card">
           <p class="about__card-conclusion-text">
             В результате бизнес начинает нести операционные потери.
           </p>
@@ -99,8 +99,8 @@
       </div>
     </section>
 
-    <section class="directions">
-      <div class="directions__inner block">
+    <section class="directions grey-section">
+      <div class="inner block">
         <h1 class="directions__title">
           Наши направления
         </h1>
@@ -112,7 +112,7 @@
                   Управляемая логистика — система
                   <span class="accent-text">«Визиты»</span>
                 </h1>
-                <p class="article__description">
+                <p class="article__description paragraph">
                   Флагманское решение Инново.<br>Базовый модуль —
                   Электронная очередь<br>— даёт прозрачную картину загрузки
                   на сутки вперёд и создаёт основу для эффективного
@@ -120,27 +120,27 @@
                 </p>
               </div>
               <div class="article__result">
-                <h4 class="article__result-title">
+                <h4 class="article__result-title paragraph">
                   Результат:
                 </h4>
                 <ul class="article__result-list">
                   <li class="article__result-item">
-                    <p class="article__result-item-text">
+                    <p class="article__result-item-text paragraph">
                       устранение хаотичного въезда
                     </p>
                   </li>
                   <li class="article__result-item">
-                    <p class="article__result-item-text">
+                    <p class="article__result-item-text paragraph">
                       снижение пустых смен
                     </p>
                   </li>
                   <li class="article__result-item">
-                    <p class="article__result-item-text">
+                    <p class="article__result-item-text paragraph">
                       подготовка к пиковым нагрузкам
                     </p>
                   </li>
                   <li class="article__result-item">
-                    <p class="article__result-item-text">
+                    <p class="article__result-item-text paragraph">
                       контроль фонда оплаты труда
                     </p>
                   </li>
@@ -174,34 +174,34 @@
                   Фундаментальная <span class="accent-text">автоматизация
                   (1С)</span>
                 </h1>
-                <p class="article__description">
+                <p class="article__description paragraph">
                   Надёжная основа управляемости.
                   Мы внедряем, дорабатываем и сопровождаем решения на платформе
                   1С, объединяя разрозненные данные в единую систему учёта.
                 </p>
               </div>
               <div class="article__result">
-                <h4 class="article__result-title">
+                <h4 class="article__result-title paragraph">
                   Что это даёт:
                 </h4>
                 <ul class="article__result-list">
                   <li class="article__result-item">
-                    <p class="article__result-item-text">
+                    <p class="article__result-item-text paragraph">
                       прозрачную финансовую картину
                     </p>
                   </li>
                   <li class="article__result-item">
-                    <p class="article__result-item-text">
+                    <p class="article__result-item-text paragraph">
                       контроль себестоимости
                     </p>
                   </li>
                   <li class="article__result-item">
-                    <p class="article__result-item-text">
+                    <p class="article__result-item-text paragraph">
                       сквозной документооборот
                     </p>
                   </li>
                   <li class="article__result-item">
-                    <p class="article__result-item-text">
+                    <p class="article__result-item-text paragraph">
                       снижение ручных операций
                     </p>
                   </li>
@@ -221,34 +221,34 @@
                 <h1 class="article__title">
                   Практическое <span class="accent-text">внедрение ИИ</span>
                 </h1>
-                <p class="article__description">
+                <p class="article__description paragraph">
                   Мы используем искусственный интеллект не&nbsp;как&nbsp;тренд,
                   а как понятный инструмент для&nbsp;конкретных задач.
                 </p>
               </div>
               <div class="article__result">
-                <h4 class="article__result-title">
+                <h4 class="article__result-title paragraph">
                   Проводим аудит процессов и внедряем ИИ там, где он
                   даёт измеримый эффект:
                 </h4>
                 <ul class="article__result-list">
                   <li class="article__result-item">
-                    <p class="article__result-item-text">
+                    <p class="article__result-item-text paragraph">
                       обработка и распознавание документов
                     </p>
                   </li>
                   <li class="article__result-item">
-                    <p class="article__result-item-text">
+                    <p class="article__result-item-text paragraph">
                       прогнозирование загрузки
                     </p>
                   </li>
                   <li class="article__result-item">
-                    <p class="article__result-item-text">
+                    <p class="article__result-item-text paragraph">
                       аналитика данных
                     </p>
                   </li>
                   <li class="article__result-item">
-                    <p class="article__result-item-text">
+                    <p class="article__result-item-text paragraph">
                       выявление операционных отклонений
                     </p>
                   </li>
@@ -274,33 +274,33 @@
         Мы не предлагаем «универсальную платформу»<br>
         и абстрактную «цифровизацию». Мы:
       </p>
-      <div class="approach__cards">
-        <div class="approach__card">
-          <p class="approach__card-description">
+      <div class="approach__cards grid-2fr">
+        <div class="approach__card card">
+          <p class="approach__card-description paragraph">
             <strong>Анализируем</strong> процессы предприятия
           </p>
           <div class="approach__card-label">
             01
           </div>
         </div>
-        <div class="approach__card">
-          <p class="approach__card-description">
+        <div class="approach__card card">
+          <p class="approach__card-description paragraph">
             <strong>Выявляем</strong> точки операционных потерь
           </p>
           <div class="approach__card-label">
             02
           </div>
         </div>
-        <div class="approach__card">
-          <p class="approach__card-description">
+        <div class="approach__card card">
+          <p class="approach__card-description paragraph">
             <strong>Предлагаем</strong> решение, которое оправдано экономикой
           </p>
           <div class="approach__card-label">
             03
           </div>
         </div>
-        <div class="approach__card">
-          <p class="approach__card-description">
+        <div class="approach__card card">
+          <p class="approach__card-description paragraph">
             <strong>Развиваем</strong> систему по&nbsp;мере роста задач
           </p>
           <div class="approach__card-label">
@@ -310,55 +310,55 @@
       </div>
     </section>
 
-    <section class="benefits">
-      <div class="benefits__inner block">
+    <section class="benefits grey-section">
+      <div class="inner block">
         <h1 class="benefits__title">
           Где наши решения дают
           <span class="accent-text">максимальный</span> эффект
         </h1>
-        <div class="benefits__cards">
-          <div class="benefits__card">
-            <p class="benefits__card-description">
+        <div class="benefits__cards grid-3fr">
+          <div class="benefits__card card">
+            <p class="benefits__card-description paragraph">
               Выявляем точки операционных потерь
             </p>
             <svg class="benefits__card-icon" aria-hidden="true">
               <use href="/sprite.svg#logo-beige-cut"/>
             </svg>
           </div>
-          <div class="benefits__card">
-            <p class="benefits__card-description">
+          <div class="benefits__card card">
+            <p class="benefits__card-description paragraph">
               Выявляем точки операционных потерь
             </p>
             <svg class="benefits__card-icon" aria-hidden="true">
               <use href="/sprite.svg#logo-beige-cut"/>
             </svg>
           </div>
-          <div class="benefits__card">
-            <p class="benefits__card-description">
+          <div class="benefits__card card">
+            <p class="benefits__card-description paragraph">
               Выявляем точки операционных потерь
             </p>
             <svg class="benefits__card-icon" aria-hidden="true">
               <use href="/sprite.svg#logo-beige-cut"/>
             </svg>
           </div>
-          <div class="benefits__card">
-            <p class="benefits__card-description">
+          <div class="benefits__card card">
+            <p class="benefits__card-description paragraph">
               Выявляем точки операционных потерь
             </p>
             <svg class="benefits__card-icon" aria-hidden="true">
               <use href="/sprite.svg#logo-beige-cut"/>
             </svg>
           </div>
-          <div class="benefits__card">
-            <p class="benefits__card-description">
+          <div class="benefits__card card">
+            <p class="benefits__card-description paragraph">
               Выявляем точки операционных потерь
             </p>
             <svg class="benefits__card-icon" aria-hidden="true">
               <use href="/sprite.svg#logo-beige-cut"/>
             </svg>
           </div>
-          <div class="benefits__card">
-            <p class="benefits__card-description">
+          <div class="benefits__card card">
+            <p class="benefits__card-description paragraph">
               Выявляем точки операционных потерь
             </p>
             <svg class="benefits__card-icon" aria-hidden="true">
@@ -373,204 +373,16 @@
       </div>
     </section>
 
-    <section class="contacts block">
-      <div class="contacts__about">
-        <div class="contacts__about-text">
-          <h1 class="contacts__title">
-            Узнайте, как наши решения
-            <span class="accent-text"> могут помочь</span>
-            вашему бизнесу
-          </h1>
-          <p class="contacts__description">
-            Ответим на все вопросы, проведем демонстрацию или
-            подготовим предварительный расчет.
-          </p>
-        </div>
-        <div class="contacts__banner">
-
-        </div>
-      </div>
-      <div class="contacts__team">
-        <h2 class="contacts__team-title">
-          Над вашим проектом будут работать
-        </h2>
-        <div class="contacts__team-member">
-          <img class="contacts__team-member-icon" src="/img/Sasha-photo.png"/>
-          <div class="contacts__team-member-description">
-            <p class="contacts__team-member-name">
-              Александр Васильев
-            </p>
-            <p class="contacts__team-member-about">
-              Выстраивает рабочие процессы и координирует работу команды
-            </p>
-          </div>
-        </div>
-        <div class="contacts__team-member">
-          <img class="contacts__team-member-icon" src="/img/Sonya-photo.png"/>
-          <div class="contacts__team-member-description">
-            <p class="contacts__team-member-name">
-              София Хен
-            </p>
-            <p class="contacts__team-member-about">
-              Развивает продукт и сопровождает клиентов на всех этапах работы
-            </p>
-          </div>
-        </div>
-        <div class="contacts__team-member">
-          <img class="contacts__team-member-icon" src="/img/Radik-photo.png"/>
-          <div class="contacts__team-member-description">
-            <p class="contacts__team-member-name">
-              Радик Гайнутдинов
-            </p>
-            <p class="contacts__team-member-about">
-              Развивает отношения с клиентами и отвечает за качество сервиса
-            </p>
-          </div>
-        </div>
-        <div class="contacts__team-member">
-          <img class="contacts__team-member-icon" src="/img/David-photo.png"/>
-          <div class="contacts__team-member-description">
-            <p class="contacts__team-member-name">
-              Давыд Седеньо-Андреев
-            </p>
-            <p class="contacts__team-member-about">
-              Отвечает за аналитику и техническую реализацию проектов
-            </p>
-          </div>
-        </div>
-        <div class="contacts__team-member">
-          <img class="contacts__team-member-icon" src="/img/Masha-photo.png"/>
-          <div class="contacts__team-member-description">
-            <p class="contacts__team-member-name">
-              Мария Шаркова
-            </p>
-            <p class="contacts__team-member-about">
-              Развивает новые направления и партнёрства компании
-            </p>
-          </div>
-        </div>
-
-      </div>
-      <div class="contacts__cta">
-        <div class="contacts__cta-item">
-          <svg class="contacts__cta-icon">
-            <use href="/sprite.svg#phone"/>
-          </svg>
-          <a class="contacts__cta-link" href="tel:+78125095903">
-            +7 (812) 509-59-03
-          </a>
-        </div>
-        <div class="contacts__cta-item">
-          <svg class="contacts__cta-icon">
-            <use href="/sprite.svg#mail"/>
-          </svg>
-          <a class="contacts__cta-link" href="mailto:info@it-innovo.ru">
-            info@it-innovo.ru
-          </a>
-        </div>
-      </div>
-      <a class="contacts__telegram-bot-button button"
-         href="https://t.me/innovo_visiting_bot"
-         target="_blank"
-         rel="noopener noreferrer"
-      >
-        Бот Telegram
-      </a>
-    </section>
+    <AppSectionContacts/>
   </main>
 </template>
 
 <style scoped lang="scss">
 .main {
-  --cards-gap: 1.5rem;
   width: 100%;
   padding: 0 1.5rem;
   @media (max-width: 768px) {
-    --cards-gap: 1.125rem;
     padding: 0 1rem;
-  }
-  @media (max-width: 480px) {
-    --cards-gap: 0.875rem;
-  }
-}
-
-section {
-  padding-top: 100px;
-  padding-bottom: 100px;
-  @media (max-width: 1220px) {
-    padding-top: 70px;
-    padding-bottom: 70px;
-  }
-  @media (max-width: 1024px) {
-    padding-top: 50px;
-    padding-bottom: 50px;
-  }
-  @media (max-width: 576px) {
-    padding-top: 25px;
-    padding-bottom: 25px;
-  }
-}
-
-.hero, .directions, .benefits {
-  max-width: 1920px;
-  display: flex;
-  align-items: center;
-  margin: 0 auto;
-  border-radius: 20px;
-  background-color: var(--color-light-gray);
-  @media (max-width: 1024px) {
-    border-radius: 16px;
-  }
-}
-
-.hero__inner, .directions__inner, .benefits__inner {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: var(--layout-indent);
-}
-
-.about__card, .about__card-conclusion, .approach__card, .benefits__card {
-  border-radius: 10px;
-  padding: 30px 40px;
-  @media (max-width: 1024px) {
-    padding: 20px 30px;
-  }
-  @media (max-width: 576px) {
-    padding: 15px 25px;
-  }
-}
-
-.article__description, .article__result-title, .article__result-item-text,
-.approach__card-description, .benefits__card-description, .contacts__description,
-.contacts__team-member-name, .contacts__cta-link {
-  font-size: var(--text-lg);
-  @media (max-width: 1024px) {
-    font-size: var(--text-md);
-  }
-  @media (max-width: 576px) {
-    font-size: var(--text-xs);
-  }
-}
-
-.about__cards, .benefits__cards, .contacts__team {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: var(--cards-gap);
-  @media (max-width: 1220px) {
-    grid-template-columns: 1fr 1fr;
-  }
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-  }
-}
-
-.approach__cards, .contacts__about {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--cards-gap);
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
   }
 }
 
@@ -674,7 +486,6 @@ section {
     }
   }
 }
-
 
 .directions {
   &__articles {
@@ -818,7 +629,6 @@ section {
   }
 }
 
-
 .approach {
   &__title, &__description {
     margin-bottom: var(--layout-gap);
@@ -903,94 +713,6 @@ section {
 
   &__conclusion {
     max-width: 1070px;
-  }
-}
-
-.contacts {
-  &__banner {
-    background-color: var(--dark-gray);
-    border-radius: 10px;
-    min-height: 250px;
-  }
-
-  &__title, &__about, &__team, &__cta {
-    margin-bottom: var(--layout-gap);
-  }
-
-  &__team-member {
-    display: flex;
-    align-items: center;
-    gap: var(--cards-gap);
-  }
-
-  &__team-member-icon {
-    width: 97px;
-    height: 97px;
-
-    @media (max-width: 1220px) {
-      width: 85px;
-      height: 85px;
-    }
-    @media (max-width: 768px) {
-      width: 70px;
-      height: 70px;
-    }
-  }
-
-  &__team-title {
-    max-width: 375px;
-  }
-
-  &__team-member-name {
-    font-weight: 700;
-  }
-
-  &__team-member-about {
-    font-size: var(--text-s);
-    @media (max-width: 1024px) {
-      font-size: var(--text-xs);
-    }
-    @media (max-width: 576px) {
-      font-size: var(--text-xxs);
-    }
-  }
-
-  &__cta {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-top: 50px;
-    @media (max-width: 480px) {
-      margin-top: 30px;
-    }
-  }
-
-  &__cta-item {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    @media (max-width: 576px) {
-      gap: 10px;
-
-    }
-  }
-
-  &__cta-icon {
-    color: var(--color-accent);
-    width: 27px;
-    height: 27px;
-    @media (max-width: 1024px) {
-      width: 22px;
-      height: 22px;
-    }
-  }
-
-  &__cta-link {
-    text-decoration: none;
-    color: var(--text-dark);
-    &:hover {
-      color: var(--dark-gray);
-    }
   }
 }
 </style>

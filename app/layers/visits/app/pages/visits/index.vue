@@ -22,6 +22,9 @@ import DemoViewport from '~/layers/visits/app/features/demo/components/demoViewp
     <div class="home__demo visits-block">
       <DemoViewport/>
     </div>
+
+    <AppSectionContacts/>
+
   </main>
 </template>
 
