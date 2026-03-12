@@ -1,25 +1,30 @@
 <script setup>
 import DemoViewport from '~/layers/visits/app/features/demo/components/demoViewport.vue'
+
+const heroTitle = 'Система «Визиты» — управляемая логистика вместо хаоса'
+const heroDescription = 'Базовый модуль — Электронная очередь — даёт прозрачную картину загрузки на сутки вперёд и создаёт основу для эффективного планирования смен и ресурсов.'
 </script>
 
-<template>
-  <main class="home">
-    <div class="home__hero visits-block">
-        <div class="home__hero-text">
-          <h1 class="home__hero-title">
-            Система «Визиты»
-          </h1>
-          <h3 class="home__hero-subtitle">
-            Полный контроль логистики на вашей территории
-          </h3>
-          <p class="home__hero-description">
-            Ликвидируйте простои транспорта, автоматизируйте въезд и учет грузов. Получите управляемый
-            и предсказуемый грузопоток от въезда на территорию до формирования акта.
-          </p>
-        </div>
-    </div>
+<!--todo: конвертнуть видосы в webp-->
 
-    <div class="home__demo visits-block">
+<template>
+  <main class="main">
+    <AppSectionHero :title="heroTitle" :description="heroDescription" src="/video/visits.mp4">
+      <div class="hero__buttons">
+        <button class="hero__button button">
+          Рассчитать вашу экономическую выгоду
+        </button>
+        <a class="hero__button button button--transparent"
+           href="https://t.me/innovo_visiting_bot"
+           target="_blank"
+           rel="noopener noreferrer"
+        >
+           Получить консультацию
+        </a>
+      </div>
+    </AppSectionHero>
+
+    <div class="main__demo visits-block">
       <DemoViewport/>
     </div>
 
@@ -29,26 +34,24 @@ import DemoViewport from '~/layers/visits/app/features/demo/components/demoViewp
 </template>
 
 <style scoped lang="scss">
-.home {
-  padding: 2rem 0;
-  width: 100%;
-  background-color: white;
-  flex: 1 0 auto;
-  &__hero {
-    margin: 0 auto;
+.hero {
+  &__buttons {
     display: flex;
-    align-items: start;
-    justify-content: start;
-  }
-  &__hero-text {
-    max-width: 1024px;
-    padding-left: 30px;
-    border-left: 1.5px solid var(--visits-text-dark);
-    @media (max-width: 480px) {
-      padding-left: 18px;
+    flex-direction: column;
+    gap: 18px;
+    width: 100%;
+    @media (max-width: 768px) {
+      align-items: center;
     }
   }
 
+  &__button {
+    width: fit-content;
+  }
+}
+
+
+.main {
   &__demo {
     margin: 0 auto;
     padding-top: 4rem;

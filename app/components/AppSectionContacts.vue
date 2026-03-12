@@ -69,7 +69,6 @@
       <div class="contacts__team-member">
         <NuxtImg class="contacts__team-member-icon"
                  src="/img/David-photo.png"
-                 alt="фото Давыда"
         />
         <div class="contacts__team-member-description">
           <p class="contacts__team-member-name paragraph">

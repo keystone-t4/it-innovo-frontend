@@ -1,38 +1,22 @@
 <script setup>
+import AppSectionHero from "~/components/AppSectionHero.vue";
 
+const heroTitle = 'Управляемость процессов вместо операционного хаоса'
+const heroDescription = 'Мы помогаем промышленным предприятиям навести порядок в логистике, учёте и производстве — чтобы рост бизнеса сопровождался ростом управляемости.'
 </script>
 
 <template>
   <main class="main">
-<!--    todo: вынести в компонент с пропсами и слотами-->
-    <div class="hero grey-section">
-
-      <div class="video-wrapper hero__bg-video" aria-hidden="true">
-        <video class="video" autoplay muted loop playsinline preload="auto">
-          <source src="/video/hero.mp4" type="video/mp4" />
-        </video>
-        <div class="video-overlay" />
+    <AppSectionHero :title="heroTitle" :description="heroDescription" src="/video/hero.mp4">
+      <div class="hero__buttons">
+        <button class="hero__button button">
+          Обсудить проект
+        </button>
+        <NuxtLink to="/visits/" class="hero__button button button--transparent">
+          Система «Визиты»
+        </NuxtLink>
       </div>
-
-      <div class="hero__inner block inner">
-        <h1 class="hero__title">
-          Управляемость процессов вместо операционного хаоса
-        </h1>
-        <p class="hero__description">
-          Мы помогаем промышленным предприятиям навести порядок в логистике,
-          учёте и производстве — чтобы рост бизнеса сопровождался ростом
-          управляемости.
-        </p>
-        <div class="hero__buttons">
-          <button class="hero__button button">
-            Обсудить проект
-          </button>
-          <NuxtLink to="/visits/" class="hero__button button button--transparent">
-            Система «Визиты»
-          </NuxtLink>
-        </div>
-      </div>
-    </div>
+    </AppSectionHero>
 
     <section class="about block">
       <h1 class="about__title">
@@ -387,72 +371,13 @@
 </template>
 
 <style scoped lang="scss">
-.main {
+.hero__buttons {
+  display: flex;
+  gap: 18px;
   width: 100%;
-  padding: 0 1.5rem;
   @media (max-width: 768px) {
-    padding: 0 1rem;
-  }
-}
-
-.hero {
-  max-height: 890px;
-  height: 80dvh;
-
-  position: relative;
-  overflow: hidden;
-
-  &__bg-video {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-    pointer-events: none;
-    display: block;
-
-    .video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: right bottom;
-      display: block;
-    }
-
-    .video-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 1;
-      pointer-events: none;
-      background-color: rgba(0, 0, 0, 0.4);
-    }
-  }
-
-  &__inner {
-    position: relative;
-    z-index: 2;
-    @media (max-width: 768px) {
-      align-items: center;
-      text-align: center;
-    }
-  }
-
-  &__title, &__description {
-    max-width: 760px;
-    color: var(--text-light)
-  }
-
-  &__buttons {
-    display: flex;
-    gap: 18px;
-    width: 100%;
-    @media (max-width: 768px) {
-      flex-direction: column;
-      align-items: center;
-    }
+    flex-direction: column;
+    align-items: center;
   }
 }
 
@@ -741,6 +666,7 @@
     position: absolute;
     right: 0;
     bottom: 0;
+    color: var(--color-light-gray);
     @media (max-width: 1024px) {
 
     }

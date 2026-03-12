@@ -137,6 +137,14 @@ section {
   }
 }
 
+.main {
+  width: 100%;
+  padding: 0 1.5rem;
+  @media (max-width: 768px) {
+    padding: 0 1rem;
+  }
+}
+
 .block {
   max-width: calc(var(--layout-width) + (var(--layout-indent) * 2));
   padding-right: var(--layout-indent);
