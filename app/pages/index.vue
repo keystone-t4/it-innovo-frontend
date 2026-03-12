@@ -304,6 +304,13 @@ section {
   background-repeat: no-repeat;
   background-size: cover;
 
+  &__inner {
+    @media (max-width: 768px) {
+      align-items: center;
+      text-align: center;
+    }
+  }
+
   &__title, &__description {
     max-width: 760px;
   }
@@ -311,6 +318,11 @@ section {
   &__buttons {
     display: flex;
     gap: 18px;
+    width: 100%;
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: center;
+    }
   }
 }
 
@@ -417,6 +429,12 @@ section {
   gap: 20px;
   padding: 90px 100px 90px 50px;
   border-radius: 10px;
+  @media (max-width: 1220px) {
+    padding: 45px;
+  }
+  @media (max-width: 576px) {
+    padding: 90px 100px 90px 50px;
+  }
 
   &__about, &__additional-info {
     display: grid;
@@ -426,9 +444,6 @@ section {
       grid-template-columns: 1.1fr 0.9fr;
     }
     @media (max-width: 1024px) {
-      grid-template-columns: 1fr;
-    }
-    @media (max-width: 576px) {
       grid-template-columns: 1fr;
     }
   }

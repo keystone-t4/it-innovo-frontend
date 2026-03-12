@@ -34,12 +34,13 @@
   --text-dark-hover: rgba(0, 0, 0, 0.7);
   --text-light: white;
 
-  --text-xxl: 3.125rem;
-  --text-xl: 2.188rem;
-  --text-lg: 1.563rem;
-  --text-md: 1.375rem;
-  --text-s: 1.25rem;
-  --text-xs: 1.125rem;
+  --text-3xl: 3.125rem; //55px
+  --text-xxl: 2.188rem; //35px
+  --text-xl: 1.875rem; //30px
+  --text-lg: 1.563rem; //25px
+  --text-md: 1.375rem; //22px
+  --text-s: 1.25rem;   //20px
+  --text-xs: 1.125rem; //18px
 
   --layout-width: 1440px;
   --layout-indent: 3.125rem;
@@ -64,19 +65,19 @@ html {
 
 h1 {
   font-weight: 600;
-  font-size: var(--text-xxl);
+  font-size: var(--text-3xl);
   line-height: 100%;
   @media (max-width: 1024px) {
-    font-size: var(--text-xl);
+    font-size: var(--text-xxl);
   }
   @media (max-width: 576px) {
-    font-size: var(--text-lg);
+    font-size: var(--text-xl);
   }
 }
 
 h2 {
   font-weight: 600;
-  font-size: var(--text-xl);
+  font-size: var(--text-xxl);
   @media (max-width: 1024px) {
     font-size: var(--text-lg);
   }
@@ -123,7 +124,6 @@ p {
 
   }
   @media (max-width: 768px) {
-    width: 100px;
     font-size: var(--text-xs);
 
   }
