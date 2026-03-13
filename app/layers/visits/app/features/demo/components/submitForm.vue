@@ -103,7 +103,7 @@ onMounted(() => {
                  :class="{ 'list-box__icon--open': open }"
                  aria-hidden="true"
             >
-              <use href="./../../assets/sprite-visits.svg#down-chevron" />
+              <use href="/sprite-visits.svg#down-chevron" />
             </svg>
           </HeadlessListboxButton>
 
