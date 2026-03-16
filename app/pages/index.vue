@@ -1,6 +1,4 @@
 <script setup>
-import AppSectionHero from "~/components/AppSectionHero.vue";
-
 const heroTitle = 'Управляемость процессов вместо операционного хаоса'
 const heroDescription = 'Мы помогаем промышленным предприятиям навести порядок в логистике, учёте и производстве — чтобы рост бизнеса сопровождался ростом управляемости.'
 </script>
@@ -212,7 +210,7 @@ const heroDescription = 'Мы помогаем промышленным пред
             <div class="article__about">
               <div class="article__text">
                 <h1 class="article__title">
-                  Практическое <span class="accent-text">внедрение ИИ</span>
+                  Практическое<br><span class="accent-text">внедрение ИИ</span>
                 </h1>
                 <p class="article__description paragraph">
                   Мы используем искусственный интеллект не&nbsp;как&nbsp;тренд,
@@ -260,9 +258,7 @@ const heroDescription = 'Мы помогаем промышленным пред
     </section>
 
     <section class="approach block">
-      <h1 class="approach__title">
-        Наш <span class="accent-text">Подход</span>
-      </h1>
+      <h1 class="approach__title">Наш подход</h1>
       <p class="approach__description">
         Мы не предлагаем «универсальную платформу»<br>
         и абстрактную «цифровизацию». Мы:
@@ -393,7 +389,7 @@ const heroDescription = 'Мы помогаем промышленным пред
   }
 
   &__card {
-    background-color: var(--color-light-gray);
+    background-color: var(--color-light-blue);
     display: flex;
     gap: 10px;
     justify-content: space-between;
@@ -599,7 +595,7 @@ const heroDescription = 'Мы помогаем промышленным пред
   }
 
   &__card {
-    background-color: var(--color-light-gray);
+    background-color: var(--color-light-blue);
     position: relative;
     height: 217px;
     @media (max-width: 1024px) {
@@ -666,7 +662,7 @@ const heroDescription = 'Мы помогаем промышленным пред
     position: absolute;
     right: 0;
     bottom: 0;
-    color: var(--color-light-gray);
+    color: var(--color-light-blue);
     @media (max-width: 1024px) {
 
     }

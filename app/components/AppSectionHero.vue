@@ -63,7 +63,18 @@ defineProps({
       height: 100%;
       z-index: 1;
       pointer-events: none;
-      background-color: rgba(0, 0, 0, 0.4);
+      background: linear-gradient(
+              90deg,
+              rgba(0, 0, 0, 0.55) 20%,
+              rgba(0, 0, 0, 0.4) 55%,
+              rgba(0, 0, 0, 0.1) 100%
+      );
+      @media (max-width: 1024px) {
+
+        background: rgba(0, 0, 0, 0.4);
+
+
+      }
     }
   }
 

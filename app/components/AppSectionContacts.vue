@@ -4,7 +4,7 @@
 
 <template>
   <section class="contacts block">
-    <div class="contacts__about grid-2fr">
+    <div class="contacts__about grid-3fr">
       <div class="contacts__about-text">
         <h1 class="contacts__title">
           Узнайте, как наши решения
@@ -16,8 +16,30 @@
           подготовим предварительный расчет.
         </p>
       </div>
-      <div class="contacts__banner">
-
+      <div class="contacts__cta">
+        <div class="contacts__cta-item">
+          <svg class="contacts__cta-icon">
+            <use href="/sprite.svg#phone"/>
+          </svg>
+          <a class="contacts__cta-link paragraph" href="tel:+78125095903">
+            +7 (812) 509-59-03
+          </a>
+        </div>
+        <div class="contacts__cta-item">
+          <svg class="contacts__cta-icon">
+            <use href="/sprite.svg#mail"/>
+          </svg>
+          <a class="contacts__cta-link paragraph" href="mailto:info@it-innovo.ru">
+            info@it-innovo.ru
+          </a>
+        </div>
+        <a class="contacts__telegram-bot-button button"
+           href="https://t.me/innovo_visiting_bot"
+           target="_blank"
+           rel="noopener noreferrer"
+        >
+          Бот Telegram
+        </a>
       </div>
     </div>
     <div class="contacts__team grid-3fr">
@@ -94,44 +116,39 @@
         </div>
       </div>
     </div>
-    <div class="contacts__cta">
-      <div class="contacts__cta-item">
-        <svg class="contacts__cta-icon">
-          <use href="/sprite.svg#phone"/>
-        </svg>
-        <a class="contacts__cta-link paragraph" href="tel:+78125095903">
-          +7 (812) 509-59-03
-        </a>
-      </div>
-      <div class="contacts__cta-item">
-        <svg class="contacts__cta-icon">
-          <use href="/sprite.svg#mail"/>
-        </svg>
-        <a class="contacts__cta-link paragraph" href="mailto:info@it-innovo.ru">
-          info@it-innovo.ru
-        </a>
-      </div>
-    </div>
-    <a class="contacts__telegram-bot-button button"
-       href="https://t.me/innovo_visiting_bot"
-       target="_blank"
-       rel="noopener noreferrer"
-    >
-      Бот Telegram
-    </a>
   </section>
 </template>
 
 <style scoped lang="scss">
 .contacts {
-  &__banner {
-    background-color: var(--color-dark-gray);
-    border-radius: 10px;
-    min-height: 250px;
+  &__about-text {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    max-width: 628px;
   }
 
-  &__title, &__about, &__team, &__cta {
+  &__title &__team {
     margin-bottom: var(--layout-gap);
+  }
+
+  &__about {
+    margin-bottom: 80px;
+    @media (max-width: 1220px) {
+      margin-bottom: 70px;
+    }
+    @media (max-width: 1024px) {
+      margin-bottom: 50px;
+    }
+    @media (max-width: 576px) {
+      margin-bottom: 25px;
+    }
+  }
+
+  &__description {
+    margin-top: 1.5rem;
+    @media (max-width: 768px) {
+      margin-top: 1rem;
+    }
   }
 
   &__team-member {
@@ -176,10 +193,7 @@
     display: flex;
     flex-direction: column;
     gap: 15px;
-    margin-top: 50px;
-    @media (max-width: 480px) {
-      margin-top: 30px;
-    }
+    justify-content: end;
   }
 
   &__cta-item {
@@ -188,7 +202,6 @@
     gap: 20px;
     @media (max-width: 576px) {
       gap: 10px;
-
     }
   }
 
@@ -207,6 +220,17 @@
     color: var(--text-dark);
     &:hover {
       color: var(--color-dark-gray);
+    }
+  }
+
+  &__telegram-bot-button {
+    margin-top: 1.5rem;
+    width: fit-content;
+    @media (max-width: 768px) {
+      margin-top: 1rem;
+    }
+    @media (max-width: 480px) {
+      margin-top: 0.625rem;
     }
   }
 }

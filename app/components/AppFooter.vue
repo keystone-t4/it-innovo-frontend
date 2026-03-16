@@ -101,9 +101,7 @@
   background-color: var(--color-dark-gray);
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 50px 0 var(--underline-indent) 0;
+  padding: 50px var(--layout-indent) var(--underline-indent) var(--layout-indent);
   @media (max-width: 1024px) {
     border-top-left-radius: 16px;
     border-top-right-radius: 16px;
@@ -117,7 +115,7 @@
     display: grid;
     grid-template-columns: 1.5fr 1fr 1fr 1fr;
     gap: var(--layout-indent);
-    padding: 0 calc(var(--layout-indent) * 2) 0 calc(var(--layout-indent) * 2);
+    padding: 0 var(--layout-indent) 0 var(--layout-indent);
 
     margin-bottom: 50px;
     @media (max-width: 1220px) {
@@ -227,7 +225,7 @@
   }
 
   &__legal {
-    padding: 0 calc(var(--layout-indent) * 2) 0 calc(var(--layout-indent) * 2);
+    padding: 0 var(--layout-indent) 0 var(--layout-indent);
     margin-top: var(--underline-indent);
     display: grid;
     grid-template-columns: 1.5fr 3.4fr;
