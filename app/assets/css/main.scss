@@ -3,6 +3,13 @@
 @font-face {
   font-family: 'Manrope';
   src: url('/fonts/Manrope-VariableFont_wght.woff2') format('woff2');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Manrope';
+  src: url('/fonts/Manrope-VariableFont_wght.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -25,11 +32,15 @@
 :root {
   --color-accent: #69C7E1;
   --color-accent-hover: #51bedc;
+  --color-light-blue: #F5F5FA;
   --color-gray: #D9D9D9;
   --color-gray-hover: #E5E5E5;
   --color-light-gray: #F3F3F3;
-  --dark-gray: #3D3D3B;
+  --color-ligth-gray-accent: #C5C5C5;
+  --color-dark-gray: #3D3D3B;
+  --color-dark-gray-hover: #777775;
 
+  --text-muted-gray: #9A9A9A;
   --text-dark: black;
   --text-dark-hover: rgba(0, 0, 0, 0.7);
   --text-light: white;
@@ -138,6 +149,7 @@ section {
 }
 
 .main {
+  flex: 1;
   width: 100%;
   padding: 0 var(--layout-indent);
 }
@@ -231,7 +243,7 @@ section {
 
   &--transparent {
     background-color: var(--color-gray);
-    color: var(--dark-gray);
+    color: var(--color-dark-gray);
     &:hover {
       background-color: var(--color-gray-hover);
     }

@@ -125,7 +125,7 @@
 <style scoped lang="scss">
 .contacts {
   &__banner {
-    background-color: var(--dark-gray);
+    background-color: var(--color-dark-gray);
     border-radius: 10px;
     min-height: 250px;
   }
@@ -206,7 +206,7 @@
     text-decoration: none;
     color: var(--text-dark);
     &:hover {
-      color: var(--dark-gray);
+      color: var(--color-dark-gray);
     }
   }
 }

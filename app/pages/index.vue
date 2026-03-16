@@ -473,7 +473,7 @@ const heroDescription = 'Мы помогаем промышленным пред
     display: grid;
     grid-template-columns: 1.22fr 0.78fr;
     gap: var(--layout-gap);
-    @media (max-width: 1060px) {
+    @media (max-width: 1220px) {
       grid-template-columns: 1fr;
     }
   }
@@ -543,7 +543,7 @@ const heroDescription = 'Мы помогаем промышленным пред
   &__video-wrapper {
     width: 100%;
     height: 200px;
-    background-color: var(--dark-gray);
+    background-color: var(--color-dark-gray);
     border-radius: 10px;
     overflow: hidden;
     position: relative;
@@ -572,7 +572,7 @@ const heroDescription = 'Мы помогаем промышленным пред
 
   &__additional-text {
     font-size: var(--text-xs);
-    color: var(--dark-gray);
+    color: var(--color-dark-gray);
     @media (max-width: 1024px) {
       font-size: var(--text-xxs);
     }

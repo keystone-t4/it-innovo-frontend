@@ -6,7 +6,7 @@
   <div class="default">
     <AppHeader/>
     <slot/>
-<!--    <AppFooter/>-->
+    <AppFooter/>
   </div>
 </template>
 
