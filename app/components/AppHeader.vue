@@ -62,9 +62,9 @@ onUnmounted(() => {
           </ul>
         </nav>
 
-        <button class="header__menu-dialog-button button">
-          Обсудить проект
-        </button>
+  <!--        <button class="header__menu-dialog-button button">-->
+  <!--          Обсудить проект-->
+  <!--        </button>-->
 
         <!-- Burger -->
         <div class="header__burger-wrapper"

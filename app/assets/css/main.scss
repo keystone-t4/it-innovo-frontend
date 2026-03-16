@@ -102,6 +102,7 @@ h1 {
   }
   @media (max-width: 480px) {
     font-size: var(--text-lg);
+    word-break: break-word;
   }
 }
 
@@ -113,6 +114,7 @@ h2 {
   }
   @media (max-width: 576px) {
     font-size: var(--text-s);
+    word-break: break-word;
   }
 }
 

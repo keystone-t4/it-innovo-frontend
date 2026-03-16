@@ -26,9 +26,9 @@ const approachSteps = [
   <main class="main">
     <AppSectionHero :title="heroTitle" :description="heroDescription" src="/video/hero.mp4">
       <div class="hero__buttons">
-        <button class="hero__button button">
-          Обсудить проект
-        </button>
+<!--        <button class="hero__button button">-->
+<!--          Обсудить проект-->
+<!--        </button>-->
         <NuxtLink to="/visits/" class="hero__button button button--transparent">
           Система «Визиты»
         </NuxtLink>
