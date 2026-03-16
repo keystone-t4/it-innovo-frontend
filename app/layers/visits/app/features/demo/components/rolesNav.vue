@@ -5,7 +5,6 @@ import type { demoRoleType } from "~/layers/visits/app/features/demo/types/demoT
 type roleCard = {
   title: string;
   description: string;
-  iconPath: string;
   role: demoRoleType;
 };
 
@@ -15,19 +14,16 @@ const roleCards: Record<demoRoleType, roleCard> = {
   driver: {
     title: "Водитель грузового ТС",
     description: "Бронирование слотов и въезд на территорию",
-    iconPath: "/sprite-visits.svg#driver",
     role: "driver",
   },
   consignee: {
     title: "Грузополучатель",
     description: "Контроль очереди и операций",
-    iconPath: "/sprite-visits.svg#consignee",
     role: "consignee",
   },
   manager: {
     title: "Менеджер транспортной компании",
     description: "Планирование отгрузок и мониторинг",
-    iconPath: "/sprite-visits.svg#manager",
     role: "manager",
   },
 };
@@ -53,15 +49,13 @@ const currentRole = computed<demoRoleType>({
           :value="card.role"
           v-model="currentRole"
       />
-
-      <svg class="role-card__icon" aria-hidden="true"><use :href="card.iconPath" /></svg>
       <span class="role-card__title">{{ card.title }}</span>
       <span class="role-card__description">{{ card.description }}</span>
-      <svg class="role-card__chevron"
-           :class="{ 'role-card__chevron--show': currentRole === card.role }"
+      <svg class="role-card__arrow"
+           :class="{ 'role-card__arrow--show': currentRole === card.role }"
            aria-hidden="true"
       >
-        <use href="/sprite-visits.svg#down-chevron" />
+        <use href="/sprite-visits.svg#arrow" />
       </svg>
     </label>
   </div>
@@ -74,10 +68,10 @@ const currentRole = computed<demoRoleType>({
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 1rem;
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
       grid-template-columns: 1fr 1fr;
     }
-    @media (max-width: 480px) {
+    @media (max-width: 680px) {
       grid-template-columns: 1fr;
     }
   }
@@ -86,19 +80,26 @@ const currentRole = computed<demoRoleType>({
 .role-card {
   cursor: pointer;
   user-select: none;
+  background-color: #F5F5FA;
 
-  border: 1px solid var(--visits-border-color);
   border-radius: 10px;
-  background-color: white;
-  padding: 2rem;
-
+  min-height: 217px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
 
   box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
   transition: box-shadow 200ms ease, border-color 200ms ease, transform 200ms ease, background-color 200ms ease;
+
+  padding: 30px 40px;
+  @media (max-width: 1024px) {
+    padding: 20px 30px;
+  }
+  @media (max-width: 680px) {
+    min-height: 150px;
+  }
+  @media (max-width: 576px) {
+    padding: 15px 25px;
+  }
 
   &:hover {
     border-color: var(--visits-border-color-hover);
@@ -108,7 +109,7 @@ const currentRole = computed<demoRoleType>({
   }
 
   &--active {
-    border-color: var(--visits-border-color-active);
+    color: white;
     background-color: var(--visits-bg-color-active);
     box-shadow:
         0 4px 6px -1px rgba(0, 0, 0, 0.10),
@@ -122,8 +123,8 @@ const currentRole = computed<demoRoleType>({
     }
   }
 
-  &--active .role-card__icon {
-    background-color: var(--visits-icon-bg-color-active);
+  &--active {
+    background-color: #69C5E1;
   }
 
   &__radio {
@@ -140,40 +141,43 @@ const currentRole = computed<demoRoleType>({
     white-space: nowrap;
   }
 
-  &__icon {
-    width: 44px;
-    height: 44px;
-    color: var(--visits-accent-color);
-    background-color: var(--visits-bg-color-light);
-    padding: 10px;
-    border-radius: 10px;
-    transition: background-color 200ms ease;
-  }
-
   &__title {
     font-weight: 700;
-    margin-top: 0.5rem;
+    font-size: 1.563rem;
+    @media (max-width: 1220px) {
+      font-size: 1.25rem;
+    }
+    @media (max-width: 1024px) {
+      font-size: 1.375rem;
+    }
+    @media (max-width: 576px) {
+      font-size: 1.125rem;
+    }
   }
 
   &__description {
-    font-size: 0.875rem;
+    margin-top: 10px;
+    font-size: 1.25rem;
+    @media (max-width: 1100px) {
+      font-size: 1rem;
+    }
+    @media (max-width: 680px) {
+      font-size:  0.875rem;
+    }
   }
 
-  &__chevron {
+  &__arrow {
     visibility: hidden;
     margin-top: auto;
-    padding-left: 20px;
-    width: 44px;
+    margin-left: auto;
+    width: 24px;
     rotate: 90deg;
     height: 24px;
-    color: var(--visits-accent-color);
+    color: white;
     transition: background-color 200ms ease;
     &--show {
       visibility: visible;
     }
-  }
-  &__cevron symbol {
-    rotate: 90deg;
   }
 }
 </style>
