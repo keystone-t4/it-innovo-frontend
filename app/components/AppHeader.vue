@@ -115,6 +115,7 @@ onUnmounted(() => {
   background: rgba(255, 255, 255, 0.65);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+  padding: 0 var(--layout-indent);
 
   &__inner {
     position: relative;
@@ -288,7 +289,7 @@ onUnmounted(() => {
     padding: 14px 12px;
     border-radius: 10px;
 
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
       padding: 12.5px 10.5px;
     }
     @media (max-width: 576px) {
@@ -301,9 +302,11 @@ onUnmounted(() => {
 
     &--open span:nth-child(1) {
       transform: translateY(8px) rotate(45deg);
-
+      @media (max-width: 1024px) {
+        transform: translateY(6px) rotate(45deg);
+      }
       @media (max-width: 480px) {
-        transform: translateY(6.5px) rotate(45deg);
+        transform: translateY(4px) rotate(45deg);
       }
     }
 
@@ -313,9 +316,11 @@ onUnmounted(() => {
 
     &--open span:nth-child(3) {
       transform: translateY(-8px) rotate(-45deg);
-
+      @media (max-width: 1024px) {
+        transform: translateY(-6px) rotate(-45deg);
+      }
       @media (max-width: 480px) {
-        transform: translateY(-6.5px) rotate(-45deg);
+        transform: translateY(-4px) rotate(-45deg);
       }
     }
   }
@@ -326,10 +331,13 @@ onUnmounted(() => {
     border: none;
     background: none;
     position: relative;
-
+    @media (max-width: 1024px) {
+      min-width: 20px;
+      height: 14px;
+    }
     @media (max-width: 480px) {
-      min-width: 23px;
-      height: 15px;
+      min-width: 14px;
+      height: 10px;
     }
 
     span {
@@ -358,8 +366,11 @@ onUnmounted(() => {
 
 
   &__menu-dialog-button {
+    @media (max-width: 1024px) {
+      font-size: 15.5px;
+    }
     @media (max-width: 480px) {
-      font-size: 12px;
+      font-size: 10px;
       width: fit-content;
     }
   }
