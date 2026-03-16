@@ -28,7 +28,7 @@
           </a>
         </li>
         <li class="footer__contacts-item">
-          <a href="mailto:+78125095903" class="footer__contacts-link">
+          <a href="mailto:info@it-innovo.ru" class="footer__contacts-link">
             <svg class="footer__contacts-icon" aria-hidden="true">
               <use href="/sprite.svg#mail" />
             </svg>

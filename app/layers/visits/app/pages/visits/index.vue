@@ -3,6 +3,25 @@ import DemoViewport from '~/layers/visits/app/features/demo/components/demoViewp
 
 const heroTitle = 'Система «Визиты» — управляемая логистика вместо хаоса'
 const heroDescription = 'Базовый модуль — Электронная очередь — даёт прозрачную картину загрузки на сутки вперёд и создаёт основу для эффективного планирования смен и ресурсов.'
+
+const workSteps = [
+  {
+    firstStrongText: '',
+    text: 'Водители и перевозчики записываются в тайм-слоты через личный кабинет или сайт.'
+  },
+  {
+    firstStrongText: '',
+    text: 'Предприятие видит полную картину загрузки в реальном времени.'
+  },
+  {
+    firstStrongText: '',
+    text: 'Руководство планирует смены на основе фактических данных.'
+  },
+  {
+    firstStrongText: '',
+    text: 'Исключаются «живые» очереди и конфликтные ситуации.'
+  }
+]
 </script>
 
 <!--todo: конвертнуть видосы в webp-->
@@ -23,6 +42,17 @@ const heroDescription = 'Базовый модуль — Электронная 
         </a>
       </div>
     </AppSectionHero>
+
+    <section class="main__work block">
+      <h1 class="main__work-title">
+        Как работает
+        Электронная очередь
+      </h1>
+      <AppOrderedCardList :items="workSteps"/>
+      <p class="main__work-description paragraph">
+        Все участники процесса работают с единой системой данных.
+      </p>
+    </section>
 
     <section class="main__demo grey-section">
       <div class="inner block">
@@ -52,11 +82,11 @@ const heroDescription = 'Базовый модуль — Электронная 
   }
 }
 
-
 .main {
-  &__demo {
-    margin: 0 auto;
-    padding-top: 4rem;
+  &__work {
+    display: flex;
+    flex-direction: column;
+    gap: var(--layout-gap);
   }
 }
 </style>

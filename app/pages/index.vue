@@ -1,6 +1,25 @@
 <script setup>
 const heroTitle = 'Управляемость процессов вместо операционного хаоса'
 const heroDescription = 'Мы помогаем промышленным предприятиям навести порядок в логистике, учёте и производстве — чтобы рост бизнеса сопровождался ростом управляемости.'
+
+const approachSteps = [
+  {
+    firstStrongText: 'Анализируем',
+    text: 'процессы предприятия'
+  },
+  {
+    firstStrongText: 'Выявляем',
+    text: 'точки операционных потерь'
+  },
+  {
+    firstStrongText: 'Предлагаем',
+    text: 'решение, которое оправдано экономикой'
+  },
+  {
+    firstStrongText: 'Развиваем',
+    text: 'систему по мере роста задач'
+  }
+]
 </script>
 
 <template>
@@ -263,40 +282,7 @@ const heroDescription = 'Мы помогаем промышленным пред
         Мы не предлагаем «универсальную платформу»<br>
         и абстрактную «цифровизацию». Мы:
       </p>
-      <div class="approach__cards grid-2fr">
-        <div class="approach__card card">
-          <p class="approach__card-description paragraph">
-            <strong>Анализируем</strong> процессы предприятия
-          </p>
-          <div class="approach__card-label">
-            01
-          </div>
-        </div>
-        <div class="approach__card card">
-          <p class="approach__card-description paragraph">
-            <strong>Выявляем</strong> точки операционных потерь
-          </p>
-          <div class="approach__card-label">
-            02
-          </div>
-        </div>
-        <div class="approach__card card">
-          <p class="approach__card-description paragraph">
-            <strong>Предлагаем</strong> решение, которое оправдано экономикой
-          </p>
-          <div class="approach__card-label">
-            03
-          </div>
-        </div>
-        <div class="approach__card card">
-          <p class="approach__card-description paragraph">
-            <strong>Развиваем</strong> систему по&nbsp;мере роста задач
-          </p>
-          <div class="approach__card-label">
-            04
-          </div>
-        </div>
-      </div>
+      <AppOrderedCardList :items="approachSteps"/>
     </section>
 
     <section class="benefits grey-section">
@@ -592,46 +578,6 @@ const heroDescription = 'Мы помогаем промышленным пред
 .approach {
   &__title, &__description {
     margin-bottom: var(--layout-gap);
-  }
-
-  &__card {
-    background-color: var(--color-light-blue);
-    position: relative;
-    height: 217px;
-    @media (max-width: 1024px) {
-      height: 160px;
-    }
-    @media (max-width: 576px) {
-      height: 110px;
-    }
-  }
-
-  &__card-description {
-    max-width: 340px;
-  }
-
-  &__card-label {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    background: white;
-    padding-top: 30px;
-    padding-left: 30px;
-    border-top-left-radius: 10px;
-    font-size: 4.375rem;
-    font-weight: 600;
-    color: var(--color-accent);
-    line-height: 1;
-    @media (max-width: 1024px) {
-      padding-top: 20px;
-      padding-left: 20px;
-      font-size: 3.375rem;
-    }
-    @media (max-width: 576px) {
-      padding-top: 10px;
-      padding-left: 10px;
-      font-size: 2.375rem;
-    }
   }
 }
 
