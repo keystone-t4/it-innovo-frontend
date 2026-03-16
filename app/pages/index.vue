@@ -279,8 +279,7 @@ const approachSteps = [
     <section class="approach block">
       <h1 class="approach__title">Наш подход</h1>
       <p class="approach__description">
-        Мы не предлагаем «универсальную платформу»<br>
-        и абстрактную «цифровизацию». Мы:
+        Мы не предлагаем «универсальную платформу» и&nbsp;абстрактную «цифровизацию». Мы:
       </p>
       <AppOrderedCardList :items="approachSteps"/>
     </section>
@@ -294,7 +293,7 @@ const approachSteps = [
         <div class="benefits__cards grid-3fr">
           <div class="benefits__card card">
             <p class="benefits__card-description paragraph">
-              Выявляем точки операционных потерь
+              Производственные предприятия
             </p>
             <svg class="benefits__card-icon" aria-hidden="true">
               <use href="/sprite.svg#logo-beige-cut"/>
@@ -302,7 +301,7 @@ const approachSteps = [
           </div>
           <div class="benefits__card card">
             <p class="benefits__card-description paragraph">
-              Выявляем точки операционных потерь
+              Логистические площадки
             </p>
             <svg class="benefits__card-icon" aria-hidden="true">
               <use href="/sprite.svg#logo-beige-cut"/>
@@ -310,7 +309,7 @@ const approachSteps = [
           </div>
           <div class="benefits__card card">
             <p class="benefits__card-description paragraph">
-              Выявляем точки операционных потерь
+              Нефтегазовые компании
             </p>
             <svg class="benefits__card-icon" aria-hidden="true">
               <use href="/sprite.svg#logo-beige-cut"/>
@@ -318,7 +317,7 @@ const approachSteps = [
           </div>
           <div class="benefits__card card">
             <p class="benefits__card-description paragraph">
-              Выявляем точки операционных потерь
+              Карьеры и добывающие предприятия
             </p>
             <svg class="benefits__card-icon" aria-hidden="true">
               <use href="/sprite.svg#logo-beige-cut"/>
@@ -326,7 +325,7 @@ const approachSteps = [
           </div>
           <div class="benefits__card card">
             <p class="benefits__card-description paragraph">
-              Выявляем точки операционных потерь
+              Агропромышленные комплексы
             </p>
             <svg class="benefits__card-icon" aria-hidden="true">
               <use href="/sprite.svg#logo-beige-cut"/>
@@ -334,7 +333,7 @@ const approachSteps = [
           </div>
           <div class="benefits__card card">
             <p class="benefits__card-description paragraph">
-              Выявляем точки операционных потерь
+              Химическая промышленность
             </p>
             <svg class="benefits__card-icon" aria-hidden="true">
               <use href="/sprite.svg#logo-beige-cut"/>
@@ -390,6 +389,10 @@ const approachSteps = [
       margin-top: 0;
       width: 25px;
       height: 11px;
+    }
+    @media (max-width: 768px) {
+      transform: rotate(90deg);
+      height: 8px;
     }
   }
 
@@ -486,6 +489,7 @@ const approachSteps = [
   }
 
   &__result-list {
+    list-style: none;
     padding: 30px 30px 30px 43px; ;
     @media (max-width: 1024px) {
       padding: 20px 33px;
@@ -496,14 +500,23 @@ const approachSteps = [
   }
 
   &__result-item {
-
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
     &:nth-child(n+2) {
       margin-top: 10px;
     }
-    &::marker {
+    &::before {
+      content: "◆";
       color: var(--color-accent);
       font-size: 1rem;
-      content: "◆";
+      flex-shrink: 0;
+      line-height: 1;
+
+      margin-top: 13px;
+    }
+    @media (max-width: 480px) {
+      word-break: break-word;
     }
   }
 
@@ -578,6 +591,7 @@ const approachSteps = [
 .approach {
   &__title, &__description {
     margin-bottom: var(--layout-gap);
+    max-width: 587px;
   }
 }
 

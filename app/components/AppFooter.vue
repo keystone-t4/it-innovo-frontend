@@ -174,10 +174,17 @@
   }
 
   &__uri-item, &__contacts-link {
+    //Убираем "ФИШКУ" сафари, который выделяет набор цифр напоминающий номер телефона как ссылку
+    color: var(--color-ligth-gray-accent) !important;
+    text-decoration: none !important;
     font-family: 'Manrope', 'sans-serif';
     font-weight: 400;
     font-size: var(--text-s);
-    color: var(--color-ligth-gray-accent);
+    a {
+      color: inherit !important;
+      text-decoration: none !important;
+      pointer-events: none;
+    }
     @media (max-width: 1220px) {
       font-size: var(--text-xs);
     }

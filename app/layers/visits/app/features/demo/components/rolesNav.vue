@@ -153,6 +153,9 @@ const currentRole = computed<demoRoleType>({
     @media (max-width: 576px) {
       font-size: 1.125rem;
     }
+    @media (max-width: 360px) {
+      word-break: break-word;
+    }
   }
 
   &__description {
@@ -163,6 +166,9 @@ const currentRole = computed<demoRoleType>({
     }
     @media (max-width: 680px) {
       font-size:  0.875rem;
+    }
+    @media (max-width: 360px) {
+      word-break: break-word;
     }
   }
 
