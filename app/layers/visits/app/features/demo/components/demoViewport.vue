@@ -63,6 +63,19 @@ onMounted(async () => {
         </ClientOnly>
       </div>
     </div>
+    <p class="demo__comment">
+      *Это демонстрационная версия системы с ограниченным функционалом
+      и примерными данными. Полноценная конфигурация «Визитов»
+      настраивается под конкретные процессы предприятия и может
+      включать дополнительные модули и интеграции.
+    </p>
+    <a class="demo__button"
+       href="https://t.me/innovo_visiting_bot"
+       target="_blank"
+       rel="noopener noreferrer"
+    >
+      Узнать больше
+    </a>
   </div>
 </template>
 
@@ -70,8 +83,15 @@ onMounted(async () => {
 .demo {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 2rem;
+  align-items: start;
+  gap: 1.5rem;
+  background-color: white;
+  padding: 2rem 1.5rem;
+  border-radius: 10px;
+  @media (max-width: 576px) {
+    padding: 1.5rem 1rem;
+    gap: 1rem;
+  }
 
   &__content {
     width: 100%;
@@ -94,6 +114,47 @@ onMounted(async () => {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+  }
+
+
+
+
+  &__button {
+    min-width: fit-content;
+    text-decoration: none;
+    border-radius: 0.625rem;
+    border: none;
+    color: var(--text-light);
+    background-color: var(--color-accent);
+    padding: 0.625rem 2rem;
+    font-weight: 600;
+    font-size: var(--text-md);
+    @media (max-width: 1024px) {
+      width: 160px;
+      font-size: var(--text-s);
+      padding: 0.5rem 1.7rem;
+    }
+    @media (max-width: 768px) {
+      font-size: var(--text-xs);
+    }
+    @media (max-width: 576px) {
+      font-size: var(--text-xxs);
+    }
+    @media (max-width: 480px) {
+      font-size: var(--text-3xs);
+      padding: 0.5rem 1rem
+    }
+    &:hover {
+      background-color: var(--color-accent-hover);
+    }
+
+    &--transparent {
+      background-color: var(--color-gray);
+      color: var(--color-dark-gray);
+      &:hover {
+        background-color: var(--color-gray-hover);
+      }
+    }
   }
 }
 </style>

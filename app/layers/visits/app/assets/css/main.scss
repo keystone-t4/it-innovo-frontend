@@ -140,8 +140,3 @@
 @media (max-width: 1024px) {
   .mobile-table { display: block;}
 }
-
-.visits-block {
-  max-width: var(--layout-width, 1140px);
-  padding: 0 var(--layout-indent, 1rem);
-}

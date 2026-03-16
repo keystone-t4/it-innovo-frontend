@@ -24,9 +24,11 @@ const heroDescription = 'Базовый модуль — Электронная 
       </div>
     </AppSectionHero>
 
-    <div class="main__demo visits-block">
-      <DemoViewport/>
-    </div>
+    <section class="main__demo grey-section">
+      <div class="inner block">
+        <DemoViewport/>
+      </div>
+    </section>
 
     <AppSectionContacts/>
 

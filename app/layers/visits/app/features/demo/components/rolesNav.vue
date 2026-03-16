@@ -71,7 +71,6 @@ const currentRole = computed<demoRoleType>({
 .demo {
   &__roles-nav {
     width: 100%;
-    max-width: 1040px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 1rem;
