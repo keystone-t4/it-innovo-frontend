@@ -45,8 +45,8 @@ const workSteps = [
 
     <section class="main__work block">
       <h1 class="main__work-title">
-        Как работает
-        Электронная очередь
+        Как работает<br>
+        <span class="accent-text">Электронная очередь</span>
       </h1>
       <AppOrderedCardList :items="workSteps"/>
       <p class="main__work-description paragraph">
