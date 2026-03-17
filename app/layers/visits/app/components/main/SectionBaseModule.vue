@@ -72,6 +72,12 @@
     background-blend-mode: normal;
     background-repeat: no-repeat;
     background-size: cover;
+    @media (max-width: 768px) {
+      background-position: 85% bottom;
+    }
+    @media (max-width: 576px) {
+      background-position: 80% bottom;
+    }
     &:before {
       border-radius: 10px;
       content: '';
@@ -84,8 +90,13 @@
       width: 100%;
       height: 100%;
       @media (max-width: 768px) {
-        background: rgba(0, 0, 0, 0.4);
+        background: linear-gradient(
+                90deg,
+                rgba(61, 61, 59, 1) 0%,
+                rgba(61, 61, 59, 0) 86%,
+        );
       }
+
     }
   }
 

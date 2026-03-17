@@ -216,7 +216,7 @@
   &__line {
     margin: 0;
     border: none;
-    border-top: 1px solid white;
+    border-top: 1px solid var(--text-muted-gray);
   }
 
   &__copyright {

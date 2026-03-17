@@ -2,6 +2,7 @@
 import DemoViewport from '~/layers/visits/app/features/demo/components/demoViewport.vue'
 import SectionBaseModule from "~/layers/visits/app/components/main/SectionBaseModule.vue";
 import SectionEvolution from "~/layers/visits/app/components/main/SectionEvolution.vue";
+import SectionCases from "~/layers/visits/app/components/main/SectionCases.vue";
 const heroTitle = 'Система «Визиты» — управляемая логистика вместо хаоса'
 const heroDescription = 'Базовый модуль — Электронная очередь — даёт прозрачную картину загрузки на сутки вперёд и создаёт основу для эффективного планирования смен и ресурсов.'
 
@@ -61,11 +62,19 @@ const workSteps = [
 
     <section class="main__demo grey-section">
       <div class="inner block">
+        <h1 class="main__demo-title">
+          Интерфейс системы «Визиты»
+        </h1>
+        <p class="main__demo-description paragraph">
+          Выберите тип пользователя, чтобы увидеть интерфейс системы
+        </p>
         <DemoViewport/>
       </div>
     </section>
 
     <SectionEvolution/>
+
+    <SectionCases/>
 
     <AppSectionContacts/>
   </main>
@@ -89,10 +98,14 @@ const workSteps = [
 }
 
 .main {
-  &__base, &__work, &__evolution {
+  &__base, &__work, &__demo, &__evolution {
     display: flex;
     flex-direction: column;
     gap: var(--layout-gap);
+  }
+
+  &__demo-title, &__demo-description {
+    max-width: 543px;
   }
 }
 </style>
