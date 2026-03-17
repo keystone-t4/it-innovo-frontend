@@ -2,25 +2,40 @@ import { defineNuxtPlugin } from '#app'
 
 declare global {
     interface Window {
-        ym?: (...args: any[]) => void
+        ym?: (...args: any[]) => void;
+        [key: string]: any;
     }
 }
 
 export default defineNuxtPlugin(() => {
     if (process.client) {
-        // Вставка скрипта метрики
-        (function(m,e,t,r,i,k,a){
-            m[i]=m[i]||function(){ (m[i].a=m[i].a||[]).push(arguments) };
-            m[i].l=1*new Date();
-            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-        })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+        const m: any = window
+        const e: Document = document
+        const t: string = 'script'
+        const r: string = 'https://mc.yandex.ru/metrika/tag.js'
+        const i: string = 'ym'
 
-        // Инициализация метрики
-        window.ym?.(105120989, "init", {
+        if (!m[i]) {
+            m[i] = function (...args: any[]) {
+                (m[i].a = m[i].a || []).push(args)
+            }
+            m[i].l = +new Date()
+        }
+
+        const k = document.createElement('script') as HTMLScriptElement
+        k.async = true
+        k.src = r
+
+        const a = e.getElementsByTagName('script')[0] as HTMLScriptElement | undefined
+        if (a && a.parentNode) {
+            a.parentNode.insertBefore(k, a)
+        }
+
+        m[i](105120989, 'init', {
             clickmap: true,
             trackLinks: true,
             accurateTrackBounce: true,
-            webvisor: true
-        });
+            webvisor: true,
+        })
     }
-});
+})
