@@ -78,7 +78,7 @@
       <div class="footer__credentials-group">
         <div class="footer__okved">
           Коды деятельности организации по Общероссийскому классификатору видов
-          экономической деятельности (ОКВЭД): 62.01 Разработка компьютерного
+          экономической деятельности (ОКВЭД):<br class="footer__okved-break"> 62.01 Разработка компьютерного
           программного обеспечения
         </div>
         <NuxtLink class="footer__registry-link"
@@ -174,17 +174,11 @@
   }
 
   &__uri-item, &__contacts-link {
-    //Убираем "ФИШКУ" сафари, который выделяет набор цифр напоминающий номер телефона как ссылку
-    color: var(--color-ligth-gray-accent) !important;
-    text-decoration: none !important;
+    color: var(--color-ligth-gray-accent);
+    text-decoration: none;
     font-family: 'Manrope', 'sans-serif';
     font-weight: 400;
     font-size: var(--text-s);
-    a {
-      color: inherit !important;
-      text-decoration: none !important;
-      pointer-events: none;
-    }
     @media (max-width: 1220px) {
       font-size: var(--text-xs);
     }
@@ -254,6 +248,13 @@
     }
     @media (max-width: 576px) {
       font-size: var(--text-xxs);
+    }
+  }
+
+  &__okved-break {
+    display: none;
+    @media (max-width: 768px) {
+      display: block;
     }
   }
 

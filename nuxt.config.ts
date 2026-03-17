@@ -13,6 +13,11 @@ export default defineNuxtConfig({
             meta: [
                 { charset: 'utf-8' },
                 { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+
+                { name: 'format-detection', content: 'telephone=no' },
+                { name: 'format-detection', content: 'email=no' },
+                { name: 'format-detection', content: 'address=no' },
+
                 { name: 'description', content: 'Комплексные ИТ-решения для бизнеса. Цифровизация производственных процессов.' },
                 { property: 'og:title', content: 'ИННОВО' },
                 { property: 'og:description', content: 'Комплексные ИТ-решения для бизнеса. Цифровизация производственных процессов.' },

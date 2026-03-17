@@ -1,6 +1,6 @@
 <script setup>
 const heroTitle = 'Управляемость процессов вместо операционного хаоса'
-const heroDescription = 'Мы помогаем промышленным предприятиям навести порядок в логистике, учёте и производстве — чтобы рост бизнеса сопровождался ростом управляемости.'
+const heroDescription = 'Мы помогаем предприятиям навести порядок в логистике, учёте и производстве — чтобы рост бизнеса сопровождался ростом управляемости.'
 
 const approachSteps = [
   {
@@ -123,8 +123,8 @@ const approachSteps = [
                   <span class="accent-text">«Визиты»</span>
                 </h1>
                 <p class="article__description paragraph">
-                  Флагманское решение Инново.<br>Базовый модуль —
-                  Электронная очередь<br>— даёт прозрачную картину загрузки
+                  Флагманское решение Инново.<br class="article__description-break"> Базовый модуль —
+                  Электронная очередь — даёт прозрачную картину загрузки
                   на сутки вперёд и создаёт основу для эффективного
                   планирования смен.
                 </p>
@@ -141,7 +141,7 @@ const approachSteps = [
                   </li>
                   <li class="article__result-item">
                     <p class="article__result-item-text paragraph">
-                      снижение пустых смен
+                      снижение «пустых» смен
                     </p>
                   </li>
                   <li class="article__result-item">
@@ -220,8 +220,7 @@ const approachSteps = [
             </div>
             <div class="article__additional-info">
               <p class="article__additional-text">
-                Для многих предприятий это необходимый базовый уровень<br>
-                зрелости процессов.
+                Для многих предприятий это необходимый базовый уровень зрелости процессов.
               </p>
             </div>
           </article>
@@ -466,10 +465,20 @@ const approachSteps = [
   &__description {
     margin-top: var(--layout-gap);
     max-width: 590px;
+    @media (max-width: 1024px) {
+      max-width: 100%;
+
+    }
+  }
+
+  &__description-break {
+    @media (max-width: 1024px) {
+      display: none;
+    }
   }
 
   &__result {
-    border-radius: 10px;
+    border-radius: 12px;
     border: 1px solid var(--color-accent);
   }
 
@@ -566,10 +575,12 @@ const approachSteps = [
   }
 
   &__additional-text {
+    max-width: 576px;
     font-size: var(--text-xs);
     color: var(--color-dark-gray);
     @media (max-width: 1024px) {
       font-size: var(--text-xxs);
+      max-width: 100%;
     }
     @media (max-width: 576px) {
       font-size: var(--text-3xs);

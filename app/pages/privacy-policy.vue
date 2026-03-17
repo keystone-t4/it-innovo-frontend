@@ -13,8 +13,8 @@ definePageMeta({
 
       <p class="privacy-policy__paragraph privacy-policy__paragraph--hero paragraph">
         ООО «ИННОВО», являющееся администратором и владельцем сайта
-        <a class="privacy-policy__link" href="https://it-innovo.com" target="_blank" rel="noopener noreferrer">
-          https://it-innovo.com
+        <a class="privacy-policy__link" href="https://it-innovo.ru" target="_blank" rel="noopener noreferrer">
+          https://it-innovo.ru
         </a>, очень ценит доверие, оказываемое пользователями, и осознает ответственность за защиту их
         конфиденциальности. В частности, мы сообщаем о том, какую информацию мы собираем, когда вы используете
         Услуги, зачем это необходимо и как она будет использоваться для повышения удобства пользователей.
@@ -23,7 +23,7 @@ definePageMeta({
         "О персональных данных" (далее - Закон о персональных данных) в целях обеспечения защиты прав и свобод
         человека и гражданина при обработке его персональных данных. Данная политика разработана на основе
         действующего Законодательства РФ и принята к исполнению владельцем сайта, расположенном на доменном
-        имени: <strong>it-innovo.com</strong>.
+        имени: <strong>it-innovo.ru</strong>.
       </p>
 
       <hr class="privacy-policy__divider" />
@@ -452,16 +452,16 @@ definePageMeta({
 
         <p class="privacy-policy__paragraph paragraph">
           <strong>9.3.</strong> Действующая Политика конфиденциальности размещена на странице по адресу:
-          <a class="privacy-policy__link" href="https://it-innovo.com" target="_blank" rel="noopener noreferrer">
-            www.it-innovo.com
+          <a class="privacy-policy__link" href="https://it-innovo.ru" target="_blank" rel="noopener noreferrer">
+            www.it-innovo.ru
           </a>.
         </p>
 
         <p class="privacy-policy__paragraph paragraph">
           <strong>9.4.</strong> Настоящая Политика конфиденциальности является неотъемлемой частью Публичной оферты
           и Соглашения об использовании Сайта, размещенных на странице по адресу:
-          <a class="privacy-policy__link" href="https://it-innovo.com" target="_blank" rel="noopener noreferrer">
-            www.it-innovo.com
+          <a class="privacy-policy__link" href="https://it-innovo.ru" target="_blank" rel="noopener noreferrer">
+            www.it-innovo.ru
           </a>.
         </p>
       </section>

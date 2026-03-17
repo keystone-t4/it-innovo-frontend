@@ -130,7 +130,6 @@ onMounted(async () => {
     font-weight: 600;
     font-size: var(--text-md);
     @media (max-width: 1024px) {
-      width: 160px;
       font-size: var(--text-s);
       padding: 0.5rem 1.7rem;
     }

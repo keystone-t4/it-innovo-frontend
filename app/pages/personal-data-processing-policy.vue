@@ -23,7 +23,7 @@ definePageMeta({
           <strong>ОГРН:</strong> 1247800087930
         </p>
         <p class="privacy-policy__operator-row paragraph">
-          <strong>Адрес:</strong>
+          <strong>Адрес: </strong>
           <a href="https://yandex.ru/maps/2/saint-petersburg/house/predportovaya_ulitsa_2k3/Z0kYdA5hQEwGQFtjfXRyd3RnbA==/?ll=30.291991%2C59.836848&z=17.06"
              class="privacy-policy__operator-row-map-link paragraph" target="_blank" rel="noopener noreferrer"
           >
@@ -31,7 +31,7 @@ definePageMeta({
           </a>
         </p>
         <p class="privacy-policy__operator-row paragraph">
-          <strong>Адрес электронной почты:</strong>
+          <strong>Адрес электронной почты: </strong>
           <a class="privacy-policy__link" href="mailto:info@it-innovo.ru">info@it-innovo.ru</a>
         </p>
       </div>

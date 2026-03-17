@@ -85,7 +85,7 @@ onUnmounted(() => {
     <!-- Mobile Menu -->
     <nav class="header__menu header__menu--mobile"
          :class="{ 'header__menu--open': isMenuOpen }"
-         :aria-hidden="!isMenuOpen"
+         :inert="!isMenuOpen"
     >
       <ul class="header__menu-list">
         <li class="header__menu-item">
@@ -289,8 +289,10 @@ onUnmounted(() => {
     padding: 14px 12px;
     border-radius: 10px;
 
-    @media (max-width: 1024px) {
-      padding: 12.5px 10.5px;
+    flex-shrink: 0;
+
+    @media (max-width: 680px) {
+      padding: 12.5px 11px;
     }
     @media (max-width: 576px) {
       padding: 11px 9px;
@@ -302,11 +304,11 @@ onUnmounted(() => {
 
     &--open span:nth-child(1) {
       transform: translateY(8px) rotate(45deg);
-      @media (max-width: 1024px) {
-        transform: translateY(6px) rotate(45deg);
+      @media (max-width: 680px) {
+        transform: translateY(7px) rotate(45deg);
       }
       @media (max-width: 480px) {
-        transform: translateY(4px) rotate(45deg);
+        transform: translateY(6px) rotate(45deg);
       }
     }
 
@@ -316,28 +318,37 @@ onUnmounted(() => {
 
     &--open span:nth-child(3) {
       transform: translateY(-8px) rotate(-45deg);
-      @media (max-width: 1024px) {
-        transform: translateY(-6px) rotate(-45deg);
+      @media (max-width: 680px) {
+        transform: translateY(-7px) rotate(-45deg);
       }
       @media (max-width: 480px) {
-        transform: translateY(-4px) rotate(-45deg);
+        transform: translateY(-6px) rotate(-45deg);
       }
     }
   }
 
   &__burger {
-    min-width: 26px;
+    -webkit-appearance: none;
+    appearance: none;
+
+    width: 26px;
     height: 18px;
+
+    flex-shrink: 0;
+    flex-grow: 0;
+
     border: none;
     background: none;
     position: relative;
-    @media (max-width: 1024px) {
-      min-width: 20px;
-      height: 14px;
+    padding: 0;
+    margin: 0;
+    @media (max-width: 680px) {
+      width: 20px;
+      height: 16px;
     }
     @media (max-width: 480px) {
-      min-width: 14px;
-      height: 10px;
+      width: 18px;
+      height: 14px;
     }
 
     span {
@@ -347,6 +358,7 @@ onUnmounted(() => {
       height: 2px;
       background: var(--text-dark);
       transition: transform 0.3s ease, opacity 0.3s ease;
+      flex-shrink: 0;
 
       &:nth-child(1) {
         top: 0;
