@@ -54,13 +54,13 @@
         <svg class="footer__contacts-icon" aria-hidden="true">
           <use href="/sprite.svg#map" />
         </svg>
-        г. Санкт-Петербург, ул. Предпортовая, д. 2 к. 3 литера А, офис 317
+        г.&nbsp;Санкт-Петербург, ул.&nbsp;Предпортовая, д.&nbsp;2 к.&nbsp;3 литера&nbsp;А, офис&nbsp;317
       </a>
     </div>
     <hr class="footer__line"/>
     <div class="footer__legal block">
       <div class="footer__policy-group">
-        <p class="footer__copyright">© 2025 Инново. Все права защищены.</p>
+        <p class="footer__copyright">©&nbsp;2025&nbsp;Инново. Все права защищены.</p>
         <nav class="footer__policy-links">
           <NuxtLink class="footer__policy-link"
                     to="/privacy-policy"
