@@ -1,10 +1,16 @@
 <script setup lang="ts">
-const activeIndex = ref<number>(0);
+const activeIndex = ref<number | null>(0);
 const setActive = (i: number) => {
-  if (activeIndex.value === i) return;
-  activeIndex.value = i;
-};
+  const isClosing = activeIndex.value === i
+  activeIndex.value = isClosing ? null : i
 
+  if (!isClosing) {
+    setTimeout(() => {
+      const el = document.getElementById(`case-${i}`)
+      el?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }, 350) // должно совпадать с duration transition
+  }
+}
 
 const beforeEnter = (el: Element) => {
   const element = el as HTMLElement
@@ -40,12 +46,14 @@ const leave = (el: Element) => {
                  @click="setActive(0)"
         >
           <div class="case__header">
-            <h1 class="case__header-title">
+            <h1 id="case-0" class="case__header-title">
               Комплексная управляемость логистики и контроля качества (СЗБТ)
             </h1>
             <div class="case__header-button" aria-hidden="true">
-              <svg class="case__header-button-icon">
-                <use href="/sprite-visits.svg#plus" />
+              <svg class="case__header-button-icon"
+                   :class="{ 'case__header-button-icon--active': activeIndex === 0 }"
+              >
+                <use href="/sprite-visits.svg#plus" xlink:href="/sprite-visits.svg#plus"></use>
               </svg>
             </div>
           </div>
@@ -118,13 +126,15 @@ const leave = (el: Element) => {
                  @click="setActive(1)"
         >
           <div class="case__header">
-            <h1 class="case__header-title">
+            <h1 id="case-1" class="case__header-title">
               Производственная компания
               (деревообработка) - NDA
             </h1>
             <div class="case__header-button" aria-hidden="true">
-              <svg class="case__header-button-icon">
-                <use href="/sprite-visits.svg#plus" />
+              <svg class="case__header-button-icon"
+                   :class="{ 'case__header-button-icon--active': activeIndex === 1 }"
+              >
+                <use href="/sprite-visits.svg#plus" xlink:href="/sprite-visits.svg#plus"></use>
               </svg>
             </div>
           </div>
@@ -181,12 +191,14 @@ const leave = (el: Element) => {
                  @click="setActive(2)"
         >
           <div class="case__header">
-            <h1 class="case__header-title">
+            <h1 id="case-2" class="case__header-title">
               Нефтегазовая<br>компания
             </h1>
-            <div class="case__header-button">
-              <svg class="case__header-button-icon" aria-hidden="true">
-                <use href="/sprite-visits.svg#plus" />
+            <div class="case__header-button" aria-hidden="true">
+              <svg class="case__header-button-icon"
+                   :class="{ 'case__header-button-icon--active': activeIndex === 2 }"
+              >
+                <use href="/sprite-visits.svg#plus" xlink:href="/sprite-visits.svg#plus"></use>
               </svg>
             </div>
           </div>
@@ -264,17 +276,9 @@ const leave = (el: Element) => {
 .case {
   &:hover {
     box-shadow:
-        0 4px 6px -1px rgba(0, 0, 0, 0.10),
-        0 2px 4px -2px rgba(0, 0, 0, 0.10);
+        0 7px 9px -1px rgba(0, 0, 0, 0.10),
+        0 5px 7px -2px rgba(0, 0, 0, 0.10);
     cursor: pointer;
-  }
-
-  &--active {
-    &:hover {
-      box-shadow: none;
-      cursor: default;
-      background-color: white;
-    }
   }
 
   &__header {
@@ -285,6 +289,7 @@ const leave = (el: Element) => {
 
   &__header-title {
     max-width: 1000px;
+    scroll-margin-top: 120px;
   }
 
   &__header-button {
@@ -301,6 +306,14 @@ const leave = (el: Element) => {
     color: var(--color-accent);
     width: 32px;
     height: 32px;
+
+    transition: transform 0.35s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transform-origin: center center;
+    display: block;
+    &--active {
+      transform: rotate(45deg);
+    }
+
     @media (max-width: 1024px) {
       margin: 25px;
     }

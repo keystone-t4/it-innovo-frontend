@@ -36,6 +36,9 @@ export default defineNuxtConfig({
       '@pinia/nuxt',
       'nuxt-headlessui'
     ],
+    plugins: [
+        '~/plugins/yandex-metrika.ts'
+    ],
     typescript: { typeCheck: 'build' },
     extends: [ './app/layers/visits' ],
 })

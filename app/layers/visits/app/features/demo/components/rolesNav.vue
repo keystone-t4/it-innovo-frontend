@@ -104,8 +104,8 @@ const currentRole = computed<demoRoleType>({
   &:hover {
     border-color: var(--visits-border-color-hover);
     box-shadow:
-        0 4px 6px -1px rgba(0, 0, 0, 0.10),
-        0 2px 4px -2px rgba(0, 0, 0, 0.10);
+        0 7px 9px -1px rgba(0, 0, 0, 0.10),
+        0 5px 7px -2px rgba(0, 0, 0, 0.10);
   }
 
   &--active {
