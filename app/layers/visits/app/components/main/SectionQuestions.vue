@@ -243,7 +243,7 @@ const leave = (el: Element) => {
   &__list {
     columns: 2;
     column-gap: 24px;
-    @media (max-width: 576px) {
+    @media (max-width: 683px) {
       columns: 1;
     }
   }
