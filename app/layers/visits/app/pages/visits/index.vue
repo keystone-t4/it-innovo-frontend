@@ -3,6 +3,7 @@ import DemoViewport from '~/layers/visits/app/features/demo/components/demoViewp
 import SectionBaseModule from "~/layers/visits/app/components/main/SectionBaseModule.vue";
 import SectionEvolution from "~/layers/visits/app/components/main/SectionEvolution.vue";
 import SectionCases from "~/layers/visits/app/components/main/SectionCases.vue";
+import SectionQuestions from "~/layers/visits/app/components/main/SectionQuestions.vue";
 const heroTitle = 'Система «Визиты» — управляемая логистика вместо хаоса'
 const heroDescription = 'Базовый модуль — Электронная очередь — даёт прозрачную картину загрузки на сутки вперёд и создаёт основу для эффективного планирования смен и ресурсов.'
 
@@ -75,6 +76,8 @@ const workSteps = [
     <SectionEvolution/>
 
     <SectionCases/>
+
+    <SectionQuestions/>
 
     <AppSectionContacts/>
   </main>

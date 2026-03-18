@@ -98,15 +98,18 @@
 .footer {
   --underline-indent: 50px;
 
+  margin-top: 100px;
   background-color: var(--color-dark-gray);
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   padding: 50px var(--layout-indent) var(--underline-indent) var(--layout-indent);
   @media (max-width: 1024px) {
+    margin-top: 70px;
     border-top-left-radius: 16px;
     border-top-right-radius: 16px;
   }
   @media (max-width: 480px) {
+    margin-top: 50px;
     padding-top: 40px;
   }
 
