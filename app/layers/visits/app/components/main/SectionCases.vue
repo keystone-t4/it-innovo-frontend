@@ -12,6 +12,98 @@ const setActive = (i: number) => {
   }
 }
 
+const popoverActive = ref(false)
+const popoverPos = ref({ x: 0, y: 0 })
+const popoverTransform = ref('translate(-50%, -110%)')
+
+const interactPopover = (e: MouseEvent) => {
+  e.stopPropagation()
+  popoverActive.value = !popoverActive.value
+  if (!popoverActive.value) return
+
+  // Получаем ширину popover из computed styles или задаём фиксированную
+  // для текущего viewport (более надёжно чем временный элемент)
+  const viewportWidth = window.innerWidth
+
+  // Определяем ширину popover в зависимости от breakpoint (как в CSS)
+  let popoverWidth = 620
+  if (viewportWidth <= 480) {
+    popoverWidth = 250
+  } else if (viewportWidth <= 576) {
+    popoverWidth = 300
+  } else if (viewportWidth <= 756) {
+    popoverWidth = 500
+  } else if (viewportWidth <= 1024) {
+    popoverWidth = 550
+  }
+
+  const popoverHeight = 300 // примерная высота, можно вычислить динамически
+
+  const padding = 16 // отступ от края экрана
+
+  // Центр popover должен быть на позиции клика
+  let left = e.clientX
+  let top = e.clientY
+
+  // Проверяем и корректируем горизонтальную позицию
+  // popover центрируется через transform: translate(-50%, ...)
+  // значит левый край = left - popoverWidth / 2
+  const leftEdge = left - popoverWidth / 2
+  const rightEdge = left + popoverWidth / 2
+
+  if (leftEdge < padding) {
+    // Сдвигаем вправо, чтобы левый край не выходил за границу
+    left = popoverWidth / 2 + padding
+  } else if (rightEdge > viewportWidth - padding) {
+    // Сдвигаем влево, чтобы правый край не выходил за границу
+    left = viewportWidth - popoverWidth / 2 - padding
+  }
+
+  // Вертикальная позиция — открываем сверху или снизу
+  if (e.clientY < window.innerHeight / 2) {
+    // Открываем снизу от точки клика
+    top = e.clientY + padding
+    popoverTransform.value = 'translate(-50%, 0)'
+
+    // Проверка выхода за низ экрана
+    if (top + popoverHeight > window.innerHeight - padding) {
+      top = window.innerHeight - popoverHeight - padding
+    }
+  } else {
+    // Открываем сверху от точки клика
+    top = e.clientY - padding
+    popoverTransform.value = 'translate(-50%, -100%)'
+
+    // Проверка выхода за верх экрана
+    if (top - popoverHeight < padding) {
+      top = popoverHeight + padding
+    }
+  }
+
+  popoverPos.value = { x: left, y: top }
+}
+const closePopover = () => { popoverActive.value = false }
+
+const onKeydown = (e: KeyboardEvent) => {
+  if (e.key === 'Escape') {
+    popoverActive.value = false
+  }
+}
+onMounted(() => {
+  document.addEventListener('click', closePopover)
+  document.addEventListener('scroll', closePopover)
+  document.addEventListener('keydown', onKeydown)
+})
+
+onUnmounted(() => {
+  document.removeEventListener('click', closePopover)
+  document.removeEventListener('scroll', closePopover)
+  document.removeEventListener('keydown', onKeydown)
+})
+
+
+
+// События анимации
 const beforeEnter = (el: Element) => {
   const element = el as HTMLElement
   element.style.height = '0'
@@ -103,11 +195,41 @@ const leave = (el: Element) => {
                     <li class="paragraph">планирование смен под фактический объём</li>
                     <li class="paragraph">автоматизирован контроль качества</li>
                     <li class="paragraph">исключены споры по весу</li>
-                    <li class="paragraph">экономия ~1,5 млн ₽ в год только на приёмке</li>
+                    <li class="paragraph">
+                      <button
+                          class="case__popover-button paragraph"
+                          @click.stop="interactPopover"
+                          :aria-expanded="popoverActive"
+                          aria-haspopup="dialog"
+                          aria-controls="case-popover"
+                      >
+                        экономия ~1,5 млн ₽ в год только на приёмке
+                      </button>
+                      <template v-if="popoverActive">
+                        <div class="case__popover"
+                             :style="{ left: popoverPos.x + 'px', top: popoverPos.y + 'px', transform: popoverTransform }"
+                        >
+                          <strong>Откуда взялась эта цифра?</strong><br>
+                          Из простого расчёта на основе наших кейсов:<br>
+                          Средний фонд оплаты труда сотрудника:<br>
+                          80 000 ₽ × 1,44 = 115 200 ₽ в месяц.<br>
+                          При среднем рабочем времени 144 часа в месяц получаем:<br>
+                          800 ₽ за час работы сотрудника<br>
+                          Допустим, что в смене работает 5 человек.<br>
+                          Для ночной работы применяется коэффициент 1,5, т.е.<br>
+                          800 ₽ × 1,5 = 1200 ₽ за час<br>
+                          Стоимость часа всей смены:<br>
+                          1200 ₽ × 5 = 6000 ₽, а стоимость одной ночной смены<br>
+                          8 часов × 6000 ₽ = 48 000 ₽<br>
+                          Получается, что сокращение даже 3 ночных смен в месяц,
+                          экономит предприятию около 144 000 в месяц, и 1 728 000
+                          рублей в год.
+                        </div>
+                      </template>
+                    </li>
                   </ul>
                 </div>
               </div>
-
             </div>
 
             <a class="case__body-button button"
@@ -410,10 +532,61 @@ const leave = (el: Element) => {
   }
 }
 
-
 .case-enter-active,
 .case-leave-active {
   transition: height 0.35s ease;
   overflow: hidden;
+}
+
+
+
+.case__popover {
+  position: fixed;
+  z-index: 9999;
+  background: white;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  padding: 20px;
+  border-radius: 8px;
+  width: 620px;
+
+  font-size: var(--text-s);
+  @media (max-width: 1024px) {
+    font-size: var(--text-xs);
+    width: 550px;
+  }
+  @media (max-width: 756px) {
+    width: 500px;
+  }
+  @media (max-width: 576px) {
+    font-size: var(--text-xxs);
+    width: 300px;
+  }
+  @media (max-width: 480px) {
+    font-size: var(--text-3xs);
+  }
+  @media (max-width: 340px) {
+    width: 250px;
+  }
+}
+
+.case__popover-button {
+  position: relative;
+  text-align: left;
+  background-color: white;
+  max-width: fit-content;
+  border: none;
+  padding-inline: 0;
+  &:hover {
+    background-color: var(--color-light-gray);
+  }
+  &::before {
+    border: 1px solid var(--color-accent);
+    border-radius: 10px;
+    margin-left: -5px;
+    position: absolute;
+    width: 102%;
+    height: 100%;
+    content: "";
+  }
 }
 </style>

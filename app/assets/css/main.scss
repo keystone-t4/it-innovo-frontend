@@ -81,6 +81,7 @@
 
 body {
   background-color: white;
+  position: relative;
 }
 
 html {
@@ -94,6 +95,7 @@ h1 {
   font-weight: 600;
   font-size: var(--text-3xl);
   line-height: 120%;
+  word-break: break-word;
   @media (max-width: 1024px) {
     font-size: var(--text-xxl);
   }
@@ -102,7 +104,6 @@ h1 {
   }
   @media (max-width: 480px) {
     font-size: var(--text-lg);
-    word-break: break-word;
   }
 }
 
