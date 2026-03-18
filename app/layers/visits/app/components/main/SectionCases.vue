@@ -572,13 +572,18 @@ const leave = (el: Element) => {
 .case__popover-button {
   position: relative;
   text-align: left;
-  background-color: white;
   max-width: fit-content;
   border: none;
   padding-inline: 0;
+  z-index: 10;
+  border-radius: 10px;
+
   &:hover {
-    background-color: var(--color-light-gray);
+    &::before {
+      background-color: var(--color-light-gray);
+    }
   }
+
   &::before {
     border: 1px solid var(--color-accent);
     border-radius: 10px;
@@ -587,6 +592,8 @@ const leave = (el: Element) => {
     width: 102%;
     height: 100%;
     content: "";
+    background-color: white;
+    z-index: -1;
   }
 }
 </style>
