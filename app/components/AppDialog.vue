@@ -63,7 +63,7 @@ function handleCancel(e: Event) {
         @click="handleBackdropClick"
         @cancel="handleCancel"
     >
-      <div class="modal__content block">
+      <div class="modal__content">
         <button
             class="modal__close"
             type="button"
@@ -116,14 +116,13 @@ function handleCancel(e: Event) {
     padding: var(--layout-indent);
     box-sizing: border-box;
     border-radius: 24px;
-
-    @media (max-width: 1220px) {
-    }
+    margin: 0 var(--layout-indent);
 
     @media (max-width: 767px) {
       width: 100%;
       min-height: 100dvh;
       border-radius: 0;
+      margin: 0;
     }
 
     @media (max-width: 480px) {

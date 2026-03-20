@@ -2,7 +2,7 @@
   <NuxtLayout>
     <NuxtPage />
     <AppDialog>
-      Пока что тут будет: ЙО РЕП!
+      <AppFeedbackForm/>
     </AppDialog>
   </NuxtLayout>
 </template>
