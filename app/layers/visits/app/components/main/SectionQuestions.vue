@@ -127,9 +127,6 @@ const leave = (el: Element) => {
           </div>
           <transition name="question" @before-enter="beforeEnter" @enter="enter" @leave="leave">
             <div class="question__body" v-show="activeIndex === 2">
-              <p class="paragraph">
-                Да. Мы сопровождаем проект на всех этапах:
-              </p>
               <ul class="question__list">
                 <li class="question__list-item paragraph">
                   разграничение доступа и ролей

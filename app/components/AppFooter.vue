@@ -48,14 +48,12 @@
           </a>
         </li>
       </ul>
-      <a href="https://yandex.ru/maps/2/saint-petersburg/house/predportovaya_ulitsa_2k3/Z0kYdA5hQEwGQFtjfXRyd3RnbA==/?ll=30.291991%2C59.836848&z=17.06"
-         class="footer__contacts-address footer__contacts-link" target="_blank" rel="noopener noreferrer"
-      >
+      <p class="footer__contacts-address footer__contacts-link">
         <svg class="footer__contacts-icon" aria-hidden="true">
           <use href="/sprite.svg#map" />
         </svg>
         г.&nbsp;Санкт-Петербург, ул.&nbsp;Предпортовая, д.&nbsp;2 к.&nbsp;3 литера&nbsp;А, офис&nbsp;317
-      </a>
+      </p>
     </div>
     <hr class="footer__line"/>
     <div class="footer__legal block">
@@ -213,6 +211,10 @@
     align-items: start;
     .footer__contacts-icon {
       margin-top: 8px;
+    }
+    &:hover {
+      cursor: default;
+      color: var(--color-ligth-gray-accent);
     }
   }
 
