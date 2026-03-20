@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from "vue"
+import {useUiStore} from "~/stores/AppUiStore";
 
+const uiStore = useUiStore()
 const isMenuOpen = ref(false)
 const headerRef = ref<HTMLElement | null>(null)
 
@@ -8,29 +9,10 @@ function toggleMenu() {
   isMenuOpen.value = !isMenuOpen.value
 }
 
-function onKeyDown(event: KeyboardEvent) {
-  if (event.key === "Escape" && isMenuOpen.value) {
-    isMenuOpen.value = false
-  }
-}
+const closeMenu = () => { isMenuOpen.value = false; };
 
-function onClickOutside(event: MouseEvent) {
-  if (!headerRef.value) return
-  const target = event.target as Node
-  if (isMenuOpen.value && !headerRef.value.contains(target)) {
-    isMenuOpen.value = false
-  }
-}
-
-onMounted(() => {
-  document.addEventListener("keydown", onKeyDown)
-  document.addEventListener("click", onClickOutside)
-})
-
-onUnmounted(() => {
-  document.removeEventListener("keydown", onKeyDown)
-  document.removeEventListener("click", onClickOutside)
-})
+useClickOutside(headerRef, closeMenu);
+useEscapeKey(closeMenu);
 </script>
 
 <template>
@@ -62,9 +44,9 @@ onUnmounted(() => {
           </ul>
         </nav>
 
-  <!--        <button class="header__menu-dialog-button button">-->
-  <!--          Обсудить проект-->
-  <!--        </button>-->
+          <button class="header__menu-dialog-button button" @click="uiStore.openDialog()">
+            Обсудить проект
+          </button>
 
         <!-- Burger -->
         <div class="header__burger-wrapper"
