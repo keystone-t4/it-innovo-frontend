@@ -14,9 +14,25 @@ watch(
 
       if (isOpen && !dialog.open) {
         dialog.showModal();
+
+        const scrollY = window.scrollY;
+        document.body.style.position = 'fixed';
+        document.body.style.top = `-${scrollY}px`;
+        document.body.style.left = '0';
+        document.body.style.right = '0';
+        document.body.style.overflow = 'hidden';
+        dialog.focus();
       }
 
       if (!isOpen && dialog.open) {
+        const scrollY = -parseInt(document.body.style.top || '0');
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.left = '';
+        document.body.style.right = '';
+        document.body.style.overflow = '';
+        window.scrollTo(0, scrollY);
+
         dialog.close();
       }
     },
@@ -135,8 +151,8 @@ function handleCancel(e: Event) {
     }
 
     @media (max-width: 768px) {
-      width: 40px;
-      height: 40px;
+      width: 32px;
+      height: 32px;
     }
   }
 
@@ -149,7 +165,10 @@ function handleCancel(e: Event) {
   &__body {
     display: flex;
     flex-direction: column;
-    margin-top: 48px; //~~~~~~~~~~~~~
+    margin-top: 48px;
+    @media (max-width: 768px) {
+      margin-top: 32px;
+    }
   }
 }
 </style>
