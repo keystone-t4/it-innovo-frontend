@@ -1,8 +1,6 @@
 export default defineNuxtConfig({
-    // ssr: false,
     app: {
         baseURL: '/',
-        // baseURL: '/it-innovo-frontend/',
         head: {
             title: 'ИННОВО',
             htmlAttrs: { lang: 'ru', dir: 'ltr' },
@@ -22,6 +20,7 @@ export default defineNuxtConfig({
                 { property: 'og:type', content: 'website' },
                 { property: 'og:locale', content: 'ru_RU' },
                 { property: 'og:site_name', content: 'ИННОВО' },
+                // todo: добавить нехватающих иконок
                 // { property: 'og:url', content: 'https://example.com' },
                 // Превью в мессенджерах
                 // { property: 'og:image', content: 'https://example.com/og.png' },
@@ -41,4 +40,8 @@ export default defineNuxtConfig({
     ],
     typescript: { typeCheck: 'build' },
     extends: [ './app/layers/visits' ],
+    runtimeConfig: {
+        emailUser: '',
+        emailPass: '',
+    }
 })

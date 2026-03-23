@@ -1,6 +1,7 @@
 import nodemailer from "nodemailer"
 import { defineEventHandler, readBody, sendError } from "h3"
 
+const runtimeConfig = useRuntimeConfig()
 export default defineEventHandler(async (event) => {
     try {
         const body = await readBody(event)
@@ -11,20 +12,20 @@ export default defineEventHandler(async (event) => {
         }
 
         const transporter = nodemailer.createTransport({
-            host: process.env.EMAIL_HOST || "smtp.yandex.ru",
-            port: Number(process.env.EMAIL_PORT) || 465,
+            host: "smtp.yandex.ru",
+            port: 465,
             secure: true,
             auth: {
-                user: process.env.EMAIL_USER,
-                pass: process.env.EMAIL_PASS,
+                user: runtimeConfig.emailUser,
+                pass: runtimeConfig.emailPass,
             },
         })
 
         await transporter.sendMail({
-            from: process.env.EMAIL_USER,
-            to: process.env.EMAIL_TO || "info@it-innovo.ru",
+            from: runtimeConfig.emailUser,
+            to: runtimeConfig.emailUser,
             replyTo: email,
-            subject: "Сообщение с it-innovo.com",
+            subject: "Сообщение с it-innovo.ru",
             text: `Имя: ${name}\nТелефон: ${phone}\nEmail: ${email}\nКомментарий: ${comment}`,
         })
 

@@ -4,10 +4,11 @@ import { useUiStore} from "~/stores/AppUiStore";
 import {
   feedbackValidator, type FeedbackFields
 } from "~/validators/feedbackFormValidation";
+
 const uiStore = useUiStore()
 
 const isSubmit = ref(false)
-
+const submitting = ref(false)
 const name = ref('')
 const phone = ref('')
 const email = ref('')
@@ -29,6 +30,8 @@ const clearError = (field: FeedbackFields) => {
 }
 
 const handleSubmitForm = async () => {
+  submitting.value = true;
+
   const validation = feedbackValidator(
       name.value,
       email.value,
@@ -48,15 +51,13 @@ const handleSubmitForm = async () => {
     }
 
     try {
-      const res = await $fetch("/api/feedback", {
+      await $fetch("/api/feedback", {
         method: "POST",
         body: payload
       })
 
-      console.log("Форма успешно отправлена", res)
       isSubmit.value = true
 
-      // Очистка полей
       name.value = ''
       phone.value = ''
       email.value = ''
@@ -70,6 +71,8 @@ const handleSubmitForm = async () => {
   } else {
     Object.assign(errors, validation.newErrors)
   }
+
+  submitting.value = false
 }
 
 
@@ -193,10 +196,13 @@ watch(
         </div>
 
         <div class="form__buttons">
-          <button class="form__submit-button button" type="submit">
+          <button class="form__submit-button button" type="submit"
+                  :disabled="submitting"
+                  :style="submitting ? 'opacity: 0.5; cursor: not-allowed;' : ''"
+          >
             Обсудить проект
           </button>
-          <button class="form__cancel-button button button--transparent" type="button" @click="uiStore.closeDialog">
+          <button class="form__cancel-button button button--skeleton" type="button" @click="uiStore.closeDialog">
             Отмена
           </button>
         </div>
@@ -440,6 +446,12 @@ watch(
 
       button {
         width: 100%;
+      }
+    }
+    button {
+      padding: 0.375rem 2rem;
+      @media (max-width: 480px) {
+        padding: 0.5rem 1rem;
       }
     }
   }

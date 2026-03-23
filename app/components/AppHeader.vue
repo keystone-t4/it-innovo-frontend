@@ -169,6 +169,10 @@ useEscapeKey(closeMenu);
       width: fit-content;
       justify-content: end;
     }
+    @media (max-width: 340px) {
+      flex-direction: column;
+      align-items: end;
+    }
   }
 
   // --- MENU COMMON ---

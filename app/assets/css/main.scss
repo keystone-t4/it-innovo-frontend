@@ -251,6 +251,15 @@ section {
       background-color: var(--color-gray-hover);
     }
   }
+
+  &--skeleton {
+    background-color: var(--color-light-blue);
+    border: 1px solid var(--color-dark-gray);
+    color: var(--color-dark-gray);
+    &:hover {
+      background-color: var(--color-gray-hover);
+    }
+  }
 }
 
 .paragraph {
