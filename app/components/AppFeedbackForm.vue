@@ -28,7 +28,7 @@ const clearError = (field: FeedbackFields) => {
   errors[field] = ''
 }
 
-const handleSubmitForm = () => {
+const handleSubmitForm = async () => {
   const validation = feedbackValidator(
       name.value,
       email.value,
@@ -44,21 +44,29 @@ const handleSubmitForm = () => {
       name: name.value,
       phone: phone.value,
       email: email.value,
-      comment: comment.value,
-      privacyPolicy: isAgreePrivacy.value,
-      personalDataPolicy: isAgreePersonalData.value
+      comment: comment.value
     }
 
+    try {
+      const res = await $fetch("/api/feedback", {
+        method: "POST",
+        body: payload
+      })
 
+      console.log("Форма успешно отправлена", res)
+      isSubmit.value = true
 
-    name.value = ''
-    phone.value = ''
-    email.value = ''
-    comment.value = ''
-    isAgreePrivacy.value = false
-    isAgreePersonalData.value = false
-
-    isSubmit.value = true
+      // Очистка полей
+      name.value = ''
+      phone.value = ''
+      email.value = ''
+      comment.value = ''
+      isAgreePrivacy.value = false
+      isAgreePersonalData.value = false
+    } catch (err: any) {
+      console.error("Ошибка при отправке формы:", err)
+      alert(err?.statusMessage || "Ошибка при отправке формы")
+    }
   } else {
     Object.assign(errors, validation.newErrors)
   }
