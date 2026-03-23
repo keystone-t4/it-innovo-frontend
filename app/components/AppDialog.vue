@@ -59,7 +59,7 @@ function handleCancel(e: Event) {
   <Teleport to="body">
     <dialog
         ref="dialogRef"
-        class="modal"
+        class="modal "
         @click="handleBackdropClick"
         @cancel="handleCancel"
     >
@@ -97,9 +97,14 @@ function handleCancel(e: Event) {
 
   &[open] {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
-  }
+    padding: 40px 0;
+    @media (max-width: 767px) {
+      padding: 0;
+
+    }
+    }
 
   &::backdrop {
     background: rgba(0, 0, 0, 0.5);
@@ -108,8 +113,7 @@ function handleCancel(e: Event) {
 
   &__content {
     position: relative;
-    background: #fff;
-    width: auto;
+    background: var(--color-light-blue);
     min-height: min-content;
     display: flex;
     flex-direction: column;
@@ -117,6 +121,8 @@ function handleCancel(e: Event) {
     box-sizing: border-box;
     border-radius: 24px;
     margin: 0 var(--layout-indent);
+    max-width: var(--layout-width);
+    width: fit-content;
 
     @media (max-width: 767px) {
       width: 100%;

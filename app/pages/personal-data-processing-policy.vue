@@ -24,11 +24,7 @@ definePageMeta({
         </p>
         <p class="privacy-policy__operator-row paragraph">
           <strong>Адрес: </strong>
-          <a href="https://yandex.ru/maps/2/saint-petersburg/house/predportovaya_ulitsa_2k3/Z0kYdA5hQEwGQFtjfXRyd3RnbA==/?ll=30.291991%2C59.836848&z=17.06"
-             class="privacy-policy__operator-row-map-link paragraph" target="_blank" rel="noopener noreferrer"
-          >
-            г. Санкт-Петербург, ул. Предпортовая, д. 2 к. 3 литера А, офис 317
-          </a>
+          г. Санкт-Петербург, ул. Предпортовая, д. 2 к. 3 литера А, офис 317
         </p>
         <p class="privacy-policy__operator-row paragraph">
           <strong>Адрес электронной почты: </strong>
