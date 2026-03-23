@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import {useUiStore} from "~/stores/AppUiStore";
+import {useEscapeKey} from "~/composables/useEscapeKey";
+import {useClickOutside} from "~/composables/useClickOutside";
 
 const uiStore = useUiStore()
 const isMenuOpen = ref(false)
